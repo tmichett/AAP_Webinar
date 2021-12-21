@@ -1,13 +1,18 @@
 
 ## Get to Correct Directory
 
-cd ~/Github/AAP_Webinar/Present/Playbooks
+cd ~/Github/AAP_Webinar/Future/Playbooks
 
-## Simple Command to Install Collections
+## Prep SSH Key because SSHed into System
 
-ansible-navigator run Website_Present.yml -b
+eval $(ssh-agent)
+ssh-add ~/.ssh/lab_rsa
+
+## Run Ansible Playbook with Ansible Navigator 
+
+ansible-navigator run Website_Future.yml 
 
 #### Testing ####
 
-curl servera
+curl serverb
 
