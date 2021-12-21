@@ -10,5 +10,5 @@ ansible-playbook Website_Present.yml -b
 
 #### Testing ####
 
-s
+curl servera
 
