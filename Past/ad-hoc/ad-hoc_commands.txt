@@ -1,0 +1,16 @@
+
+## Simple Command to Ensure Ansible.CFG and Inventory is Working
+
+ansible -m ping all
+
+
+## Simple Command to Setup a User on a System and add to Sudoers 
+
+ansible -m user -a 'name=travis uid=1040 comment="Travis Michette" group=wheel' servera -b 
+ansible -m copy -a 'content="travis ALL=(ALL) NOPASSWD:ALL" dest=/etc/sudoers.d/travis' servera -b
+
+#### Testing ####
+
+ssh travis@servera
+sudo -i      ### Verify it went to root without password
+
