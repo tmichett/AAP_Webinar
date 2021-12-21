@@ -1,11 +1,16 @@
 ---
-- name: Playbook to test Ansible Navigator
-  hosts: all
-#  serial: 1
+- name: Playbook to Create User and Sudoers without Password
+  hosts: serverb
   tasks:
-    - name: Testing Connectivity with Ping Module
-      ping:
+    - name: Create User Named Travis
+      user:
+        name: travis 
+        uid: 1040 
+        comment: "Travis Michette" 
+        group: wheel
 
-    - name: Displaying Host Output
-      debug:
-        msg: Hello, I'm {{ ansible_facts['hostname']  }} and my kernel version is {{ ansible_facts['kernel'] }}.
+    - name: Create User in Sudoers File
+      copy:
+        content: "travis ALL=(ALL) NOPASSWD:ALL\n"
+        dest: /etc/sudoers.d/travis
+        validate: /usr/sbin/visudo -csf %s
