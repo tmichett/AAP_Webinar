@@ -1,0 +1,14 @@
+
+## Get to Correct Directory
+
+cd ~Github/AAP_Webinar/Past/Playbooks
+
+## Simple Command to Setup a User on a System and add to Sudoers 
+
+ansible-playbook playbook.yml -b
+
+#### Testing ####
+
+ssh travis@serverb
+sudo -i      ### Verify it went to root without password
+

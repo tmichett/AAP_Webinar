@@ -1,3 +1,6 @@
+## Get to Correct Directory
+
+cd ~Github/AAP_Webinar/Past/ad-hoc
 
 ## Simple Command to Ensure Ansible.CFG and Inventory is Working
 

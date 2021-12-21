@@ -1,1 +1,3 @@
 = Ansible Automation Platform (AAP) Webinar
+
+AAP 1.2 (RH294 & DO447) - Present
