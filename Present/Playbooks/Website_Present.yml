@@ -14,12 +14,8 @@
         content: "I'm an awesome webserver"
         dest: /var/www/html/index.html
 
-    - name: Create Content for Webserver
-      copy:
-        content: "I'm an awesome webserver"
-
     - name: Firewall is Enabled
-      service:
+      systemd:
         name: firewalld
         state: started
         enabled: true
