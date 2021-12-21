@@ -25,7 +25,7 @@
         enabled: true
 
     - name: HTTP Service is Open on Firewall
-      firewalld:
+      ansible.posix.firewalld:
         service: http
         state: enabled
         permanent: true

@@ -1,0 +1,14 @@
+
+## Get to Correct Directory
+
+cd ~Github/AAP_Webinar/Present/Playbooks
+
+## Simple Command to Install Collections
+
+
+
+
+#### Testing ####
+
+s
+
