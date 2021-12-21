@@ -1,2 +1,2 @@
 collections:
-- name: ansible.posix.firewalld
+- name: ansible.posix

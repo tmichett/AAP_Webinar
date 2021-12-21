@@ -1,12 +1,12 @@
 
 ## Get to Correct Directory
 
-cd ~Github/AAP_Webinar/Present/Playbooks
+cd ~/Github/AAP_Webinar/Present/Playbooks
 
 ## Simple Command to Install Collections
 
-
-
+ansible-galaxy collection install -r Collections/requirements.yml -p Collections/
+ansible-playbook Website_Present.yml -b
 
 #### Testing ####
 
