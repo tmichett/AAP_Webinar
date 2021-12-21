@@ -1,0 +1,13 @@
+
+## Get to Correct Directory
+
+cd ~/Github/AAP_Webinar/Present/Playbooks
+
+## Simple Command to Install Collections
+
+ansible-navigator run Website_Present.yml -b
+
+#### Testing ####
+
+curl servera
+
