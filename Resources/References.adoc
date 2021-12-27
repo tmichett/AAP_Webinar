@@ -1,0 +1,8 @@
+= Ansible References
+
+
+* Ansible Collections - Hands-on Lab Ansible Fest
+** https://goetzrieger.github.io/ansible-collections/
+
+* Ansible Collections - Overview
+** https://github.com/ansible-collections/overview
