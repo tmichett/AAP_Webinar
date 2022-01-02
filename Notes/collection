@@ -1,0 +1,4 @@
+git@github.com:tmichett/rhce.git
+
+[travis@cs9 rhce]$ ansible-galaxy collection init tmichett.rhce
+
