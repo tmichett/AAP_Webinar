@@ -1,8 +1,38 @@
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+:pygments-style: tango
+:source-highlighter: pygments
+:imagesdir: images/
+
 = Ansible References
 
 
-* Ansible Collections - Hands-on Lab Ansible Fest
+* *Ansible Collections - Hands-on Lab Ansible Fest*
 ** https://goetzrieger.github.io/ansible-collections/
 
-* Ansible Collections - Overview
+* *Ansible Collections - Overview*
 ** https://github.com/ansible-collections/overview
+
+* *Ansible Modules and Mapping*
+** https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml
+
+* *Ansible Collection Index*
+** https://docs.ansible.com/ansible/latest/collections/index.html#list-of-collections
+
+* *Using Collections*
+** https://docs.ansible.com/ansible/latest/user_guide/collections_using.html
+
+
+.Updated
+[NOTE]
+======
+Last updated January 4, 2022
+======
