@@ -17,15 +17,66 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :warning-caption: :warning:
 endif::[]
-:imagesdir: ../images/
+
 
 
 === Ansible Infrastructure
 
-Section Info Here
+The Ansible infrastructure and Ansible Automation consists of multiple components. The initial main foundation of Ansible is the Ansible Automation Engine.
 
-==== <Section_Sub_Intro_Here>
+For the most part, Ansible is a declarative automation platform that is considered idempotent meaning that Ansible will only execute tasks and plays if the item needs to be changed/modified. Otherwise, Ansible will skip to the next task or play in a playbook.
+
+.Ansible Components
+* *Control Node*: System with Ansible installed, contains Ansible inventory files, *ansible.cfg*, and playbooks. This system manages and controls other managed hosts/nodes.
+* *Managed Host*/*Managed Node*: System or node being managed in the Ansible environment. The *Control Node* executes various Ansible modules against these devices.
+
+image::images/Section1-9196c.png[title="Ansible Automation", align="center"]
+
+.Ansible Automation Engine
+* Inventory
+* Command-Line Interface (CLI)
+* Modules (Generally Python/Powershell)
+* Plugins
+
+Ansible Automation Engine utilizes the *ansible* command for Ad-Hoc Ansible Automation or the *ansible-playbook* command for running multiple tasks by leveraging and Ansible playbook containing one or more plays consisting of one or more tasks.
+
+
+==== Inventory
+
+List of systems in the infrastructure to be managed. Inventories can be static, dynamic, or a combination of both static and dynamic. Ansible also allows inventories to contain variables for the devices being managed. Devices must exist in inventory in order for Ansible to be capable of managing the devices.
+
+==== Modules
+
+Code utilized by the Ansible core engine which is used to perform a given tasks. Most modules are written in Python for Linux and Powershell for Windows. Modules can extend Ansible automation to multiple platforms simplifying and extending the automation to the entire stack.
+
+.Non-Idempotent Modules
+[IMPORTANT]
+======
+There are some Ansible modules that aren't idempotent. Modules such as *commmand*, *shell*, and *raw* to name a few will execute regardless of the state. It is possible to use these modules with logic to make a playbook idempotent, but it is recommended to find an actual Ansible module to perform the task. These modules should be used as a last resort when no other module exists to perform a task.
+======
+
+==== Plugins
+
+Code utilized by the Ansible core engine which is used to manipulate, transform, or otherwise modify either data in the playbook or items captured by the playbook and modules so that it is adaptable and usable on different platforms.
+
+==== Playbooks
+
+List of sequential tasks to allowing individual Ansible modules to be executed to perform a sequence of steps in an automation task. Playbooks are written in YAML and are simple easy-to-read steps on the end state of the system.
+
+
 
 === Ansible Tower
 
-Section Info Here
+Ansible Tower delivers enterprise management and features to the Ansible family. Through Tower, Ansible can provide the following:
+
+* Role-Based Access Control (RBAC)
+* Restful API
+* Push button deployment
+* Workflows
+* Credential and Secret Management
+* Integration into SCM systems
+* Integration into other management systems for dynamic inventory
+* WebUI
+* ... and more
+
+Ansible Tower allows enterprises to manage their IT environment by providing a centralized web solution to end-users and administrators to perform automation and self-service tasks.
