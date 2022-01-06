@@ -20,7 +20,9 @@ endif::[]
 :imagesdir: ../images/
 
 
-=== Ansible Inventory
+=== Ansible Inventory, Ansible Config File, and Ansible Ad-Hoc Commands
+
+==== Ansible Inventory
 
 Ansible inventories can be either static, dynamic, or a combination of both static and dynamic. The traditional form of the Ansible inventory file is either YAML or INI. Inventory items consist of either individual managed nodes or groups of managed nodes.
 
@@ -76,7 +78,7 @@ all:
 
 
 
-==== Inventory Variables
+===== Inventory Variables
 
 It is possible for Ansible playbooks and Ansible ad-hoc commands to utilize inventory variables. These variables can be defined directly within the static inventory files themselves or those variables can be defined within the directory structure of the project utilizing either project directories or inventory directories.
 
@@ -110,7 +112,7 @@ ansible_ssh_private_key_file=/home/kev/.ssh/id_rsa
 <2> Defined variables at a *group* level
 <3> Defined variables for all inventory items
 
-=== Ansible Config
+==== Ansible Config
 
 The *ansible.cfg* file controls how the *ansible* and *ansible-playbook* commands are run and interpreted. The configuration file has two (2) main sections that are commonly used, but include other sections as well. For the purpose of understanding how Ansible works, we will examine both the *[defaults]* section and the *[privilege_escalation]* section.
 
@@ -149,7 +151,7 @@ become_ask_pass = False <4>
 * *~/.ansible.cfg* - Ansible config file in the home directory
 * */etc/ansible/ansible.cfg* - Ansible's installed default location (lowest)
 
-=== Ansible Ad-Hoc Commands
+==== Ansible Ad-Hoc Commands
 
 Ansible Ad-Hoc commands are most often used to quickly perform an automation task using a single Ansible module. These commands can be executed against one or more hosts in the Ansible inventory file.
 
@@ -176,7 +178,7 @@ Ansible Ad-Hoc commands are most often used to quickly perform an automation tas
 
 |===
 
-=== DEMO
+==== DEMO - Ansible Ad-Hoc Commands
 
 Demonstration and hands-on workshop for Ad-Hoc commands. The demo will utilize the *ping* module to ensure that the *ansible.cfg* and the *inventory* file are correctly setup and working within the Ansible environment.
 
