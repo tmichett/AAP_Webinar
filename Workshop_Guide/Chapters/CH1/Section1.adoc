@@ -63,9 +63,7 @@ Code utilized by the Ansible core engine which is used to manipulate, transform,
 
 List of sequential tasks to allowing individual Ansible modules to be executed to perform a sequence of steps in an automation task. Playbooks are written in YAML and are simple easy-to-read steps on the end state of the system.
 
-
-
-=== Ansible Tower
+==== Ansible Tower
 
 Ansible Tower delivers enterprise management and features to the Ansible family. Through Tower, Ansible can provide the following:
 
