@@ -22,14 +22,297 @@ endif::[]
 
 === Ansible Inventory
 
-Section Info Here
+Ansible inventories can be either static, dynamic, or a combination of both static and dynamic. The traditional form of the Ansible inventory file is either YAML or INI. Inventory items consist of either individual managed nodes or groups of managed nodes.
 
-==== <Section_Sub_Intro_Here>
+.Ansible Inventory File *INI* Format
+[source,bash]
+----
+servera <1>
+serverb
+serverc
+serverd
+
+[load_balancers] <2>
+servere
+serverf
+----
+<1> Individual managed host/node
+<2> Inventory Group
+
+
+
+.Converting INI to YAML Inventory
+[TIP]
+======
+Ansible provides the *ansible-inventory* command that will easily allow the inventory to be transformed from one form to another.
+
+[source,bash]
+----
+ansible-inventory --list -y
+----
+
+======
+
+
+.Ansible Inventory File *YAML* Format
+[source,bash]
+----
+all:
+  children:
+    load_balancers: <1>
+      hosts:
+        servere: {}
+        serverf: {}
+    ungrouped:
+      hosts: <2>
+        servera: {}
+        serverb: {}
+        serverc: {}
+        serverd: {}
+----
+<1> Inventory Hosts in a Group
+<2> Individual managed host/node (ungrouped)
+
+
+
+
+==== Inventory Variables
+
+It is possible for Ansible playbooks and Ansible ad-hoc commands to utilize inventory variables. These variables can be defined directly within the static inventory files themselves or those variables can be defined within the directory structure of the project utilizing either project directories or inventory directories.
+
+.Keep Inventory Simple and Organized
+[IMPORTANT]
+======
+It is extremely important not to define variables for inventory in multipe locations as variable precedence and variable merging comes into play. It is equally important to devise an inventory strategy on where/how variables will be defined so that the playbooks and automation goals are kept simple and easy to understand and follow.
+======
+
+
+.Sample Inventory File with Variables
+[source,bash]
+----
+[app1srv]
+appserver01 ansible_host=10.42.0.2 <1>
+appserver02 ansible_host=10.42.0.3
+
+[web]
+node-[1:30] ansible_host=10.42.0.[31:60]
+
+[web:vars] <2>
+apache_listen_port=8080
+apache_root_path=/var/www/mywebdocs/
+
+[all:vars] <3>
+ansible_user=kev
+ansible_ssh_private_key_file=/home/kev/.ssh/id_rsa
+
+----
+<1> Defined variable at a *host* level
+<2> Defined variables at a *group* level
+<3> Defined variables for all inventory items
 
 === Ansible Config
 
-Section Info Here
+The *ansible.cfg* file controls how the *ansible* and *ansible-playbook* commands are run and interpreted. The configuration file has two (2) main sections that are commonly used, but include other sections as well. For the purpose of understanding how Ansible works, we will examine both the *[defaults]* section and the *[privilege_escalation]* section.
+
+.*ansible.cfg* Defaults Section
+[source,bash]
+----
+[defaults]
+inventory = inventory <1>
+remote_user = devops <2>
+----
+<1> Specifies which inventory file Ansible will use
+<2> Specifies the remote user to be used by *ansible* or *ansible-playbook* commands.
+
+[NOTE]
+======
+A perfectly acceptable *ansible.cfg* might only have a [defaults] section specifying the inventory to be used.
+======
+
+.*ansible.cfg* Privilege Escalation Section
+[source,bash]
+----
+[privilege_escalation]
+become = False <1>
+become_method = sudo <2>
+become_user = root <3>
+become_ask_pass = False <4>
+----
+<1> Sets default behavior whether to elevate privileges
+<2> Sets method for privilege escalation
+<3> Sets username of privileged user
+<4> Sets option on whether or not user is prompted for password when perfoming privilege escalation.
+
+.Ansible Config File Precedence
+* *ANSIBLE_CONFIG* - Environment Variable (highest)
+* *ansible.cfg* - Config file in current working directory (most common and recommended)
+* *~/.ansible.cfg* - Ansible config file in the home directory
+* */etc/ansible/ansible.cfg* - Ansible's installed default location (lowest)
 
 === Ansible Ad-Hoc Commands
 
-Section Info Here
+Ansible Ad-Hoc commands are most often used to quickly perform an automation task using a single Ansible module. These commands can be executed against one or more hosts in the Ansible inventory file.
+
+.Ansible *Ad-Hoc* Command Arguments
+[cols="4a,4a",options=header]
+|===
+|Command Argument
+|Description
+
+|*-m MODULE_NAME*
+| Module name to execute for the ad-hoc command
+
+|*-a MODULE_ARGS*
+|Module arguments needed for the ad-hoc command
+
+|*-b*
+|Runs ad-hoc command as a privileged user
+
+|*-K*
+|Runs ad-hoc command as a privileged user and requests the *become* password
+
+|*-e EXTRA_VARS*
+|Provides extra variables as *KEY=VALUE* to be used for the execution of the ad-hoc command
+
+|===
+
+=== DEMO
+
+Demonstration and hands-on workshop for Ad-Hoc commands. The demo will utilize the *ping* module to ensure that the *ansible.cfg* and the *inventory* file are correctly setup and working within the Ansible environment.
+
+.*DEMONSTRATION - Ansible Ping*
+====
+
+. Change to correct directory
++
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Past/ad-hoc
+----
+
+. Run the *ansible* ad-hoc command
++
+[source,bash]
+----
+[student@workstation ad-hoc]$ ansible -m ping all
+servere | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+servera | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+serverc | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+serverb | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+serverd | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+serverf | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+----
+
+.Checking Sudoers Ability and Setup
+[TIP]
+======
+
+.Checking *ansible.cfg* for Ability to *BECOME* without *sudo* Password
+[source,bash]
+----
+[student@workstation ad-hoc]$ ansible -m ping all --become
+----
+
+.Checking *ansible.cfg* for Ability to *BECOME* with *sudo* and Prompting for Password
+[source,bash]
+----
+[student@workstation ad-hoc]$ ansible -m ping all --become -K
+BECOME password:
+----
+======
+
+====
+
+The next demonstration will use the *copy* module to create a user in the managed systems making an entry to the *sudoers* file.
+
+.*DEMONSTRATION - Ansible Ad-Hoc Command to Create User and Sudoers File*
+====
+
+. Change to correct directory
++
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Past/ad-hoc
+----
+
+. Run the *ansible* commands to create the user and update the *sudoers* file.
+.. Create the user on the remote system.
++
+[source,bash]
+----
+[student@workstation ad-hoc]$ ansible -m user -a 'name=travis uid=1040 comment="Travis Michette" group=wheel' servera -b
+servera | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "append": false,
+    "changed": false,
+    "comment": "Travis Michette",
+    "group": 10,
+    "home": "/home/travis",
+    "move_home": false,
+    "name": "travis",
+    "shell": "/bin/bash",
+    "state": "present",
+    "uid": 1040
+}
+----
+
+.. Create the user in a *sudoers* file.
++
+[source,bash]
+----
+[student@workstation ad-hoc]$ ansible -m copy -a 'content="travis ALL=(ALL) NOPASSWD:ALL" dest=/etc/sudoers.d/travis' servera -b
+----
+
+. Test new user and sudo rights
+.. SSH to *servera*
++
+[source,bash]
+----
+[student@workstation ad-hoc]$ ssh travis@servera
+----
+.. *sudo* without a password
++
+[source,bash]
+----
+[travis@servera ~]$ sudo -i
+[root@servera ~]#
+----
+====
