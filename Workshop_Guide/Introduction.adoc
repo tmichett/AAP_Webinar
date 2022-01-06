@@ -19,4 +19,4 @@ ifdef::env-github[]
 endif::[]
 :imagesdir: ../images/
 
-==  Introduction
+==  Introduction to Ansible Automation
