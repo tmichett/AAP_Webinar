@@ -20,12 +20,8 @@ endif::[]
 :imagesdir: ../images/
 
 
-=== Ansible Infrastructure
+=== <SECTION TITLE>
 
 Section Info Here
 
 ==== <Section_Sub_Intro_Here>
-
-=== Ansible Tower
-
-Section Info Here

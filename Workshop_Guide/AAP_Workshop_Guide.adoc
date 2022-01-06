@@ -32,8 +32,8 @@ endif::[]
 
 // Introduction Section goes below here
 
-//:sectnums!:
-//include::Chapters/Introduction.adoc[]
+:sectnums!:
+include::Introduction.adoc[]
 
 :sectnums:
 include::Chapter1.adoc[]

@@ -20,12 +20,10 @@ endif::[]
 :imagesdir: ../images/
 
 
-=== Ansible Infrastructure
+=== Ansible Playbooks
 
 Section Info Here
 
-==== <Section_Sub_Intro_Here>
+==== Playbook Basics
 
-=== Ansible Tower
-
-Section Info Here
+==== Running Playbooks

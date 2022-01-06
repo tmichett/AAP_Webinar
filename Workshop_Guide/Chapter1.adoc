@@ -19,7 +19,10 @@ ifdef::env-github[]
 endif::[]
 :imagesdir: ../images/
 
-==  <CHAPTER TITLE>
+==  Ansible & Ansible Automation Engine (Past)
 
 :sectnums:
 include::Chapters/CH1/Section1.adoc[]
+include::Chapters/CH1/Section2.adoc[]
+include::Chapters/CH1/Section3.adoc[]
+include::Chapters/CH1/Section4.adoc[]

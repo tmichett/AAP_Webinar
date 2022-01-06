@@ -20,12 +20,10 @@ endif::[]
 :imagesdir: ../images/
 
 
-=== Ansible Infrastructure
+=== Ansible Roles
 
 Section Info Here
 
-==== <Section_Sub_Intro_Here>
+==== Ansible Role Overview
 
-=== Ansible Tower
-
-Section Info Here
+==== Using Roles

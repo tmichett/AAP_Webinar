@@ -20,12 +20,16 @@ endif::[]
 :imagesdir: ../images/
 
 
-=== Ansible Infrastructure
+=== Ansible Inventory
 
 Section Info Here
 
 ==== <Section_Sub_Intro_Here>
 
-=== Ansible Tower
+=== Ansible Config
+
+Section Info Here
+
+=== Ansible Ad-Hoc Commands
 
 Section Info Here
