@@ -1,0 +1,7 @@
+Install Roles
+
+ansible-galaxy install -r roles/requirements.yml -p role
+
+ansible-galaxy collection install -r collections/requirements.yml -p collections/
+
+ansible-playbook Roles_Playbook_Demo.yml
