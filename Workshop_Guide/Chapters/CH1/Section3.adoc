@@ -22,8 +22,221 @@ endif::[]
 
 === Ansible Playbooks
 
-Section Info Here
+Ansible playbooks contain one or more tasks to execute against specified inventory nodes. Playbooks consist of one or more play and each play in a playbook consists of one or more tasks. Ansible playbooks and tasks are all about *key:value* pairs and *lists*. Understanding this basic format allows someone developing Ansible to form playbooks that are easier to create, troubleshoot/debug, and for someone else to understand.
+
 
 ==== Playbook Basics
 
+An Ansible playbook is written/formatted in YAML so horizontal whitespace is critical and often the most troublesome part of debugging new Ansible playbooks. Playbooks have a general structure for the plays with directives such as: *name*, *hosts*, *vars*, *tasks*, and more. These play-level directives help form a readable structure much like *task-level* directives.
+
+.Play Structure Components
+[source,yaml]
+----
+---
+- name: install and start apache <1>
+  hosts: web <2>
+  become: yes <3>
+
+  tasks: <4>
+----
+<1> Name of play in playbook
+<2> List of hosts from inventory to execute play against *(required)*
+<3> Directive to override *ansible.cfg* and elevate privileges
+<4> Beginning of *tasks* section.
+
+There can be other directives here, but at the most basic playbook, you will generally always see a *hosts* and a *tasks* section.
+
+.Naming Plays
+[TIP]
+======
+It is recommended and considered a best practice to name all plays within a playbook.
+======
+
+The first indentation level in a playbook denoted by *-* is the list of plays and this level will contain the *key:value* pairs that correspond to Ansible playbook directives. Understanding this and developing good habits and standards for indentations allows Ansible users to create playbook skeletons which help tremendously during the development/debugging cycle.
+
+===== Task Structure
+
+A task within a playbook is generally specified similar to a play having a *name* section so that it is easier to debug.
+
+.Task Structure and Components
+[source,bash]
+----
+
+  tasks:
+    - name: httpd package is present <1>
+	   yum: <2>
+  	     name: httpd <3>
+  	     state: latest <4>
+
+    - name: latest index.html file is present <5>
+      template:
+        src: files/index.html
+        dest: /var/www/html/
+
+    - name: httpd is started <6>
+      service:
+        name: httpd
+        state: started
+
+----
+<1> Name of first task in playbook
+<2> Name of module to be used in first task in playbook
+<3> Argument/Option provided to module, in this instance *name* and is *_required_* for the package name in the case of the *yum* module.
+<4> Argument/Option provided to module, in this instance the *state* describes whether the module will install, update, or remove the package for the *yum* module.
+<5> Name of second task in playbook
+<6> Name of third task in playbook
+
+.Naming Tasks
+[TIP]
+======
+It is recommended and considered a best practice to name all tasks within a playbook. Naming tasks especially helps with debugging issues in playbooks as the Ansible STDOUT will display and record task names.
+======
+
+The second indentation level in a playbook denoted by *-* is generally under the *tasks:* section and contains the list of tasks. This level will contain the *key:value* pairs that correspond to Ansible task directives always starting with the module being used at the same level before going to the third indentation level which are the *key:value* pair options that belong to the module being used in that task.
+
 ==== Running Playbooks
+
+Playbooks can be run just like Ansible *ad-hoc* commands. In order to execute or run a playbook, it is necessary to use the *ansible-playbook* command and specify the playbook. The additional options available for the *ad-hoc* commands such as: *-e*, *-K*, *-b*, and others all still apply and perform the same functions when leveraged with the *ansible-playbook* command.
+
+
+.DEMONSTRATION - Running Ansible Playbooks
+====
+
+In this demonstration, we will be creating a user on *serverb* using playbooks as opposed to leveraging *ad-hoc* commands.
+
+
+. Switch to correct directory
++
+[source,bash]
+----
+[student@workstation ~]$ cd ~/Github/AAP_Webinar/Past/Playbooks
+----
+
+. Examine playbook
++
+[source,yaml]
+----
+[student@workstation Playbooks]$ vim playbook.yml
+
+---
+- name: Playbook to Create User and Sudoers without Password
+  hosts: serverb
+  tasks:
+    - name: Create User Named Travis
+      user:
+        name: travis
+        uid: 1040
+        comment: "Travis Michette"
+        group: wheel
+
+    - name: Create User in Sudoers File
+      copy:
+        content: "travis ALL=(ALL) NOPASSWD:ALL\n"
+        dest: /etc/sudoers.d/travis
+        validate: /usr/sbin/visudo -csf %s
+----
+
+. Execute and run the playbook
++
+[source,bash]
+----
+[student@workstation Playbooks]$ ansible-playbook playbook.yml -b
+
+PLAY [Playbook to Create User and Sudoers without Password] **************************
+
+... OUTPUT OMITTED ...
+----
+
+. Test and Verify User
+.. SSH to remote system
++
+[source,bash]
+----
+[student@workstation Playbooks]$ ssh travis@serverb
+----
+.. Verify Sudo without Password
++
+[source,bash]
+----
+[travis@serverb ~]$ sudo -i
+[root@serverb ~]#
+----
+====
+
+.DEMONSTRATION - Failure of Old Playbook
+====
+
+It is important to constantly test playbooks with the most current and recent versions of Ansible to ensure all modules work as expected and items haven't been deprecated. The following playbook was developed for use with Ansible 2.8 and earlier. The playbook now fails as some of the modules being used have been migrated from Ansible *built-in* modules to Ansible collections. More on this migration and discussion of collections will come in future chapters and sections.
+
+
+
+. Examine Playbook for Website
++
+[source,yaml]
+----
+---
+- name: Playbook to Fully Setup and Configure a Webserver
+  hosts: servera
+  tasks:
+    - name: Install Packages for Webserver
+      yum:
+        name:
+          - httpd
+          - firewalld
+        state: latest
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm an awesome webserver"
+        dest: /var/www/html/index.html
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm an awesome webserver"
+
+    - name: Firewall is Enabled
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: HTTP Service is Open on Firewall
+      firewalld:
+        service: http
+        state: enabled
+        permanent: true
+        immediate: yes
+
+    - name: httpd is started
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+----
+
+. Execute the playbook
++
+[source,bash]
+----
+[student@workstation Playbooks]$ ansible-playbook Website_Past.yml
+ERROR! couldn't resolve module/action 'firewalld'. This often indicates a misspelling, missing collection, or incorrect module path. <1>
+
+The error appears to be in '/home/student/Github/AAP_Webinar/Past/Playbooks/Website_Past.yml': line 27, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: HTTP Service is Open on Firewall
+      ^ here
+----
+<1> The *firewalld* module is not available. This was moved in AAP 2.x to an Ansible collection and is no longer able to be referenced without the collection and module being installed.
+
+
+.Test Often
+[IMPORTANT]
+======
+As Ansible has changed going into Ansible Automation Platform 2+, many changes have been made. There was a duplication and mapping of several of the modules allowing for existing playbooks to still run correctly, however, at some point modules become completely deprecated, and mappings get removed. It is extremely important to execute old playbooks and test with new versions of Ansible and to look for *deprecation warnings* so that playbooks can be fixed proactively instead of reactively.
+======
+
+====
