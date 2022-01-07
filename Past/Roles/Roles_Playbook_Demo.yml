@@ -4,5 +4,7 @@
   vars:
     ansible_user_name: travis
     ansible_user_password: redhat
+  collections:
+    - ansible.posix  ### Need to cheat here 
   roles:
-    - tmichett.demo_role
+    - tmichett.ansiblize
