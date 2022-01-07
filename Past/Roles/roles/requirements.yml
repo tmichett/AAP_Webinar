@@ -1,0 +1,2 @@
+# from Ansible Galaxy, using the latest version
+- src: tmichett.ansiblize
