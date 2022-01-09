@@ -1,0 +1,10 @@
+---
+- name: Playbook to Fully Setup and Configure a Webserver
+  hosts: serverc
+  become: true
+  tasks:
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm an awesome webserver\n"
+        dest: /var/www/html/index.html
