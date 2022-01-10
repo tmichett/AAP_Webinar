@@ -1,0 +1,35 @@
+:pygments-style: tango
+:source-highlighter: pygments
+:toc:
+:toclevels: 7
+:sectnums:
+:sectnumlevels: 6
+:numbered:
+:chapter-label:
+:icons: font
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+
+
+=== Ansible Collections
+
+Ansible 2.9 introduced the concept of collections and provided mapping for Ansible modules that were moved into a collection namespace. Ansible 2.9 provided a mapping of the new module locations in collections and this mapping automatically works for existing Ansible playbooks in the initial versions of Ansible Automation Platform.
+
+.Ansible Module and Collection Mapping
+[TIP]
+======
+https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml
+======
+
+==== Using Ansible Automation Platform Collections
+
+Collections allowed development of Ansible core components to be separated from module and plug-in development. Upstream Ansible unbundled modules from Ansible core code beginning with Ansible Base (core) 2.10/2.11. Never versions of Ansible require collections to be installed in order for modules to be available for Ansible. Playbooks should be developed using the FQCNs when referring to modules in tasks. Existing playbooks can be fixed easily to work with collections, but it is better to re-write the playbooks to use the fully-qualified collection name (FCQN).

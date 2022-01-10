@@ -17,11 +17,13 @@ ifdef::env-github[]
 :tip-caption: :bulb:
 :warning-caption: :warning:
 endif::[]
-:imagesdir: ../images/
 
 
-=== <SECTION TITLE>
 
-Section Info Here
+=== Ansible Automation Hub
 
-==== <Section_Sub_Intro_Here>
+Ansible Automation hub was released so that enterprises could host their own Ansible collections, Ansible execution environments in a disconnected fashion. Ansible Automation Hub provides self-hosted services from Ansible Galaxy as well as services provided by Red Hat's Ansible Automation Hub found at https://console.redhat.com/ansible/ansible-dashboard.
+
+==== Ansible Automation Platform
+
+Provides curated collections, modules, roles that are supported by Red Hat or Red Hat Partners. The collections, modules, roles, and playbooks downloaded from Red Hat Automation Hub are supported and required an Ansible Automation Platform subscription entitlement. This is different from the unsupported community modules/collections/roles found at Ansible Galaxy (https://galaxy.ansible.com/).
