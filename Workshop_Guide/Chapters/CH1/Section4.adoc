@@ -22,12 +22,83 @@ endif::[]
 
 === Ansible Roles
 
-Section Info Here
+Ansible Roles allow Ansible developers to create re-usable code snippets and tasks that can be shared in the form of Ansible Roles. These roles are commonly shared via Ansible Galaxy (https://galaxy.ansible.com/) via Github projects by the role developers. With the new Ansible Automation Platform (AAP) 2.x and beyond roles are also included as part of Ansible Collections which will be covered as part of a later topic.
 
 ==== Ansible Role Overview
 
+Ansible roles are resusable Ansible components that allow common tasks to be repeated/repurposed without needing to re-write or create custom playbooks. Ansible roles work the same way as Ansible Playbooks and tasks except that roles are generally published/shared generically to be used by others to perform a task or set of tasks in automation playbooks.
+
+Roles provide Ansible with a way to load tasks, handlers, and variables from external files. Static files and templates can also be associated and referenced by a role.
+
+.*Role Benefits*
+
+* Roles group content which allows easy sharing of code with others
+* Roles can be written that define the essential elements of system type: web server, database server, git repository, or other purpose
+* Roles make larger projects more manageable
+* Roles can be developed in parallel by different administrators
+
+
+.*Ansible role subdirectories*
+[cols=2,cols="2,2",options=header]
+|===
+|Subdirectory
+|Function
+
+|*defaults*
+| The *main.yml* file in this directory contains the default values of role variables that can be overwritten when the role is used.
+
+|*files*
+|This directory contains static files that are referenced by role tasks.
+
+|*handlers*
+|The *main.yml* file in this directory contains the role's handler definitions.
+
+|*meta*
+|The *main.yml* file in this directory defines information about the role, including author, license, platforms, and optional role dependencies.
+
+|*tasks*
+|The *main.yml* file in this directory contains the role's task definitions.
+
+|*templates*
+| This directory contains Jinja2 templates that are referenced by role tasks.
+
+|*tests*
+|This directory can contain an inventory and *test.yml* playbook that can be used to test the role.
+
+|*vars*
+| The *main.yml* file in this directory defines the role's variable values.
+
+|===
+
+.Defining Variables and Defaults
+
+* *Role* variables are defined by creating *_var/main.yml_* with name/value pairs in the role directory heirarchy.
+
+* *Default variables* are defined by creating a *_defaults/main.yml_* file with name/value pairs in the role directory heirarchy.
+
+NOTE: It is best to define a given variable in either *_var/main.yml_* or *_defaults/main.yml_* but not both.
+
+TIP: *Playbook Roles and Include Statements*: http://docs.ansible.com/ansible/playbooks_roles.html
+
+
+.Reference for Roles
+[TIP]
+======
+There is another workshop with some information on creating and publishing Ansible Roles.
+
+https://github.com/tmichett/LUG/blob/main/Ansible_Roles/Workbook/Ansible.adoc
+======
+
+
 ==== Using Roles
 
+In order to use Ansible roles, they must first be installed and made available on the Ansible control node utilizing the role.
+
+.Installing an Ansible Role
+[source,bash]
+----
+$ ansible-galaxy install tmichett.deploy_packages
+----
 
 .DEMONSTRATION - Using a Role from Ansible Galaxy
 ====
@@ -87,6 +158,7 @@ Because we are using a newer Ansible version, the regular modules are no longer 
   vars: <1>
     ansible_user_name: travis
     ansible_user_password: redhat
+    ssh_key_answer: no
   roles: <2>
     - tmichett.ansiblize
 ----
