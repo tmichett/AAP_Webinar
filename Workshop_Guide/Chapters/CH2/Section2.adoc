@@ -27,3 +27,77 @@ https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin
 ==== Using Ansible Automation Platform Collections
 
 Collections allowed development of Ansible core components to be separated from module and plug-in development. Upstream Ansible unbundled modules from Ansible core code beginning with Ansible Base (core) 2.10/2.11. Never versions of Ansible require collections to be installed in order for modules to be available for Ansible. Playbooks should be developed using the FQCNs when referring to modules in tasks. Existing playbooks can be fixed easily to work with collections, but it is better to re-write the playbooks to use the fully-qualified collection name (FCQN).
+
+.DEMONSTRATION - Using Ansible Collections
+====
+
+. Change to the correct working directory
++
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Present/Playbooks
+----
+
+. View the Playbook
++
+[source,yaml]
+----
+[student@workstation Playbooks]$ vim Website_Present.yml
+---
+- name: Playbook to Fully Setup and Configure a Webserver
+  hosts: servera
+  tasks:
+    - name: Install Packages for Webserver
+      yum:
+        name:
+          - httpd
+          - firewalld
+        state: latest
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm an awesome webserver\n"
+        dest: /var/www/html/index.html
+
+    - name: Firewall is Enabled
+      systemd:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: HTTP Service is Open on Firewall
+      ansible.posix.firewalld:
+        service: http
+        state: enabled
+        permanent: true
+        immediate: yes
+
+    - name: httpd is started
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+----
+
+. Install the Ansible Collections
++
+[source,bash]
+----
+[student@workstation Playbooks]$ ansible-galaxy collection install -r collections/requirements.yml -p collections/
+----
+
+. Execute the playbook with the *ansible-playbook* command
++
+[source,bash]
+----
+[student@workstation Playbooks]$ ansible-playbook Website_Present.yml -b
+----
+
+. Test the Website
++
+[source,bash]
+----
+[student@workstation Playbooks]$ curl servera
+I'm an awesome webserver
+----
+====
