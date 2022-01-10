@@ -1,6 +1,4 @@
-:pygments-style: tango
-:source-highlighter: pygments
-:icons: font
+
 ifndef::env-github[:icons: font]
 ifdef::env-github[]
 :status:
@@ -10,9 +8,12 @@ ifdef::env-github[]
 :note-caption: :paperclip:
 :tip-caption: :bulb:
 :warning-caption: :warning:
+:pygments-style: tango
+:source-highlighter: pygments
+:icons: font
 endif::[]
 
-==  Ansible Automation Platform 2.x (Future)
+== Ansible Automation Platform 2.x (Future)
 
 :sectnums:
 include::Chapters/CH3/Section1.adoc[]
