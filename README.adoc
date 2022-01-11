@@ -1,1 +1,31 @@
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+:pygments-style: tango
+:source-highlighter: pygments
+:icons: font
+endif::[]
+
 = Ansible Automation Platform (AAP) Webinar
+
+The contents contained in this project are intented to correspond to the Ansible Automation Platform (AAP) Webinar that was delivered January, 27, 2022.
+
+== *Slides*
+
+include::Presentation/README.adoc[]
+
+== *Playbooks*
+
+* *Past*: https://github.com/tmichett/AAP_Webinar/tree/main/Past
+* *Present*: https://github.com/tmichett/AAP_Webinar/tree/main/Present
+* *Future*: https://github.com/tmichett/AAP_Webinar/tree/main/Future
+
+== Workshop/Webinar Guide
+
+* *Workshop Guide*: https://github.com/tmichett/AAP_Webinar/blob/main/Workshop_Guide/AAP_Workshop_Guide.pdf 

@@ -1,0 +1,20 @@
+ifndef::env-github[:icons: font]
+ifdef::env-github[]
+:status:
+:outfilesuffix: .adoc
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+:pygments-style: tango
+:source-highlighter: pygments
+:icons: font
+endif::[]
+
+= Ansible Automation Platform (AAP) Webinar
+
+.Presentation Slides as PDFs
+
+* *Full Slides*: coming soon
+* *Slide Handouts with Notes*: coming soon
