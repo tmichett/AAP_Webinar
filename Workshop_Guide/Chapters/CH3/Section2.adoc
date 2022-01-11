@@ -14,11 +14,11 @@ endif::[]
 
 
 
-=== Introduction to AAP 2.x Components
+=== Introduction to AAP 2.x - Ansible Automation Hub
 
 Section Info Here
 
-==== Ansible Content Navigator
+==== Private Automation Hub
 
 
-==== Ansible Execution Environments
+==== Custom Execution Environments

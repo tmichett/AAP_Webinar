@@ -17,3 +17,5 @@ endif::[]
 
 :sectnums:
 include::Chapters/CH3/Section1.adoc[]
+include::Chapters/CH3/Section2.adoc[]
+include::Chapters/CH3/Section3.adoc[]

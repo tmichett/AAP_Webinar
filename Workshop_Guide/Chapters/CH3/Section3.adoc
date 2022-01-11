@@ -14,11 +14,17 @@ endif::[]
 
 
 
-=== Introduction to AAP 2.x Components
+=== Introduction to AAP 2.x - Ansible Controller (formerly Ansible Tower)
 
 Section Info Here
 
-==== Ansible Content Navigator
+==== Organizations, Teams, and RBAC
 
 
-==== Ansible Execution Environments
+==== Inventories and Credentials
+
+
+==== Projects and Job Templates
+
+
+==== Workflows
