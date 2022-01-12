@@ -14,10 +14,6 @@
         content: "I'm an awesome webserver for the NYPD and I know Castle!! \n"
         dest: /var/www/html/index.html
 
-    - name: Create Content for Webserver
-      copy:
-        content: "I'm an awesome webserver"
-
     - name: Firewall is Enabled
       service:
         name: firewalld

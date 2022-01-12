@@ -114,7 +114,7 @@ Teams are used to group users together so that RBAC controls can be more easily 
 +
 image::images/Section3-fb75b.png[title="Ansible Controller Login", align="center"]
 
-. Click *Inventories* and then click *Add* to Add and Inventory
+. Click *Inventories* and then click *Add* to Add an Inventory
 +
 image::images/Section3-a686f.png[title="Ansible Controller - Inventory", align="center"]
 
@@ -154,5 +154,49 @@ It is necessary to provide privilege escalation information as with Ansible Cont
 
 ==== Projects and Job Templates
 
+.DEMONSTRATION - Creating an Projects and Job Templates
+====
 
+.Creating a Project
+. Login to *Ansible Controller*
++
+image::images/Section3-fb75b.png[title="Ansible Controller Login", align="center"]
+
+. Click *Projects* and then click *Add* to Add a Project
++
+image::images/Section3-b8165.png[title="Ansible Controller - Projects", align="center"]
+
+. Create a New Project with a Name, Organization and Source Control Credential
+** URL: git@github.com:tmichett/AAP_Webinar.git
++
+image::images/Section3-bab7f.png[title="Ansible Controller - Creating Project from Github Source", align="center"]
+
+
+.Creating a Job Template
+
+. Click *Templates* and then click *Add* to Add (*Add job template) to create a job template.
++
+image::images/Section3-48ade.png[title="Ansible Controller - Job Templates", align="center"]
+
+. Create the new job template and then click *Save*
+** Provide a name
+** Provide job type (*run*)
+** Provide *Inventory*
+** Provide *Project*
+** Select *Playbook*
+** Select *Credentials*
++
+image::images/Section3-b8889.png[title="Ansible Controller - Job Template Details", align="center"]
++
+image::images/Section3-5b3b4.png[title="Ansible Controller - Job Template Details cont.", align="center"]
+====
+
+. Launch the job by clicking *Launch*
++
+image::images/Section3-8032b.png[title="Ansible Controller - Job Template Launch", align="center"]
+
+[source,bash]
+----
+
+----
 ==== Workflows
