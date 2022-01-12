@@ -185,18 +185,32 @@ image::images/Section3-48ade.png[title="Ansible Controller - Job Templates", ali
 ** Provide *Project*
 ** Select *Playbook*
 ** Select *Credentials*
+** Select *Privilege Escalation* option
 +
 image::images/Section3-b8889.png[title="Ansible Controller - Job Template Details", align="center"]
 +
-image::images/Section3-5b3b4.png[title="Ansible Controller - Job Template Details cont.", align="center"]
-====
+image::images/Section3-21de7.png[title="Ansible Controller - Job Template Details cont.", align="center"]
++
+.Privilege Escalation
+[IMPORTANT]
+======
+It is important to know what the playbook does and whether it requires privilege escalation. A proper playbook might already have this defined, but it also allows you to assign it to the job from this menu.
+======
 
 . Launch the job by clicking *Launch*
 +
 image::images/Section3-8032b.png[title="Ansible Controller - Job Template Launch", align="center"]
++
+image::images/Section3-39929.png[title="Ansible Controller - Job Results Output Verification", align="center"]
 
+. Verify webserver is running and accessible.
++
 [source,bash]
 ----
-
+[student@workstation ~]$ curl serverd
+I'm an awesome webserver for the NYPD and I know Castle!!
 ----
+
+====
+
 ==== Workflows
