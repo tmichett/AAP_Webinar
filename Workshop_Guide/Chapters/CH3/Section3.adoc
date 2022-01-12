@@ -21,6 +21,89 @@ Section Info Here
 ==== Organizations, Teams, and RBAC
 
 
+.DEMONSTRATION - Creating an Organization with Users and Teams
+====
+
+.Creating an Organization
+. Login to *Ansible Controller*
++
+image::images/Section3-fb75b.png[title="Ansible Controller Login", align="center"]
+
+. Click *Organizations*
++
+image::images/Section3-85ca8.png[title="Ansible Controller - *Organizations*", align="center"]
+
+. Click *Add*
++
+image::images/Section3-1adef.png[title="Ansible Controller - *Adding an Organization*", align="center"]
+
+. Create the new organization with the appropriate details and then click *Save*
+.. *Name*: Required for name of Organization
+.. *Description*: _Optional but helpful_
+.. *Execution Environment*: Default execution environment for playbooks, projects, and workflows in the environment.
++
+image::images/Section3-3d066.png[title="Ansible Controller - *Configuring the Organization*", align="center"]
++
+.Default Execution Environment
+[TIP]
+======
+It is helpful to setup the default execution environment (EE) which will control the running of Ansible playbooks within your Organization. It is possible for individual projects and playbooks to be selectively run with another execution environment, but the default EE will be used if another EE isn't specified.
+
+In the above example, the *Ansible Engine 2.9 execution environment* was selected as it has the best compatibility with older playbooks before the realigned modules and collections. Ansible Engine 2.9 can utilize collections, but also has the mapping for the Ansible modules allowing older playbooks to run without updating to using FQCN.
+======
+
+.Creating a Team
+
+. Click on *Teams*
++
+image::images/Section3-0cff1.png[title="Ansible Controller - *Creating a Team*", align="center"]
+
+. Click *Add* and fill in appropriate values and then click *Save*
+.. *Name*: Required for name of team
+.. *Organization*: Required to select an existing organization from drop-down
+... Click magnifying glass and select Organization
++
+image::images/Section3-d2ee3.png[title="Ansible Controller - *Configuring a Team*", align="center"]
++
+image::images/Section3-664c9.png[title="Ansible Controller - *Selecting an Organization*", align="center"]
++
+image::images/Section3-43443.png[title="Ansible Controller - *Completing Team Creation*", align="center"]
+
+.Creating Users
+
+. Click *Users*
++
+image::images/Section3-6a687.png[title="Ansible Controller - *Creating a User*", align="center"]
+
+. Click *Add* and fill in appropriate information and click *Save*
++
+image::images/Section3-664c9.png[title="Ansible Controller - *Selecting an Organization*", align="center"]
++
+image::images/Section3-cae5a.png[title="Ansible Controller - *Configuring a User*", align="center"]
+
+.Adding a User to a Team
+
+Adding users to a team can be done multiple ways, but in this example, we will be modifying a recently created user and use the *Teams* option on the User *Details* tab.
+
+. Click on *Teams*
++
+image::images/Section3-aead5.png[title="Ansible Controller - *User Teams Menu*", align="center"]
+
+. Click the *Associate* button to search for and select a team, then click *Save*
++
+image::images/Section3-3aab6.png[title="Ansible Controller - *User Team(s) Selection*", align="center"]
+
+. Verify user was associated with the correct team(s).
++
+image::images/Section3-8bcde.png[title="Ansible Controller - *User Team(s) Verification*", align="center"]
+
+.Teams
+[TIP]
+======
+Teams are used to group users together so that RBAC controls can be more easily managed at a group level versus an individual user level. It is still possible to give individual users additional privileges, but teams is the preferred way of permission management.
+======
+====
+
 ==== Inventories and Credentials
 
 
