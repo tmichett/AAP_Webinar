@@ -214,3 +214,111 @@ I'm an awesome webserver for the NYPD and I know Castle!!
 ====
 
 ==== Workflows
+
+In order to create job workflows, projects and existing job templates must already be created before they can be put together as a job workflow template.
+
+
+.DEMONSTRATION - Job Workflow Templates
+====
+For this demonstration, it will be necessary to create two new *Job Templates* that will be linked together in a *Job Workflow Template*. We will be leveraging the already created project *NYPD Webserver* for existing playbooks and inventories. We will also create a dynamic inventory based on imported inventory from the project.
+
+.Creating a Project-Based Inventory Source
+
+. Login to *Ansible Controller*
++
+image::images/Section3-fb75b.png[title="Ansible Controller Login", align="center"]
+
+. Click *Inventories* and then click *Add*
++
+image::images/Section3-a686f.png[title="Ansible Controller - Inventory", align="center"]
+
+. Assign a *Name* and *Organization* to the Inventory and then click *Save*
++
+image::images/Section3-67077.png[title="Ansible Controller - Inventory Creation", align="center"]
+
+. Click *Sources* to create an inventory source
++
+image::images/Section3-7f436.png[title="Ansible Controller - Inventory Sources", align="center"]
+
+. Click *Add* to add an inventory source
++
+image::images/Section3-ec813.png[title="Ansible Controller - Adding Inventory Sources", align="center"]
+
+. Provide a *Name* and choose *Sourced from a Project* as source and click *Save*
+.. Select the *Project* and *Inventory file*
+.. Check *Update on launch*
++
+image::images/Section3-f536a.png[title="Ansible Controller - Configuring Inventory Sources", align="center"]
+
+. Click *Sync* to perform a synchronization
++
+image::images/Section3-63956.png[title="Ansible Controller - Synchronizing Inventory Sources", align="center"]
+
+. Click *Inventories* to verify the inventory and select *NYPD Web Workflow*
++
+image::images/Section3-3c016.png[title="Ansible Controller - Verifying Inventory Sources", align="center"]
+
+. Click *Hosts* to view hosts
++
+image::images/Section3-2b4b7.png[title="Ansible Controller - Verifying Inventory Hosts from Project", align="center"]
+
+. Click *Groups* to view host groups
+.. Click on a group name to see hosts in group and click *Hosts*
++
+image::images/Section3-1734b.png[title="Ansible Controller - Verifying Inventory Group from Project", align="center"]
++
+image::images/Section3-dc1e0.png[title="Ansible Controller - Verifying Inventory Group *(Hosts)* from Project", align="center"]
+
+.Project Based Inventory
+[IMPORTANT]
+======
+The above example shows how to create a dynamic inventory that is sourced from a project. This would can be done to ensure that you have the same inventory and host systems as the developers. It is not 100% necessary to have inventory in the projects, but some people prefer to keep host inventory in projects and this is a great method in keeping developer inventory in sync with what is stored in Ansible Controller.
+======
+
+.Creating a Job Workflow Template
+. Login to *Ansible Controller*
++
+image::images/Section3-fb75b.png[title="Ansible Controller Login", align="center"]
+
+. Click *Templates* and then click *Add* and *(Add job template)* to create a new Job Template
++
+image::images/Section3-fb1e7.png[title="Ansible Controller - Job Templates", align="center"]
+
+. Complete the form for the NYPD Dev Webserver and click *Save*
+.. *Name*: _NYPD Dev Webserver_
+.. *Job Type*: _run_
+.. *Inventory*: _NYPD Web Workflow_
+.. *Project*: _NYPD Webserver_
+.. *Playbook*: _Future/NYPD/NYPD_Web_Workflow.yml_
+.. *Credentials*: _NYPD Machine SSH Creds_
+.. *Variables*: _inv_host_var: servere_
+.. *Privilege Escalation*: _Checked_
++
+image::images/Section3-4f4b5.png[title="Ansible Controller - Job Template Parameters", align="center"]
++
+image::images/Section3-a61cf.png[title="Ansible Controller - Job Template Parameters cont.", align="center"]
+
+. Create a new Job template using steps above with the following values.
+.. *Name*: _NYPD Test Webserver_
+.. *Job Type*: _run_
+.. *Inventory*: _NYPD Web Workflow_
+.. *Project*: _NYPD Webserver_
+.. *Playbook*: _Future/NYPD/NYPD_Web_Workflow.yml_
+.. *Credentials*: _NYPD Machine SSH Creds_
+.. *Variables*: _inv_host_var: serverf_
+.. *Privilege Escalation*: _Checked_
++
+image::images/Section3-78f83.png[title="Ansible Controller - Job Template Parameters for NYPD Test Webserver", align="center"]
+
+. Click *Templates* then click *Add* and select *Add workflow template*
++
+image::images/Section3-33a10.png[title="Ansible Controller - Job Workflow Template", align="center"]
+
+. Provide a *Name* and select the appropriate items
+.. *Inventory*: _Leave Blank_ (Will use inventory specified for Job Templates)
+.. *Organization*: _NYPD_
++
+image::images/Section3-b08c7.png[title="Ansible Controller - Job Workflow Template Details", align="center"]
+
+
+====
