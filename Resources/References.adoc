@@ -14,6 +14,9 @@ endif::[]
 
 = Ansible References
 
+* *Ansible architecture*
+** https://docs.ansible.com/ansible/latest/dev_guide/overview_architecture.html
+
 
 * *Ansible Collections - Hands-on Lab Ansible Fest*
 ** https://goetzrieger.github.io/ansible-collections/
@@ -30,9 +33,52 @@ endif::[]
 * *Using Collections*
 ** https://docs.ansible.com/ansible/latest/user_guide/collections_using.html
 
+* *Ansible Built-In Runtime Mappings*
+** https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml
+
+
+* *Ansible Runner Container (Comminity EE)*
+** https://quay.io/repository/ansible/ansible-runner?tab=info
+
+* *What's new in Ansible Automation Platform 2: automation content navigator*
+** https://www.ansible.com/blog/whats-new-in-ansible-automation-platform-2-automation-content-navigator
+
+* *Introduction to Ansible Builder
+** https://www.ansible.com/blog/introduction-to-ansible-builder
+
+* *Execution Environments (Ansible Tower/Controller)*
+** https://docs.ansible.com/ansible-tower/latest/html/administration/external_execution_envs.html (Tower)
+** https://docs.ansible.com/automation-controller/latest/html/userguide/execution_environments.html (Controller)
+
+* *AWX Github Project (Upstream Project for Tower)*
+** https://github.com/ansible/awx
+
+* *AWX FAW*
+** https://www.ansible.com/products/awx-project/faq
+
+* *AWX EE*
+** https://quay.io/repository/ansible/awx-ee?tab=info
+
+* *Ansible Builder, Runner, and Execution Environments (Blog Post)*
+** https://blog.networktocode.com/post/ansible-builder-runner-ee/
+
+* *ansible-builder Docs*
+** https://ansible-builder.readthedocs.io/en/stable/
+
+* *ANSIBLE BUILDER GUIDE (AAP 2.1)*
+** https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.1/html/ansible_builder_guide/index
+
+* *Ansible Galaxy Github Project*
+** https://github.com/ansible/galaxy
+
+* *Ansible Automation Hub*
+** https://docs.ansible.com/ansible/latest/reference_appendices/automationhub.html
+
+* *AWX Collections*
+** https://docs.ansible.com/ansible/latest/collections/awx/awx/index.html#plugins-in-awx-awx
 
 .Updated
 [NOTE]
 ======
-Last updated January 4, 2022
+Last updated January 13, 2022
 ======
