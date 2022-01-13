@@ -320,5 +320,69 @@ image::images/Section3-33a10.png[title="Ansible Controller - Job Workflow Templa
 +
 image::images/Section3-b08c7.png[title="Ansible Controller - Job Workflow Template Details", align="center"]
 
+. The *Workflow Visualizer* will open and click *Start* to define first task in workflow
++
+image::images/Section3-e6ce7.png[title="Ansible Controller - Job Workflow Visualizer", align="center"]
+
+. Start by selecting *Node Type* of *Project Sync* and select the *NYPD Webserver* Project then click *Save*
++
+image::images/Section3-ccf2b.png[title="Ansible Controller - Job Workflow Task #1 Synchronize Project Data", align="center"]
+
+. Add Step #2 to run on *Success* by selecting the NYPD Webserver Project and clicking the *+*.
+.. Select *Run* and *On Success* then click *Next*
+.. Select *Node Type* to be *Job Template* and select the *NYPD Dev Webserver* then click *Save*
++
+image::images/Section3-ad77a.png[title="Ansible Controller - Job Workflow Task #2 Launch Development Job", align="center"]
++
+image::images/Section3-def61.png[title="Ansible Controller - Job Workflow Task #2 Selecting Job Run Parameters", align="center"]
++
+image::images/Section3-a6629.png[title="Ansible Controller - Job Workflow Task #2 Selecting Job Template to Run", align="center"]
+
+
+. Add Step #3 to run on *Success* by selecting the NYPD Webserver Project and clicking the *+*.
+.. Select *Run* and *On Success* then click *Next*
+.. Select *Node Type* to be *Job Template* and select the *NYPD Test Webserver* then click *Save*
++
+image::images/Section3-aa08e.png[title="Ansible Controller - Job Workflow Task #3 Launch Development Job", align="center"]
++
+image::images/Section3-def61.png[title="Ansible Controller - Job Workflow Task #3 Selecting Job Run Parameters", align="center"]
++
+image::images/Section3-f0df7.png[title="Ansible Controller - Job Workflow Task #3 Selecting Job Template to Run", align="center"]
+
+. View the complete Job Workflow and click *Save* when done adding steps
++
+image::images/Section3-040ab.png[title="Ansible Controller - Job Workflow Complete Overview", align="center"]
++
+.Job Workflows - *Success*, *Failure*, and *Always*
+[IMPORTANT]
+======
+It is important to architect workflows properly. In this example, we defined the *SUCCESS* path. In general, you will most likely have failure paths to cleanup environments from failed workflows. This has been left out based on time.
+======
+
+. Launch job workflow to test by clicking *Launch*
++
+image::images/Section3-70ae2.png[title="Ansible Controller - Job Workflow Launching", align="center"]
+
+. View workflow output
++
+image::images/Section3-aca6e.png[title="Ansible Controller - Job Workflow Output", align="center"]
++
+image::images/Section3-d9104.png[title="Ansible Controller - Job Workflow Output - Details for Job Template", align="center"]
+
+. Test from workstation
++
+.*Dev Server* test
+[source,bash]
+----
+[student@workstation ~]$ curl servere
+I'm an awesome webserver for the NYPD and I know Castle!!
+----
++
+.*Test Server* test
+[source,bash]
+----
+[student@workstation ~]$ curl serverf
+I'm an awesome webserver for the NYPD and I know Castle!!
+----
 
 ====
