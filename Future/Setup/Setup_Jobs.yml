@@ -4,7 +4,7 @@
   tasks:
 
     - name: Create NYPD Dev Webserver job template
-      job_template:
+      awx.awx.job_template:
         name: "NYPD DEV Web"
         job_type: "run"
         organization: "NYPD"
