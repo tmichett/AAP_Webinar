@@ -1,7 +1,6 @@
 ---
 - name: Playbook to Configure Controller with SCM Credentials
   hosts: localhost
-  become: true
   tasks:
 
     - name: Create a valid SCM credential for Travis's Github
@@ -16,4 +15,3 @@
         inputs:
           username: tmichett
           ssh_key_data: "{{ lookup('file', '/tmp/github_id') }}"
-          
