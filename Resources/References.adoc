@@ -77,8 +77,21 @@ endif::[]
 * *AWX Collections*
 ** https://docs.ansible.com/ansible/latest/collections/awx/awx/index.html#plugins-in-awx-awx
 
+
+* *Red Hat Ansible Tower Collection*
+** https://console.redhat.com/ansible/automation-hub/repo/published/ansible/tower
+
+
+* *Red Hat Ansible Automation Controller Collection*
+** https://console.redhat.com/ansible/automation-hub/repo/published/ansible/controller
+
+* *Red Hat Published Collections*
+** https://console.redhat.com/ansible/automation-hub/repo/published/redhat
+
+
+
 .Updated
 [NOTE]
 ======
-Last updated January 13, 2022
+Last updated January 15, 2022
 ======
