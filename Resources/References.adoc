@@ -88,10 +88,28 @@ endif::[]
 * *Red Hat Published Collections*
 ** https://console.redhat.com/ansible/automation-hub/repo/published/redhat
 
+* *Five Ansible Techniques I Wish I’d Known Earlier*
+** https://zwischenzugs.com/2021/08/27/five-ansible-techniques-i-wish-id-known-earlier/
 
+
+* *ANSIBLE NAVIGATOR CREATOR GUIDE*
+** https://access.redhat.com/documentation/en-us/red_hat_ansible_automation_platform/2.0-ea/html-single/ansible_navigator_creator_guide/index
+
+* *Authoring content quickly using ansible-navigator*
+** https://youtu.be/Upisw3Pv294
+
+* *Ansible Navigator Cheat Sheet – techbeatly*
+** https://www.techbeatly.com/ansible-navigator-cheat-sheet/
+
+
+* *Ansible Navigator Github Project*
+** https://github.com/ansible/ansible-navigator
+
+* *Automating the automation — Ansible Tower configuration as code*
+** https://www.redhat.com/en/blog/automating-automation-%E2%80%94-ansible-tower-configuration-code
 
 .Updated
 [NOTE]
 ======
-Last updated January 15, 2022
+Last updated January 16, 2022
 ======
