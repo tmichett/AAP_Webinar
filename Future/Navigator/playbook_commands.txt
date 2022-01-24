@@ -1,0 +1,4 @@
+
+## Get to Correct Directory
+
+cd ~/Github/AAP_Webinar/Future/Navigator

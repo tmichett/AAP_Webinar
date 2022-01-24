@@ -1,0 +1,12 @@
+servera
+serverb
+serverc
+serverd
+servere
+serverf
+
+[dev]
+servere
+
+[test]
+serverf

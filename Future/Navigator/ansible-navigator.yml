@@ -1,0 +1,11 @@
+---
+ansible-navigator:
+  execution-environment:
+    enabled: true
+    environment-variables:
+      set:
+        ANSIBLE_CONFIG: ansible1.cfg
+    image: hub.lab.example.com/ee-29-rhel8:latest
+  logging:
+    level: critical
+  mode: stdout

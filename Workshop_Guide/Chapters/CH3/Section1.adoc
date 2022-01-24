@@ -24,6 +24,28 @@ Ansible Private Automation Hub (Automation Hub) allows a self-hosted Ansible Gal
 ==== Ansible Content Navigator
 
 
+.Source Description
+[source,yaml]
+----
+---
+ansible-navigator:
+  execution-environment: <1>
+    enabled: true
+    environment-variables:
+      set:
+        ANSIBLE_CONFIG: ansible.cfg <2>
+    image: hub.lab.example.com/ee-29-rhel8:latest <3>
+  logging:
+    level: critical
+  mode: stdout <3>
+
+----
+<1> Configures Ansible Navigator to use an Execution Environment (EE)
+<2> Specifies where Ansible Navigator and the Ansible EE will receive Ansible configuration settings
+<3> Specifies Ansible EE to use for Ansible Navigator
+<4> Specified Mode, in this case, we are using *STDOUT* so that the output will look like it does with the *_ansible-playbook_* command.
+
+
 ==== Ansible Execution Environments
 
 
