@@ -16,9 +16,18 @@ endif::[]
 
 === Introduction to AAP 2.x Components
 
-Section Info Here
+With Ansible 2.x, many new items have emerged. Ansible can now leverage execution environments which contain Ansible collections, different versions of Ansible, and the correct python versions and modules needed to execute a playbook. Ansible Execution Environments (EEs) allow developers and administrators more flexibility be leveraging a containerized Ansible environment. The use of Ansible EEs from a control node or developer workstation will work exactly the same with Ansible Controller (formerly known as Ansible Tower). Ansible Controller allows Ansible EEs to be assigned to projects, inventories, job templates, and more.
+
+Ansible Private Automation Hub (Automation Hub) allows a self-hosted Ansible Galaxy. The local installation of Ansible Galaxy not only allows collections to be published privately within an organization, but it also provides a container registry for publishing custom Ansible EEs.
+
 
 ==== Ansible Content Navigator
 
 
 ==== Ansible Execution Environments
+
+
+.DEMO - *Using Ansible Content Navigator and the Ansible 2.9 Execution Environment*
+====
+
+====

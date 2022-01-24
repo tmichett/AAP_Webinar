@@ -2,4 +2,4 @@
 [defaults]
 stdout_callback=debug
 host_key_checking=False
-log_path=/tmp/11
+log_path=/tmp/ansible_log
