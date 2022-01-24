@@ -2,3 +2,38 @@
 ## Get to Correct Directory
 
 cd ~/Github/AAP_Webinar/Future/Navigator
+
+IMPORTANT:
+
+May need to run " lab start config-navigator" to login to the private Hub
+
+Also remember to do credentials for SSH
+
+
+
+
+## Demo of Navigator with Ansible 2.9 EE
+
+cat ansible-navigator.yml
+
+cat Website_Ansible_Past.yml
+
+
+eval $(ssh-agent)
+
+ssh-add ~/.ssh/lab_rsa
+
+ansible-navigator run Website_Ansible_Past.yml -b
+
+curl serverd
+
+
+
+## Demo of Navigator with Ansible 2.9 EE (Interactively)
+
+ansible-navigator -m interactive
+
+
+
+
+ansible-navigator run Website_Ansible_Past.yml -b -m interactive

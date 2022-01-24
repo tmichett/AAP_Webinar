@@ -4,7 +4,7 @@ ansible-navigator:
     enabled: true
     environment-variables:
       set:
-        ANSIBLE_CONFIG: ansible1.cfg
+        ANSIBLE_CONFIG: ansible.cfg
     image: hub.lab.example.com/ee-29-rhel8:latest
   logging:
     level: critical

@@ -20,11 +20,23 @@ With Ansible 2.x, many new items have emerged. Ansible can now leverage executio
 
 Ansible Private Automation Hub (Automation Hub) allows a self-hosted Ansible Galaxy. The local installation of Ansible Galaxy not only allows collections to be published privately within an organization, but it also provides a container registry for publishing custom Ansible EEs.
 
+Ansible Content Navigator is a new tool that can be used to test and develop Ansible playbooks.
+
 
 ==== Ansible Content Navigator
 
+The *ansible-navigator* tool replaces and extends the functionality of the *ansible-playbook*, *ansible-inventory*, *ansible-config* commands and more. Ansible Content Navigator allows the Ansible Control Node to be separated from the execution environment as playbooks are now run in a container. This makes it easier to move from development environments to production environments as the execution environment is now a portable container.
 
-.Source Description
+
+image::images/Section1-89ff4.png[title="Ansible Content Navigator", align="center"]
+
+Ansible Content Navigator is works very similar to *ansible* and *ansible-playbook* commands as it relies on a configuration file. The *ansible-navigator.yml* file utilizes the *ansible.cfg* file and further provides customizations for configurations on developing, testing, and running playbooks in your Ansible project. Some of the most critical components of Ansible Navigator are the following:
+
+* *ANSIBLE_CONFIG*: Specifies Ansible configuration file to use
+* *image*: Specifies Ansible Execution Environment (EE) to be used
+
+
+.*ansible-navigator.yml*
 [source,yaml]
 ----
 ---
@@ -37,7 +49,7 @@ ansible-navigator:
     image: hub.lab.example.com/ee-29-rhel8:latest <3>
   logging:
     level: critical
-  mode: stdout <3>
+  mode: stdout <4>
 
 ----
 <1> Configures Ansible Navigator to use an Execution Environment (EE)
@@ -45,11 +57,272 @@ ansible-navigator:
 <3> Specifies Ansible EE to use for Ansible Navigator
 <4> Specified Mode, in this case, we are using *STDOUT* so that the output will look like it does with the *_ansible-playbook_* command.
 
+Most *ansible* commands have a corresponding *ansible-navigator* command. The table below provides a mapping for the most commonly used commands.
+
+.*ansible* to *ansible-navigator* Command Comparisons
+[cols="4a,4a",options=header]
+|===
+
+| *Ansible Command*
+| *Automation Content Navigator Subcommands*
+
+|ansible-config
+|ansible-navigator config
+
+|ansible-doc
+|ansible-navigator doc
+
+|ansible-inventory
+|ansible-navigator inventory
+
+|ansible-playbook
+|ansible-navigator run
+
+
+
+|===
+
 
 ==== Ansible Execution Environments
+
+Ansible Execution Environments (EEs) are containers whci consist of:
+
+* *Ansible Core*
+* *Ansible Content Collections*
+* *Python Libraries*
+* *Executables*
+* Other dependencies for running the playbook
+
+Custom execution environments can be built and created with *ansible-builder*. The process of creating a new Ansible EE depends on if there is a valid Ansible Automation Entitlement associated with your account. If you are using the *free* version of Ansible, base container images *MUST* come from *Quay.IO* as the Red Hat Ansible Execution Environments (EEs) cannot be used or redistributed.
+
+image::images/Section1-777b1.png[title="Ansible Builder", align="center"]
+
+.Default Versions of Ansible and Execution Environments
+[IMPORTANT]
+======
+Ansible Automation Platform 2 provides Ansible Core 2.11 as well as several Red Hat Certified Content Collections providing a similar experience to Ansible 2.9. A benefit of execution environments is that they can be used to run older versions of Ansible. Some of the demos in this webinar will use an Ansible EE based on Ansible 2.9 so that collection mapping is done automatically and older playbooks don't need to be touched.
+======
 
 
 .DEMO - *Using Ansible Content Navigator and the Ansible 2.9 Execution Environment*
 ====
+
+. Change to correct directory
++
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Navigator
+----
+
+
+. View configuration for Ansible Content Navigator
++
+[source,bash]
+----
+[student@workstation Navigator]$ cat ansible-navigator.yml
+---
+ansible-navigator:
+  execution-environment:
+    enabled: true
+    environment-variables:
+      set:
+        ANSIBLE_CONFIG: ansible.cfg <1>
+    image: hub.lab.example.com/ee-29-rhel8:latest <2>
+  logging:
+    level: critical
+  mode: stdout <3>
+----
+<1> Ensure it is pointing to the project *ansible.cfg*
+<2> Ensure we are using the Ansible EE based on Ansible version 2.9.x for compatibility of existing playbooks (pre-collections).
+<3> Ensure mode is specified as *stdout* so that the output can easily be viewed from the command-line (CLI).
+
+. View the playbook
++
+[source,yaml]
+----
+[student@workstation Navigator]$ cat Website_Ansible_Past.yml
+---
+- name: Playbook to Fully Setup and Configure a Webserver
+  hosts: servere
+  tasks:
+    - name: Install Packages for Webserver
+      yum:
+        name:
+          - httpd
+          - firewalld
+        state: latest
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm an awesome webserver for the NYPD and I know Castle!! \n"
+        dest: /var/www/html/index.html
+
+    - name: Firewall is Enabled
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: HTTP Service is Open on Firewall
+      firewalld:
+        service: http
+        state: enabled
+        permanent: true
+        immediate: yes
+
+    - name: httpd is started
+      systemd:
+        name: httpd
+        state: started
+        enabled: true
+----
+
+. Setup and ensure SSH keys are shared for the Ansible EE
++
+[source,bash]
+----
+[student@workstation ~]$ eval $(ssh-agent) <1>
+
+[student@workstation ~]$ ssh-add ~/.ssh/lab_rsa <2>
+----
+<1> Starts SSH Agent service
+<2> Loads SSH key to the SSH Agent Service keyring
+
+. Run the playbook with *ansible-navigator run* Command
++
+[source,bash]
+----
+[student@workstation Navigator]$ ansible-navigator run Website_Ansible_Past.yml -b <1>
+-------------------------------------------------------------------------
+Execution environment image and pull policy overview
+-------------------------------------------------------------------------
+Execution environment image name:  hub.lab.example.com/ee-29-rhel8:latest
+
+... OUTPUT OMITTED ...
+
+TASK [httpd is started] ********************************************************
+changed: [servere]
+
+PLAY RECAP *********************************************************************
+servere                    : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+----
+<1> Specify the *-b* to enable privilege escalation as the *ansible.cfg* and playbook doesn't have escalation already enabled.
+
+
+. Verify website is running
++
+[source,bash]
+----
+[student@workstation Navigator]$ curl servere
+I'm an awesome webserver for the NYPD and I know Castle!!
+----
+
+====
+
+
+.DEMO - *Using Ansible Content Navigator - Interactively*
+====
+
+. Explore Ansible Navigator
++
+[source,bash]
+----
+[student@workstation Navigator]$ ansible-navigator -m interactive
+
+ 0│## Welcome                                                                        ▒
+ 1│----------------------------------------------------------------------------------▒
+ 2│                                                                                  ▒
+ 3│Some things you can try from here:                                                ▒
+ 4│- `:collections`                                          Explore available collec▒
+ 5│- `:config`                                               Explore the current ansi▒
+ 6│- `:doc <plugin>`                                         Review documentation for▒
+ 7│- `:help`                                                 Show the main help page ▒
+ 8│- `:images`                                               Explore execution enviro
+
+ ... OUTPUT OMITTED ...
+----
+
+. View information on Execution Environment (type *:images*)
++
+[source,bash]
+----
+  NAME                     TAG     EXECUTION ENVIRONMENT     CREATED        SIZE
+0│ee-29-rhel8 (primary)    latest                   True     2 months ago   785 MB
+1│ee-supported-rhel8       2.0                      True     2 months ago   1.07 GB
+2│flamel                   latest                  False     5 weeks ago    1.56 GB
+----
+
+. View the *ee-29-rhel8* EE (as this is the default defined in the configuration file) by typing *0*
++
+[source,bash]
+----
+  EE-29-RHEL8:LATEST (PRIMARY)    DESCRIPTION
+0│Image information               Information collected from image inspection
+1│General information             OS and python version information
+2│Ansible version and collections Information about ansible and ansible collections
+3│Python packages                 Information about python and python packages
+4│Operating system packages       Information about operating system packages
+5│Everything                      All image informatio
+----
++
+.Interactively Viewing Execution Environment Details
+[TIP]
+======
+Once you've loaded Ansible Content Navigator and the EE, it's possible to view the details of the Ansible versions and collections and any other information about the EE by pressing the corresponding number. To exit the *ansible-navigator* screens, just continue hitting the *ESC* key to exit to the various levels.
+======
+
+. Run *ansible-navigator* with the *-m interactive* to override the *STDOUT* setting and look at Navigator interactively
++
+[source,bash]
+----
+[student@workstation Navigator]$ ansible-navigator run Website_Ansible_Past.yml -b -m interactive
+
+  PLAY NAME OK CHANGED UNREACHABLFAILED SKIPPED IGNORED IN PROGRESTASK COUNT PROGRESS
+0│Playbook t 2       0          0     0       0       0          1         3 ▇▇▇▇▇
+----
+
+. Hit the *0* to view playbook output for *Play 0*
++
+[source,bash]
+----
+  RESULT HOST    NUMBER CHANGED TASK                           TASK ACTION  DURATION
+0│OK     servere      0   False Gathering Facts                gather_facts       1s
+1│OK     servere      1   False Install Packages for Webserver yum                1s
+2│OK     servere      2   False Create Content for Webserver   copy               0s
+3│OK     servere      3   False Firewall is Enabled            service            0s
+4│OK     servere      4   False HTTP Service is Open on Firewalfirewalld          0s
+5│OK     servere      5   False httpd is started               systemd            0s
+----
+
+. Hit *5* to examine *Task 5* from the playbook
++
+[source,bash]
+----
+PLAY [Playbook to Fully Setup and Configure a Webserver:5] ***************************
+TASK [httpd is started] **************************************************************
+OK: [servere]
+  0│---                                                                              ▒
+  1│duration: 0.521409
+  2│end: '2022-01-24T19:24:05.870450'
+  3│event_loop: null
+  4│host: serverd
+  5│play: Playbook to Fully Setup and Configure a Webserver
+  6│play_pattern: serverd
+  7│playbook: /home/student/Github/AAP_Webinar/Future/Navigator/Website_Ansible_Past.y
+  8│remote_addr: serverd
+  9│res:
+ 10│  _ansible_no_log: false
+
+ ... output omitted ...
+----
+
+
+.Interactive Mode Details
+[NOTE]
+======
+When using Ansible Navigator in interactive mode it is possible to get a lot more details regarding each task in the play as well as details on the modules being used and other system settings/configurations.
+======
+
+
 
 ====
