@@ -120,6 +120,10 @@ endif::[]
 * *Introduction to Ansible Builder
 ** https://www.ansible.com/blog/introduction-to-ansible-builder
 
+* *Ansible Navigator FAQ*
+** https://github.com/ansible/ansible-navigator/blob/main/docs/faq.md
+*** Look here for information about SSH keys for the execution environments
+
 
 .Updated
 [NOTE]

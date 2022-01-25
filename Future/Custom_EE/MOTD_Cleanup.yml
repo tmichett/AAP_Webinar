@@ -1,0 +1,10 @@
+---
+- name: Playbook to Fully Setup and Configure a Webserver
+  hosts: serverb
+  become: true
+  tasks:
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm the clean MOTD Banner\n"
+        dest: /etc/motd.d/banner

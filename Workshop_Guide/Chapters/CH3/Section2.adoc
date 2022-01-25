@@ -255,14 +255,125 @@ ansible-navigator:
 +
 [source,bash]
 ----
-[student@workstation Custom_EE]$ ansible-navigator run Custom_EE_Playbook.yml
+[student@workstation Custom_EE]$ ansible-navigator run Custom_EE_Playbook.yml -b <1>
+----
+<1> The *-b* is placed on there to elevate priviliges.
 
+. Test to see if the MOTD was deployed to the server
++
+[source,bash]
+----
+[student@workstation EE]$ ssh servere
+Activate the web console with: systemctl enable --now cockpit.socket
 
+This system is not registered to Red Hat Insights. See https://cloud.redhat.com/
+To register this system, run: insights-client --register
+
+================================================================================
+================================================================================
+==                                                                            ==
+==                     This system is managed by Ansible.                     ==
+==                                   AAP2.0                                   ==
+==                                                                            ==
+================================================================================
+================================================================================
+
+Last login: Tue Jan 25 16:17:04 2022 from 172.25.250.9
 ----
 
 ====
 
 .DEMO - *Publishing a Custom Execution Environment*
 ====
+
+. Change to correct directory
++
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Custom_EE
+----
++
+[NOTE]
+======
+Not really needed as we are using the PODMAN commands to push images, but done for consistency.
+======
+
+. Tag the image with the Podman command to prepare the push to *hub.lab.example.com*
++
+[source,bash]
+----
+[student@workstation EE]$ podman tag localhost/aap-demo:latest hub.lab.example.com/aap-demo:latest
+----
+
+. Push the image to private automation hub
++
+[source,bash]
+----
+[student@workstation EE]$ podman push hub.lab.example.com/aap-demo:latest
+Getting image source signatures
+Copying blob 38345e1102be done
+Copying blob df2b2b67ec7f done
+Copying blob fa751636af06 done
+Copying blob a65a1b01a4d2 done
+Copying blob af092941766c done
+Copying blob efebe3fe0d93 done
+Copying blob 9c99e40eecd0 done
+Copying config 3bfe381575 done
+Writing manifest to image destination
+Storing signatures
+----
++
+.Repository Login
+[WARNING]
+======
+It might be necessary to perform a *podman login* for the remote container registry.
+
+.*Regsitry Login*
+[source,bash]
+----
+podman login hub.lab.example.com
+----
+======
+
+. Login to the Private Automation hub
++
+image::images/Section2-e5af7.png[title="Automation Hub Login", align="center"]
+
+. Navigate to Container Registry and look for the *aap-demo* Container
++
+image::images/Section2-52b20.png[title="Automation Hub Login", align="center"]
+
+. Test with the image coming from Private Automation Hub
++
+[source,bash]
+----
+[student@workstation Custom_EE]$  ansible-navigator run --pp always --eei hub.lab.example.com/aap-demo:latest -m stdout Custom_EE_Playbook.yml -b
+
+----------------------------------------------------------------------
+Execution environment image and pull policy overview
+----------------------------------------------------------------------
+Execution environment image name:  hub.lab.example.com/aap-demo:latest
+Execution environment image tag:   latest
+Execution environment pull policy: always
+Execution environment pull needed: True
+----------------------------------------------------------------------
+Updating the execution environment
+----------------------------------------------------------------------
+Trying to pull hub.lab.example.com/aap-demo:latest...
+Getting image source signatures
+Copying blob 3c9fdae16a64 skipped: already exists
+Copying blob 5c4402ce71c4 skipped: already exists
+Copying blob 69ebc448681d [--------------------------------------] 0.0b / 0.0b
+Copying blob 495ff1ef2828 [--------------------------------------] 0.0b / 0.0b
+Copying blob 80be453030cf [--------------------------------------] 0.0b / 0.0b
+Copying blob 642d458785a1 [--------------------------------------] 0.0b / 0.0b
+Copying blob 00fe5380b165 [--------------------------------------] 0.0b / 40.3MiB
+Copying config 3bfe381575 done
+Writing manifest to image destination
+Storing signatures
+3bfe381575fa7606cb745bfe8227d0cbf59b4d91dc7bd7d811a1fcfe28022919
+
+[student@workstation Custom_EE]$
+----
 
 ====

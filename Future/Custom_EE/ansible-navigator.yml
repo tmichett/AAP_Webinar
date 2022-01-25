@@ -6,6 +6,7 @@ ansible-navigator:
       set:
         ANSIBLE_CONFIG: ansible.cfg
     image: localhost/ee_aap_demo:latest
+    pull-policy: never
   logging:
     level: critical
   mode: stdout

@@ -39,5 +39,9 @@ podman images
 
 *** May need  lab start builder-validate ***
 
+*** NOTE: Must be done using the Workstation Terminal window from XWindows
 
 cd /home/student/Github/AAP_Webinar/Future/Custom_EE
+
+
+ansible-navigator run Custom_EE_Playbook.yml -b
