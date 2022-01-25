@@ -1,6 +1,6 @@
 ---
 - name: Playbook to Cleanup MOTD for Testing Custom EE
-  hosts: serverb
+  hosts: servere
   become: true
   tasks:
 
