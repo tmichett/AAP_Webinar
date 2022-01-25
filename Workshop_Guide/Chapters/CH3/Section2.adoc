@@ -20,5 +20,33 @@ Section Info Here
 
 ==== Private Automation Hub
 
+image::images/Section2-37838.png[title="Ansible *Private* Automation Hub", align="center]
+
+image::images/Section2-a1519.png[title="Ansible *Private* Automation Hub - Collections", align="center]
+
+image::images/Section2-57706.png[title="Ansible *Private* Automation Hub - Container Registry (Execution Environments)", align="center]
 
 ==== Custom Execution Environments
+
+image::images/Section2-ccd46.png[title="Ansible Execution Environments", align="center"]
+
+
+image::images/Section2-207ba.png[title="Ansible Execution Environments - Build Process", align="center"]
+
+image::images/Section2-d9595.png[title="Ansible Execution Environments - *ansible-builder*", align="center"]
+
+.DEMO - *Creating a Custom Execution Environment*
+====
+
+====
+
+
+.DEMO - *Using and Testing a Custom Execution Environment*
+====
+
+====
+
+.DEMO - *Publishing a Custom Execution Environment*
+====
+
+====
