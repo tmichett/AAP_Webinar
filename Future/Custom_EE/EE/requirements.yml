@@ -1,0 +1,4 @@
+---
+collections:
+  - name: /build/exercise.motd.tar.gz
+    type: file
