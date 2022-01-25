@@ -117,6 +117,9 @@ endif::[]
 * *ansible-navigator settings*
 ** https://ansible-navigator.readthedocs.io/en/latest/settings/
 
+* *Introduction to Ansible Builder
+** https://www.ansible.com/blog/introduction-to-ansible-builder
+
 
 .Updated
 [NOTE]
