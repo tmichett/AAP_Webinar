@@ -5,7 +5,7 @@ ansible-navigator:
     environment-variables:
       set:
         ANSIBLE_CONFIG: ansible.cfg
-    image: local/ee_aap_demo:latest
+    image: localhost/ee_aap_demo:latest
   logging:
     level: critical
   mode: stdout
