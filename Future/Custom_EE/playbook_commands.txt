@@ -5,11 +5,31 @@ cd ~/Github/AAP_Webinar/Future/Custom_EE
 
 IMPORTANT:
 
-May need to run " lab start builder-custom" to login to the private Hub
+May need to run "lab start builder-custom" to login to the private Hub
 
 Also remember to do credentials for SSH
 
+eval $(ssh-agent)
+ssh-add ~/.ssh/lab_rsa
 
 
+## Demo of Builder to create custom EE
 
-## Demo of Navigator with Ansible 2.9 EE
+cd /home/student/Github/AAP_Webinar/Future/Custom_EE/EE
+
+sudo yum install -y ansible-builder
+
+cat execution-environment.yml
+cat requirements.yml
+cat requirements.txt
+cat bindep.txt
+
+ansible-builder create
+
+tree context/
+
+cp collection-files/exercise.motd.tar.gz context/_build/
+
+ansible-builder build -t ee_aap_demo:latest
+
+podman images

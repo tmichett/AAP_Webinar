@@ -35,8 +35,176 @@ image::images/Section2-207ba.png[title="Ansible Execution Environments - Build P
 
 image::images/Section2-d9595.png[title="Ansible Execution Environments - *ansible-builder*", align="center"]
 
+
+.*execution-environment.yml* File to Define Custom EE
+[source,yaml]
+----
+---
+version: 1
+build_arg_defaults:
+  EE_BASE_IMAGE: 'hub.lab.example.com/ee-minimal-rhel8:2.0' <1>
+  EE_BUILDER_IMAGE: 'hub.lab.example.com/ansible-builder-rhel8:2.0' <2>
+dependencies:
+  galaxy: requirements.yml <3>
+  python: requirements.txt <4>
+  system: bindep.txt <5>
+----
+<1> Defines base container image to be used for creating the EE
+<2> Defines the builder image to be used for the EE
+<3> Points to file containing the Collections and Roles to be installed and included in the EE
+<4> Points to file containing the required Python components to be installed and included in the EE
+<5> Points to file containing the system applications to be installed in the EE
+
+
+.*requirements.yml*
+[source,yaml]
+----
+---
+collections:
+  - name: /build/exercise.motd.tar.gz <1>
+    type: file <2>
+----
+<1> Defines collections or roles to be included in the container image.
+<2> Defines type of collection or role.
+
+
+.*requirements.txt*
+[source,txt]
+----
+# Python dependencies
+funmotd <1>
+----
+<1> Defines Python dependencies needed to be installed on the container image. If multiple Python packages are needed, one package per line is required
+
+.*bindep.txt*
+[source,txt]
+----
+# System-level dependencies
+hostname <1>
+----
+<1> Defines system packages needed to be installed on the container image. If multiple packages are needed, one package per line is required.
+
+
 .DEMO - *Creating a Custom Execution Environment*
 ====
+
+. Switch to correct directory
++
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Custom_EE/EE
+----
+
+. Install *ansible-builder*
++
+[source,bash]
+----
+[student@workstation EE]$ sudo yum install -y ansible-builder
+----
++
+[NOTE]
+======
+The *execution-environment.yml*, *requirements.yml*, *requirements.txt*, and *bindep.txt* have already been created to save time. Normally these files would be created by the administrator creating the custom execution environment.
+======
+
+. View or create the *execution-environment.yml* file
++
+[source,yaml]
+----
+[student@workstation EE]$ cat execution-environment.yml
+---
+version: 1
+build_arg_defaults:
+  EE_BASE_IMAGE: 'hub.lab.example.com/ee-minimal-rhel8:2.0'
+  EE_BUILDER_IMAGE: 'hub.lab.example.com/ansible-builder-rhel8:2.0'
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt
+----
+
+. View or create the *requirements.yml* File
++
+[source,bash]
+----
+[student@workstation EE]$ cat requirements.yml
+---
+collections:
+  - name: /build/exercise.motd.tar.gz
+    type: file
+----
+
+. View or create the *requirements.txt* File
++
+[source,bash]
+----
+[student@workstation EE]$ cat requirements.txt
+ # Python dependencies
+funmotd
+----
+
+. View or create the *bindep.txt* File
++
+[source,bash]
+----
+[student@workstation EE]$ cat bindep.txt
+ # System-level dependencies
+hostname
+----
+
+. Run the *ansible-builder create* command to create the structure for the build process
++
+[source,bash]
+----
+[student@workstation EE]$ ansible-builder create
+Complete! The build context can be found at: /home/student/Github/AAP_Webinar/Future/Custom_EE/EE/context
+----
++
+[IMPORTANT]
+======
+This is necessary so that we can copy the file *exercise.motd.tar.gz* to the correct directory so it will be mounted and available in the container image and build process.
+======
+
+. View created files and directory structure
++
+[source,bash]
+----
+[student@workstation EE]$ tree context/
+context/
+├── _build
+│   ├── bindep.txt
+│   ├── requirements.txt
+│   └── requirements.yml
+└── Containerfile
+
+1 directory, 4 files
+----
+
+. Copy the *exercise.motd.tar.gz* to the *context/_build* location so it can be mounted properly
++
+[source,bash]
+----
+[student@workstation EE]$ cp collection-files/exercise.motd.tar.gz context/_build/
+----
+
+. Create the *ee-motd-demo* Execution Environment Image
++
+[source,bash]
+----
+[student@workstation EE]$ ansible-builder build -t ee_aap_demo:latest
+Running command:
+  podman build -f context/Containerfile -t ee_aap_demo:latest context
+Complete! The build context can be found at: /home/student/Github/AAP_Webinar/Future/Custom_EE/EE/context
+----
+
+. Verify container image was built using the *podman images* Command
++
+[source,bash]
+----
+[student@workstation EE]$ podman images
+REPOSITORY                                 TAG     IMAGE ID      CREATED         SIZE
+localhost/ee_aap_demo                      latest  3bfe381575fa  6 minutes ago   419 MB
+----
 
 ====
 

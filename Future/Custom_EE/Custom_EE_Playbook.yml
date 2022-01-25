@@ -1,4 +1,7 @@
 ---
-- name: Playbook to Fully Setup and Configure a Webserver
+- name: Playbook to Configure the Message of the Day with a Custom EE
   hosts: servera
-  tasks:
+  collections:
+    - exercise.motd
+  roles:
+    - name: exercise.motd.banner
