@@ -212,6 +212,54 @@ localhost/ee_aap_demo                      latest  3bfe381575fa  6 minutes ago  
 .DEMO - *Using and Testing a Custom Execution Environment*
 ====
 
+. Change to correct directory
++
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Custom_EE
+----
+
+. Ensure that *ansible-navigator* is using the correct Ansible Execution Environment
++
+[source,yaml]
+----
+[student@workstation Custom_EE]$ cat ansible-navigator.yml
+---
+ansible-navigator:
+  execution-environment:
+    enabled: true
+    environment-variables:
+      set:
+        ANSIBLE_CONFIG: ansible.cfg
+    image: localhost/ee_aap_demo:latest
+  logging:
+    level: critical
+  mode: stdout
+----
+
+. Create or View Playbook
++
+[source,yaml]
+----
+[student@workstation Custom_EE]$ cat Custom_EE_Playbook.yml
+---
+- name: Playbook to Configure the Message of the Day with a Custom EE
+  hosts: servera
+  collections:
+    - exercise.motd
+  roles:
+    - name: exercise.motd.banner
+----
+
+. Execute Playbook
++
+[source,bash]
+----
+[student@workstation Custom_EE]$ ansible-navigator run Custom_EE_Playbook.yml
+
+
+----
+
 ====
 
 .DEMO - *Publishing a Custom Execution Environment*

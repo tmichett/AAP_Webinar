@@ -33,3 +33,11 @@ cp collection-files/exercise.motd.tar.gz context/_build/
 ansible-builder build -t ee_aap_demo:latest
 
 podman images
+
+
+## Demo Using custom EE
+
+*** May need  lab start builder-validate ***
+
+
+cd /home/student/Github/AAP_Webinar/Future/Custom_EE
