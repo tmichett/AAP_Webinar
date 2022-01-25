@@ -1,0 +1,15 @@
+
+## Get to Correct Directory
+
+cd ~/Github/AAP_Webinar/Future/Custom_EE
+
+IMPORTANT:
+
+May need to run " lab start builder-custom" to login to the private Hub
+
+Also remember to do credentials for SSH
+
+
+
+
+## Demo of Navigator with Ansible 2.9 EE

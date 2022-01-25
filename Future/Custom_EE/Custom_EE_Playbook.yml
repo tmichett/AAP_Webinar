@@ -1,0 +1,4 @@
+---
+- name: Playbook to Fully Setup and Configure a Webserver
+  hosts: servera
+  tasks:

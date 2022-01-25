@@ -108,8 +108,18 @@ endif::[]
 * *Automating the automation — Ansible Tower configuration as code*
 ** https://www.redhat.com/en/blog/automating-automation-%E2%80%94-ansible-tower-configuration-code
 
+* *Where is Red Hat heading to with Ansible?*
+** https://www.open-circle.ch/wp-content/uploads/2021/09/Meetup-Where-is-Red-Hat-heading-to-with-Ansible.pdf
+
+* *Ansible Repositories - List of Repost for the Ansible Organization*
+** https://giters.com/ansible
+
+* *ansible-navigator settings*
+** https://ansible-navigator.readthedocs.io/en/latest/settings/
+
+
 .Updated
 [NOTE]
 ======
-Last updated January 16, 2022
+Last updated January 25, 2022
 ======

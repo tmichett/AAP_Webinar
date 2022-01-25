@@ -1,0 +1,11 @@
+---
+ansible-navigator:
+  execution-environment:
+    enabled: true
+    environment-variables:
+      set:
+        ANSIBLE_CONFIG: ansible.cfg
+    image: local/aap_demo:latest
+  logging:
+    level: critical
+  mode: stdout
