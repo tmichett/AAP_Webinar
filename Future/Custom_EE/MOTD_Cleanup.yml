@@ -1,10 +1,10 @@
 ---
-- name: Playbook to Fully Setup and Configure a Webserver
+- name: Playbook to Cleanup MOTD for Testing Custom EE
   hosts: serverb
   become: true
   tasks:
 
-    - name: Create Content for Webserver
+    - name: Reset MOTD
       copy:
         content: "I'm the clean MOTD Banner\n"
         dest: /etc/motd.d/banner
