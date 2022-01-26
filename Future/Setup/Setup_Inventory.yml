@@ -4,7 +4,7 @@
   tasks:
 
     - name: Create NYPD Web Workflow Inventory
-      awx.awx.inventory_source:
+      awx.awx.inventory:
         name: "NYPD Web Workflow"
         organization: "NYPD"
         state: "present"
