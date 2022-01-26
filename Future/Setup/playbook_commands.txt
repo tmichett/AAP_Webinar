@@ -10,3 +10,6 @@ ansible-galaxy collection install -r collections/requirements.yml -p collections
 
 ansible-playbook Setup_Controller.yml
 ansible-playbook Setup_Jobs.yml
+ansible-playbook Setup_Inventory.yml
+
+*** Remember to Sync the Inventory
