@@ -305,7 +305,7 @@ Not really needed as we are using the PODMAN commands to push images, but done f
 +
 [source,bash]
 ----
-[student@workstation EE]$ podman tag localhost/aap-demo:latest hub.lab.example.com/aap-demo:latest
+[student@workstation EE]$ podman tag localhost/ee_aap_demo:latest hub.lab.example.com/aap-demo:latest
 ----
 
 . Push the image to private automation hub
@@ -345,6 +345,36 @@ image::images/Section2-e5af7.png[title="Automation Hub Login", align="center"]
 . Navigate to Container Registry and look for the *aap-demo* Container
 +
 image::images/Section2-52b20.png[title="Automation Hub Login", align="center"]
+
+. Clean up *servere* and show that MOTD has been reset
++
+[source,bash]
+----
+[student@workstation Custom_EE]$ ansible-playbook MOTD_Cleanup.yml
+
+PLAY [Playbook to Cleanup MOTD for Testing Custom EE] ******************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+ok: [servere]
+
+TASK [Reset MOTD] ******************************************************************************************************
+changed: [servere]
+
+PLAY RECAP *************************************************************************************************************
+servere                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+----
++
+[source,bash]
+----
+
+[student@workstation Custom_EE]$ ssh servere
+Activate the web console with: systemctl enable --now cockpit.socket
+
+This system is not registered to Red Hat Insights. See https://cloud.redhat.com/
+To register this system, run: insights-client --register
+
+I'm the clean MOTD Banner
+----
 
 . Test with the image coming from Private Automation Hub
 +
