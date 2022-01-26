@@ -1,6 +1,6 @@
 ---
 - name: Playbook to Configure the Message of the Day with a Custom EE
-  hosts: servera
+  hosts: servere
   collections:
     - exercise.motd
   roles:
