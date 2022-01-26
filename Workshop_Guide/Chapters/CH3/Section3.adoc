@@ -137,12 +137,15 @@ image::images/Section3-fb75b.png[title="Ansible Controller Login", align="center
 image::images/Section3-a686f.png[title="Ansible Controller - Inventory", align="center"]
 
 . Provide and inventory *_Name_* and *_Organization_* and then click *Save*
+.. *Name*: NYPD Systems
+.. *Organization*: NYPD
 +
 image::images/Section3-664c9.png[title="Ansible Controller - *Selecting an Organization*", align="center"]
 +
 image::images/Section3-cb43f.png[title="Ansible Controller - New Inventory", align="center"]
 
 . Add hosts to the inventory by clicking *Hosts* and then click *Add*
+.. *Name*: serverd
 +
 image::images/Section3-de863.png[title="Ansible Controller - Managed Hosts in Inventory", align="center"]
 
@@ -157,6 +160,13 @@ image::images/Section3-8bf61.png[title="Ansible Controller - Adding a Host to In
 image::images/Section3-cb657.png[title="Ansible Controller - Credentials", align="center"]
 
 . Create the credential specifying the name, type, and bind to organization if desired and click *Save*.
+.. *Name*: NYPD Machine SSH Creds
+.. *Description*: NYPD SSH UN and PW Credential
+.. *Organization*: NYPD
+.. *Username*: devops
+.. *Password*: redhat
+.. *Privilege Escalation Method*: sudo
+.. *Privilege Escalation Username*: root
 ** NOTE - SSH credentials are *Machine Credentials*
 +
 image::images/Section3-59072.png[title="Ansible Controller - Machine Credentials", align="center"]
@@ -172,8 +182,45 @@ It is necessary to provide privilege escalation information as with Ansible Cont
 
 ==== Projects and Job Templates
 
+===== DEMO - Projects and Job Templates
+
 .DEMONSTRATION - Creating an Projects and Job Templates
 ====
+
+.Automatically Setup SCM/Git Credentials before Proceeding
+[IMPORTANT]
+======
+You must run a playbook to setup the *git* credentials so that there are SCM credentials loaded into Ansible Controller prior to completing this demo. This also assumes that the *ssh_ID_key* has been copied to */tmp/github_id*. The playbook and names may need to be modified for your user.
+
+. Go to the *Setup* Resources Directory
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Setup
+----
+
+. Execute the *Setup_Controller.yml* Playbook to create the Git Credentials
++
+[source,bash]
+----
+[student@workstation Setup]$ ansible-playbook Setup_Controller.yml
+
+PLAY [Playbook to Configure Controller with SCM Credentials] *************************
+
+TASK [Gathering Facts] ***************************************************************
+ok: [localhost]
+
+TASK [Create a valid SCM credential for Travis's Github] *****************************
+[WARNING]: You are using the awx version of this collection but connecting to Red Hat
+Ansible Automation Platform <1>
+changed: [localhost]
+
+PLAY RECAP ***************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+----
+<1> A warning is generated as we are using the public AWX collection to manage controller instead of the supported collection from Red Hat Automation Hub
+
+======
+
 
 .Creating a Project
 . Login to *Ansible Controller*
@@ -185,10 +232,18 @@ image::images/Section3-fb75b.png[title="Ansible Controller Login", align="center
 image::images/Section3-b8165.png[title="Ansible Controller - Projects", align="center"]
 
 . Create a New Project with a Name, Organization and Source Control Credential
-** URL: git@github.com:tmichett/AAP_Webinar.git
+** *Name*: NYPD Webserver
+** *Organization*: NYPD
+** *Source Control Credential Type*: Git
+** Source Control URL: git@github.com:tmichett/AAP_Webinar.git
+** *Source Control Credential*: Travis Github
 +
 image::images/Section3-bab7f.png[title="Ansible Controller - Creating Project from Github Source", align="center"]
-
++
+[TIP]
+======
+After clicking *Save* it will initiate the first sync of the project resources. Wait for the sync to complete successfully.
+======
 
 .Creating a Job Template
 
@@ -198,11 +253,16 @@ image::images/Section3-48ade.png[title="Ansible Controller - Job Templates", ali
 
 . Create the new job template and then click *Save*
 ** Provide a name
+*** *Name*: NYPD Webserver Deploy
 ** Provide job type (*run*)
 ** Provide *Inventory*
+*** *Inventory*: NYPD Systems
 ** Provide *Project*
+*** *Project*: NYPD Webserver
 ** Select *Playbook*
+*** *Playbook*: Future/NYPD/Website_Ansible_Past.yml
 ** Select *Credentials*
+*** *Credentials*: NYPD Machine SSH Creds
 ** Select *Privilege Escalation* option
 +
 image::images/Section3-b8889.png[title="Ansible Controller - Job Template Details", align="center"]
