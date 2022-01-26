@@ -94,6 +94,10 @@ In order to use Ansible roles, they must first be installed and made available o
 $ ansible-galaxy install tmichett.deploy_packages
 ----
 
+
+==== DEMONSTRATION - Using Roles
+
+
 .DEMONSTRATION - Using a Role from Ansible Galaxy
 ====
 
@@ -101,7 +105,7 @@ $ ansible-galaxy install tmichett.deploy_packages
 +
 [source,bash]
 ----
-[student@workstation ~]$ cd Github/AAP_Webinar/Past/Roles/
+[student@workstation ~]$ cd ~/Github/AAP_Webinar/Past/Roles/
 ----
 
 . Install Role from Ansible Galaxy
@@ -143,9 +147,7 @@ Because we are using a newer Ansible version, the regular modules are no longer 
 +
 [source,bash]
 ----
- create mode 100644 Workshop_Guide/redhat-theme.yml
-[student@workstation Past]$ cd
-[student@workstation ~]$ ls
+[student@workstation Roles]$ cat Roles_Playbook_Demo.yml
 ---
 - name: Playbook to Fully Setup and Configure a new User with a Role
   hosts: serverc
@@ -163,7 +165,7 @@ Because we are using a newer Ansible version, the regular modules are no longer 
 +
 [source,bash]
 ----
-[student@workstation Roles]$ ansible-playbook Roles_Playbook_Demo.yml
+[student@workstation Roles]$ ansible-playbook Roles_Playbook_Demo.yml -b
 ----
 
 . Test the results on *serverc*

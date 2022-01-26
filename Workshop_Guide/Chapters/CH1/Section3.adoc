@@ -92,6 +92,9 @@ The second indentation level in a playbook denoted by *-* is generally under the
 Playbooks can be run just like Ansible *ad-hoc* commands. In order to execute or run a playbook, it is necessary to use the *ansible-playbook* command and specify the playbook. The additional options available for the *ad-hoc* commands such as: *-e*, *-K*, *-b*, and others all still apply and perform the same functions when leveraged with the *ansible-playbook* command.
 
 
+==== DEMO - Running Ansible Playbooks
+
+
 .DEMONSTRATION - Running Ansible Playbooks
 ====
 
@@ -167,6 +170,7 @@ It is important to constantly test playbooks with the most current and recent ve
 +
 [source,yaml]
 ----
+[student@workstation Playbooks]$ cat Website_Past.yml
 ---
 - name: Playbook to Fully Setup and Configure a Webserver
   hosts: servera
