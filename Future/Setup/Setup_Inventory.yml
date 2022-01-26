@@ -21,7 +21,7 @@
         source_project: "NYPD Webserver"
         source: scm
         source_path: "Future/NYPD/inventory"
-        credentials:
+        credential:
           - "Travis Github SCM Credential"
         state: "present"
         controller_username: admin
