@@ -296,6 +296,43 @@ I'm an awesome webserver for the NYPD and I know Castle!!
 In order to create job workflows, projects and existing job templates must already be created before they can be put together as a job workflow template.
 
 
+===== DEMO - Creating Job Workflows
+
+.Setup Required
+[WARNING]
+======
+Before beginning this demo or exercise, it is necessary to run the *setup* playbooks.
+
+. Switch to correct directory
++
+[source,bash]
+----
+[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Setup
+----
+
+. Run the *Setup_All.yml* playbook
++
+[source,bash]
+----
+[student@workstation Setup]$ ansible-playbook Setup_All.yml
+
+... OUTPUT OMITTED ...
+----
+
+It is also necessary to synchronize the Project Inventory Source
+
+. Click *Inventories*
+. Click *NYPD Web Workflow*
+. Click *Sources*
+. Click the *Synchronize* action to synchronize the *NYPD Project Inventory* source
+** Wait for status to be *Green* meaning synchronization was successful
+. Click *Hosts* to verify inventory was imported
+
+This allows steps to be skipped and it is possible to jump to the *Creating a Job Workflow Template* instructions - Starting with *STEP 5*
+======
+
+
+
 .DEMONSTRATION - Job Workflow Templates
 ====
 For this demonstration, it will be necessary to create two new *Job Templates* that will be linked together in a *Job Workflow Template*. We will be leveraging the already created project *NYPD Webserver* for existing playbooks and inventories. We will also create a dynamic inventory based on imported inventory from the project.
@@ -353,7 +390,13 @@ image::images/Section3-dc1e0.png[title="Ansible Controller - Verifying Inventory
 The above example shows how to create a dynamic inventory that is sourced from a project. This would can be done to ensure that you have the same inventory and host systems as the developers. It is not 100% necessary to have inventory in the projects, but some people prefer to keep host inventory in projects and this is a great method in keeping developer inventory in sync with what is stored in Ansible Controller.
 ======
 
-.Creating a Job Workflow Template
+.README FIRST
+[CAUTION]
+======
+If you ran the lab scripts and Ansible playbook in the before you begin section, it is possible to skip to *STEP 5* of the *Creating a Job Workflow Template* steps. The playbook created the inventory and the intermediate Job Templates so the focus is creation of a Job Workflow. This has been done to save time for the demonstration and prevents the need to manually create new inventories and job templates.
+======
+
+.*Creating a Job Workflow Template*
 . Login to *Ansible Controller*
 +
 image::images/Section3-fb75b.png[title="Ansible Controller Login", align="center"]
@@ -393,6 +436,8 @@ image::images/Section3-78f83.png[title="Ansible Controller - Job Template Parame
 image::images/Section3-33a10.png[title="Ansible Controller - Job Workflow Template", align="center"]
 
 . Provide a *Name* and select the appropriate items
+.. *Name*: NYPD DevOps Workflow
+.. *Description*: Deploy systems to Dev and Test
 .. *Inventory*: _Leave Blank_ (Will use inventory specified for Job Templates)
 .. *Organization*: _NYPD_
 +
