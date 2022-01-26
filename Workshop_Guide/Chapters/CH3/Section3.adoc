@@ -20,6 +20,7 @@ Section Info Here
 
 ==== Organizations, Teams, and RBAC
 
+===== DEMO - Creating Organizations, Teams, and Users
 
 .DEMONSTRATION - Creating an Organization with Users and Teams
 ====
@@ -39,8 +40,11 @@ image::images/Section3-1adef.png[title="Ansible Controller - *Adding an Organiza
 
 . Create the new organization with the appropriate details and then click *Save*
 .. *Name*: Required for name of Organization
+... *NYPD*
 .. *Description*: _Optional but helpful_
+... *New York Police Department IT*
 .. *Execution Environment*: Default execution environment for playbooks, projects, and workflows in the environment.
+... *Ansible Engine 2.9 execution environment* (_Selected for backwards compatibility_)
 +
 image::images/Section3-3d066.png[title="Ansible Controller - *Configuring the Organization*", align="center"]
 +
@@ -60,8 +64,10 @@ image::images/Section3-0cff1.png[title="Ansible Controller - *Creating a Team*",
 
 . Click *Add* and fill in appropriate values and then click *Save*
 .. *Name*: Required for name of team
+... *NYPD System Administrator*
 .. *Organization*: Required to select an existing organization from drop-down
 ... Click magnifying glass and select Organization
+* *NYPD*
 +
 image::images/Section3-d2ee3.png[title="Ansible Controller - *Configuring a Team*", align="center"]
 +
@@ -76,6 +82,13 @@ image::images/Section3-43443.png[title="Ansible Controller - *Completing Team Cr
 image::images/Section3-6a687.png[title="Ansible Controller - *Creating a User*", align="center"]
 
 . Click *Add* and fill in appropriate information and click *Save*
+.. *Username*: kbeckett
+.. *Email*: kbeckett@nypd.ny.gov
+.. *Password*: redhat
+.. *First Name*: Kate
+.. *Last Name*: Beckett
+.. *Organization*: NYPD
+.. *User Type*: Normal User
 +
 image::images/Section3-664c9.png[title="Ansible Controller - *Selecting an Organization*", align="center"]
 +
@@ -90,6 +103,7 @@ Adding users to a team can be done multiple ways, but in this example, we will b
 image::images/Section3-aead5.png[title="Ansible Controller - *User Teams Menu*", align="center"]
 
 . Click the *Associate* button to search for and select a team, then click *Save*
+.. *NYPD System Administrator*
 +
 image::images/Section3-3aab6.png[title="Ansible Controller - *User Team(s) Selection*", align="center"]
 
@@ -105,6 +119,10 @@ Teams are used to group users together so that RBAC controls can be more easily 
 ====
 
 ==== Inventories and Credentials
+
+
+===== DEMO - Creating Inventories and Credentials
+
 
 .DEMONSTRATION - Creating an Inventories and Credentials
 ====
