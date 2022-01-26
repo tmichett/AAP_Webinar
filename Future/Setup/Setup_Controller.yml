@@ -13,5 +13,5 @@
         controller_password: redhat
         controller_host: https://controller.lab.example.com
         inputs:
-          username: git
+          username: tmichett
           ssh_key_data: "{{ lookup('file', '/tmp/github_id') }}"
