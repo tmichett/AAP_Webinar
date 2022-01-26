@@ -28,6 +28,11 @@ https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin
 
 Collections allowed development of Ansible core components to be separated from module and plug-in development. Upstream Ansible unbundled modules from Ansible core code beginning with Ansible Base (core) 2.10/2.11. Never versions of Ansible require collections to be installed in order for modules to be available for Ansible. Playbooks should be developed using the FQCNs when referring to modules in tasks. Existing playbooks can be fixed easily to work with collections, but it is better to re-write the playbooks to use the fully-qualified collection name (FCQN).
 
+
+=== Demonstration - Ansible Collections
+
+
+
 .DEMONSTRATION - Using Ansible Collections
 ====
 
@@ -66,7 +71,7 @@ Collections allowed development of Ansible core components to be separated from 
         enabled: true
 
     - name: HTTP Service is Open on Firewall
-      ansible.posix.firewalld:
+      ansible.posix.firewalld: <1>
         service: http
         state: enabled
         permanent: true
@@ -78,6 +83,15 @@ Collections allowed development of Ansible core components to be separated from 
         state: started
         enabled: true
 ----
+<1> In the newer version of Ansible the *firewalld* module is located in the *ansible.posix.firewalld* collection.
++
+[TIP]
+======
+Beginning with Ansible version 2.9 collections contain modules that were previously included as part of Ansible core. Ansible version 2.9.x contains mapping for modules in their collections and Ansible version 2.9 also includes all the collections as part of the Ansible Core distribution. Never versions of Ansible however, don't have the collection mapping nor are the modules and collections pre-installed so it is necessary to install collections.
+
+Ansible Module Mapping: https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml
+======
+
 
 . Install the Ansible Collections
 +
@@ -85,6 +99,11 @@ Collections allowed development of Ansible core components to be separated from 
 ----
 [student@workstation Playbooks]$ ansible-galaxy collection install -r collections/requirements.yml -p collections/
 ----
++
+[IMPORTANT]
+======
+Since we are using collections, it is very important to install the collections before attempting to run the playbook. Collections are typically installed into the local project directory called *collections* and they are usually listed in a *requirements.yml* file.
+======
 
 . Execute the playbook with the *ansible-playbook* command
 +
