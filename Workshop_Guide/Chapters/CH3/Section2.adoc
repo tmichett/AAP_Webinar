@@ -16,9 +16,16 @@ endif::[]
 
 === Introduction to AAP 2.x - Ansible Automation Hub
 
-Section Info Here
+The Red Hat AAP 2.x platform provides Ansible Private Automation hub for those with valid subscription entitlements. Private Automation Hub provides two key features:
+
+* Place to publish Collections
+* Place to publish Execution Environments
+
+This Private Automation Hub is essentially your local version (private version) of Ansible Galaxy and container registries.
 
 ==== Private Automation Hub
+
+Private automation hub provides an on-site location for publishing collections and Ansible Execution Environments.  This provides a centralized location for Automation Controller and for developers using Ansible Navigator to obtain EEs and content collections.
 
 image::images/Section2-37838.png[title="Ansible *Private* Automation Hub", align="center"]
 
@@ -27,6 +34,9 @@ image::images/Section2-a1519.png[title="Ansible *Private* Automation Hub - Colle
 image::images/Section2-57706.png[title="Ansible *Private* Automation Hub - Container Registry (Execution Environments)", align="center"]
 
 ==== Custom Execution Environments
+
+Building EEs is rather simple: we provide the tool execution environment builder, the CLI tool ansible-builder for this, which knows how to bring the pieces together in just the right way and create the EE. They can be published on Private Automation hub or in any container registry.
+
 
 image::images/Section2-ccd46.png[title="Ansible Execution Environments", align="center"]
 
@@ -83,6 +93,19 @@ funmotd <1>
 hostname <1>
 ----
 <1> Defines system packages needed to be installed on the container image. If multiple packages are needed, one package per line is required.
+
+
+.References
+[NOTE]
+======
+* *Ansible Builder Blog*:
+** https://www.ansible.com/blog/introduction-to-ansible-builder
+
+* *Ansible Builder Images*
+** https://blog.networktocode.com/post/ansible-builder-runner-ee/
+** https://quay.io/repository/ansible/ansible-runner?tag=latest&tab=tags
+
+======
 
 
 

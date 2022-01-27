@@ -78,14 +78,12 @@ Most *ansible* commands have a corresponding *ansible-navigator* command. The ta
 |ansible-playbook
 |ansible-navigator run
 
-
-
 |===
 
 
 ==== Ansible Execution Environments
 
-Ansible Execution Environments (EEs) are containers whci consist of:
+Ansible Execution Environments (EEs) are containers which consist of:
 
 * *Ansible Core*
 * *Ansible Content Collections*
@@ -95,6 +93,17 @@ Ansible Execution Environments (EEs) are containers whci consist of:
 
 Custom execution environments can be built and created with *ansible-builder*. The process of creating a new Ansible EE depends on if there is a valid Ansible Automation Entitlement associated with your account. If you are using the *free* version of Ansible, base container images *MUST* come from *Quay.IO* as the Red Hat Ansible Execution Environments (EEs) cannot be used or redistributed.
 
+
+Ansible Execution Environments (EEs) are containers which require:
+
+* *Configugration Files (ansible.cfg*)
+* *Inventory*
+* *SSH*
+** SSH Keys (requires SSH Agent Service)
+
+image::images/Section1-3e457.png[title="Ansible Execution Environment", align="center"]
+
+
 image::images/Section1-777b1.png[title="Ansible Builder", align="center"]
 
 .Default Versions of Ansible and Execution Environments
@@ -102,6 +111,22 @@ image::images/Section1-777b1.png[title="Ansible Builder", align="center"]
 ======
 Ansible Automation Platform 2 provides Ansible Core 2.11 as well as several Red Hat Certified Content Collections providing a similar experience to Ansible 2.9. A benefit of execution environments is that they can be used to run older versions of Ansible. Some of the demos in this webinar will use an Ansible EE based on Ansible 2.9 so that collection mapping is done automatically and older playbooks don't need to be touched.
 ======
+
+.SSH Keys
+[TIP]
+======
+SSH Agent is used to allow the SSH keys to pass through to the Ansible Execution Environment (EE) which is a container with all the Ansible and Python components required to run the Ansible Automation tasks.
+
+.Passing SSH Keys to Execution Environments
+[source,bash]
+----
+[student@workstation ~]$ eval $(ssh-agent)
+
+[student@workstation ~]$ ssh-add ~/.ssh/lab_rsa
+----
+
+======
+
 
 
 ==== DEMO - Using Ansible Content Navigator and Ansible Execution Environments

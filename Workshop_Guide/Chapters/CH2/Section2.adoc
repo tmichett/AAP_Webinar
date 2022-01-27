@@ -26,7 +26,13 @@ https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin
 
 ==== Using Ansible Automation Platform Collections
 
-Collections allowed development of Ansible core components to be separated from module and plug-in development. Upstream Ansible unbundled modules from Ansible core code beginning with Ansible Base (core) 2.10/2.11. Never versions of Ansible require collections to be installed in order for modules to be available for Ansible. Playbooks should be developed using the FQCNs when referring to modules in tasks. Existing playbooks can be fixed easily to work with collections, but it is better to re-write the playbooks to use the fully-qualified collection name (FCQN).
+Collections allowed development of Ansible core components to be separated from module and plug-in development. Upstream Ansible unbundled modules from Ansible core code beginning with Ansible Base (core) 2.10/2.11. Newer versions of Ansible require collections to be installed in order for modules to be available for Ansible. Playbooks should be developed using the FQCNs when referring to modules in tasks. Existing playbooks can be fixed easily to work with collections, but it is better to re-write the playbooks to use the fully-qualified collection name (FCQN).
+
+.Downloading Collections
+[NOTE]
+======
+Collections are brought into the entire structure via three ways: Requirements files next to your playbooks describe what collections should be present for the automation-content at hand. Automation controller can read those, or searches to Private Automation hub automatically for needed collections and pull them automatically. There is also a CLI for downloading collections.
+======
 
 
 === Demonstration - Ansible Collections

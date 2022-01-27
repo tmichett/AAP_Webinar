@@ -16,7 +16,20 @@ endif::[]
 
 === Introduction to AAP 2.x - Ansible Controller (formerly Ansible Tower)
 
-Section Info Here
+Ansible Controller is the replacement for Ansible Tower which consists of a web-based management interface providing multiple features for system automation. Ansible Controller provides the following:
+
+* WebUI
+* Centralized Dashboard
+* Centralized Logging/Auditing
+* Role-Based Access Control (RBAC)
+** User/Group (Team) Management
+* Inventory Management
+* Project Management (Integration with Version Control)
+* Credential Management
+* Workflow and Job Management
+* ... and more
+
+
 
 ==== Organizations, Teams, and RBAC
 
