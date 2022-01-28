@@ -124,9 +124,19 @@ endif::[]
 ** https://github.com/ansible/ansible-navigator/blob/main/docs/faq.md
 *** Look here for information about SSH keys for the execution environments
 
+* *Installing ansible-navigator with execution environment support*
+** https://ansible-navigator.readthedocs.io/en/latest/installation/
++
+.MacOS Installation
+[NOTE]
+======
+Ansible Navigator for MacOS uses the *quay.io/ansible/ansible-navigator-demo-ee:0.6.0* Ansible Execution Environment (EE). It also requires both Docker Desktop and XCode CLI Developer Tools
+======
+
+
 
 .Updated
 [NOTE]
 ======
-Last updated January 25, 2022
+Last updated January 28, 2022
 ======
