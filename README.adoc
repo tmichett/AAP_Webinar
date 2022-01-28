@@ -29,3 +29,8 @@ include::Presentation/README.adoc[]
 == Workshop/Webinar Guide
 
 * *Workshop Guide*: https://github.com/tmichett/AAP_Webinar/blob/main/Workshop_Guide/AAP_Workshop_Guide.pdf 
+
+== Video Recording
+
+* *Automation with Ansible: Past, Present & Future - January 27, 2022 Recording*
+** https://vimeo.com/671198584/b34755e411
