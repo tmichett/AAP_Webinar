@@ -117,6 +117,17 @@ endif::[]
 * *ansible-navigator settings*
 ** https://ansible-navigator.readthedocs.io/en/latest/settings/
 
+* *Ansible Automation Platform compatibility execution environment (Supported EE 2.9)*
+** https://catalog.redhat.com/software/containers/ansible-automation-platform-21/ee-29-rhel8/6177beb940a2d8e95c82d69e?container-tabs=gti
+
+
+* *Ansible Automation Platform minimal execution environment (Minimal RHEL 8)*
+** https://catalog.redhat.com/software/containers/ansible-automation-platform-21/ee-minimal-rhel8/6177bfa6be25a74c009224f8
+
+* *Ansible Automation Platform supported execution environment (Supported RHEL 8)*
+** https://catalog.redhat.com/software/containers/ansible-automation-platform-21/ee-supported-rhel8/6177cff2be25a74c009224fa
+
+
 * *Introduction to Ansible Builder
 ** https://www.ansible.com/blog/introduction-to-ansible-builder
 
@@ -138,5 +149,5 @@ Ansible Navigator for MacOS uses the *quay.io/ansible/ansible-navigator-demo-ee:
 .Updated
 [NOTE]
 ======
-Last updated January 28, 2022
+Last updated January 31, 2022
 ======
