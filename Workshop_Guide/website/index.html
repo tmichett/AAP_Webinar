@@ -1,0 +1,4242 @@
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Ansible Automation Platform 2.x WebinarAnsible Automation Platform 2.x Webinar</title>
+      <style>
+        #wrapper {width: 960px; margin: 0 auto;}
+        /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+
+      </style>
+      <link href='https://fonts.googleapis.com/css?family=Noto+Serif' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/asciidoc.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/yaml.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/dockerfile.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/makefile.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/go.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/rust.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/haskell.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/typescript.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/scss.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/less.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/handlebars.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/groovy.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/scala.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/bash.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/languages/ini.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script>
+    </head>
+    <body>
+      <div id="wrapper">
+        <div class="article">
+          <h1 id="__asciidoctor-preview-0__">Ansible Automation Platform 2.x Webinar</h1>
+<div class="sect1">
+<h2 id="_introduction_to_ansible_automation">Introduction to Ansible Automation</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ansible_ansible_automation_engine_past">1. Ansible &amp; Ansible Automation Engine (Past)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ansible_infrastructure">1.1. Ansible Infrastructure</h3>
+<div id="__asciidoctor-preview-1__" class="paragraph">
+<p>The Ansible infrastructure and Ansible Automation consists of multiple components. The initial main foundation of Ansible is the Ansible Automation Engine.</p>
+</div>
+<div id="__asciidoctor-preview-2__" class="paragraph">
+<p>For the most part, Ansible is a declarative automation platform that is considered idempotent meaning that Ansible will only execute tasks and plays if the item needs to be changed/modified. Otherwise, Ansible will skip to the next task or play in a playbook.</p>
+</div>
+<div id="__asciidoctor-preview-3__" class="ulist">
+<div class="title">Ansible Components</div>
+<ul>
+<li id="__asciidoctor-preview-4__">
+<p><strong>Control Node</strong>: System with Ansible installed, contains Ansible inventory files, <strong>ansible.cfg</strong>, and playbooks. This system manages and controls other managed hosts/nodes.</p>
+</li>
+<li id="__asciidoctor-preview-5__">
+<p><strong>Managed Host</strong>/<strong>Managed Node</strong>: System or node being managed in the Ansible environment. The <strong>Control Node</strong> executes various Ansible modules against these devices.</p>
+</li>
+</ul>
+</div>
+<div id="__asciidoctor-preview-6__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section1-9196c.png" alt="Section1 9196c">
+</div>
+<div class="title">Figure 1. Ansible Automation</div>
+</div>
+<div id="__asciidoctor-preview-7__" class="ulist">
+<div class="title">Ansible Automation Engine</div>
+<ul>
+<li id="__asciidoctor-preview-8__">
+<p>Inventory</p>
+</li>
+<li id="__asciidoctor-preview-9__">
+<p>Command-Line Interface (CLI)</p>
+</li>
+<li id="__asciidoctor-preview-10__">
+<p>Modules (Generally Python/Powershell)</p>
+</li>
+<li id="__asciidoctor-preview-11__">
+<p>Plugins</p>
+</li>
+</ul>
+</div>
+<div id="__asciidoctor-preview-12__" class="paragraph">
+<p>Ansible Automation Engine utilizes the <strong>ansible</strong> command for Ad-Hoc Ansible Automation or the <strong>ansible-playbook</strong> command for running multiple tasks by leveraging and Ansible playbook containing one or more plays consisting of one or more tasks.</p>
+</div>
+<div class="sect3">
+<h4 id="_inventory">1.1.1. Inventory</h4>
+<div id="__asciidoctor-preview-13__" class="paragraph">
+<p>List of systems in the infrastructure to be managed. Inventories can be static, dynamic, or a combination of both static and dynamic. Ansible also allows inventories to contain variables for the devices being managed. Devices must exist in inventory in order for Ansible to be capable of managing the devices.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_modules">1.1.2. Modules</h4>
+<div id="__asciidoctor-preview-14__" class="paragraph">
+<p>Code utilized by the Ansible core engine which is used to perform a given tasks. Most modules are written in Python for Linux and Powershell for Windows. Modules can extend Ansible automation to multiple platforms simplifying and extending the automation to the entire stack.</p>
+</div>
+<div id="__asciidoctor-preview-15__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Non-Idempotent Modules</div>
+<div id="__asciidoctor-preview-16__" class="paragraph">
+<p>There are some Ansible modules that aren&#8217;t idempotent. Modules such as <strong>commmand</strong>, <strong>shell</strong>, and <strong>raw</strong> to name a few will execute regardless of the state. It is possible to use these modules with logic to make a playbook idempotent, but it is recommended to find an actual Ansible module to perform the task. These modules should be used as a last resort when no other module exists to perform a task.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_plugins">1.1.3. Plugins</h4>
+<div id="__asciidoctor-preview-17__" class="paragraph">
+<p>Code utilized by the Ansible core engine which is used to manipulate, transform, or otherwise modify either data in the playbook or items captured by the playbook and modules so that it is adaptable and usable on different platforms.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_playbooks">1.1.4. Playbooks</h4>
+<div id="__asciidoctor-preview-18__" class="paragraph">
+<p>List of sequential tasks to allowing individual Ansible modules to be executed to perform a sequence of steps in an automation task. Playbooks are written in YAML and are simple easy-to-read steps on the end state of the system.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ansible_tower">1.1.5. Ansible Tower</h4>
+<div id="__asciidoctor-preview-19__" class="paragraph">
+<p>Ansible Tower delivers enterprise management and features to the Ansible family. Through Tower, Ansible can provide the following:</p>
+</div>
+<div id="__asciidoctor-preview-20__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-21__">
+<p>Role-Based Access Control (RBAC)</p>
+</li>
+<li id="__asciidoctor-preview-22__">
+<p>Restful API</p>
+</li>
+<li id="__asciidoctor-preview-23__">
+<p>Push button deployment</p>
+</li>
+<li id="__asciidoctor-preview-24__">
+<p>Workflows</p>
+</li>
+<li id="__asciidoctor-preview-25__">
+<p>Credential and Secret Management</p>
+</li>
+<li id="__asciidoctor-preview-26__">
+<p>Integration into SCM systems</p>
+</li>
+<li id="__asciidoctor-preview-27__">
+<p>Integration into other management systems for dynamic inventory</p>
+</li>
+<li id="__asciidoctor-preview-28__">
+<p>WebUI</p>
+</li>
+<li id="__asciidoctor-preview-29__">
+<p>&#8230;&#8203; and more</p>
+</li>
+</ul>
+</div>
+<div id="__asciidoctor-preview-30__" class="paragraph">
+<p>Ansible Tower allows enterprises to manage their IT environment by providing a centralized web solution to end-users and administrators to perform automation and self-service tasks.
+:pygments-style: tango
+:source-highlighter: pygments
+:icons: font
+:icons: font</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ansible_inventory_ansible_config_file_and_ansible_ad_hoc_commands">1.2. Ansible Inventory, Ansible Config File, and Ansible Ad-Hoc Commands</h3>
+<div class="sect3">
+<h4 id="_ansible_inventory">1.2.1. Ansible Inventory</h4>
+<div id="__asciidoctor-preview-31__" class="paragraph">
+<p>Ansible inventories can be either static, dynamic, or a combination of both static and dynamic. The traditional form of the Ansible inventory file is either YAML or INI. Inventory items consist of either individual managed nodes or groups of managed nodes.</p>
+</div>
+<div id="__asciidoctor-preview-32__" class="listingblock">
+<div class="title">Listing 1. Ansible Inventory File <strong>INI</strong> Format</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">servera <i class="conum" data-value="1"></i><b>(1)</b>
+serverb
+serverc
+serverd
+
+[load_balancers] <i class="conum" data-value="2"></i><b>(2)</b>
+servere
+serverf</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-33__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Individual managed host/node</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Inventory Group</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-36__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Converting INI to YAML Inventory</div>
+<div id="__asciidoctor-preview-37__" class="paragraph">
+<p>Ansible provides the <strong>ansible-inventory</strong> command that will easily allow the inventory to be transformed from one form to another.</p>
+</div>
+<div id="__asciidoctor-preview-38__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">ansible-inventory --list -y</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-39__" class="listingblock">
+<div class="title">Listing 2. Ansible Inventory File <strong>YAML</strong> Format</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">all:
+  children:
+    load_balancers: <i class="conum" data-value="1"></i><b>(1)</b>
+      hosts:
+        servere: {}
+        serverf: {}
+    ungrouped:
+      hosts: <i class="conum" data-value="2"></i><b>(2)</b>
+        servera: {}
+        serverb: {}
+        serverc: {}
+        serverd: {}</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-40__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Inventory Hosts in a Group</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Individual managed host/node (ungrouped)</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_inventory_variables">1.2.1.1. Inventory Variables</h5>
+<div id="__asciidoctor-preview-43__" class="paragraph">
+<p>It is possible for Ansible playbooks and Ansible ad-hoc commands to utilize inventory variables. These variables can be defined directly within the static inventory files themselves or those variables can be defined within the directory structure of the project utilizing either project directories or inventory directories.</p>
+</div>
+<div id="__asciidoctor-preview-44__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Keep Inventory Simple and Organized</div>
+<div id="__asciidoctor-preview-45__" class="paragraph">
+<p>It is extremely important not to define variables for inventory in multipe locations as variable precedence and variable merging comes into play. It is equally important to devise an inventory strategy on where/how variables will be defined so that the playbooks and automation goals are kept simple and easy to understand and follow.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-46__" class="listingblock">
+<div class="title">Listing 3. Sample Inventory File with Variables</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[app1srv]
+appserver01 ansible_host=10.42.0.2 <i class="conum" data-value="1"></i><b>(1)</b>
+appserver02 ansible_host=10.42.0.3
+
+[web]
+node-[1:30] ansible_host=10.42.0.[31:60]
+
+[web:vars] <i class="conum" data-value="2"></i><b>(2)</b>
+apache_listen_port=8080
+apache_root_path=/var/www/mywebdocs/
+
+[all:vars] <i class="conum" data-value="3"></i><b>(3)</b>
+ansible_user=kev
+ansible_ssh_private_key_file=/home/kev/.ssh/id_rsa</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-47__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defined variable at a <strong>host</strong> level</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Defined variables at a <strong>group</strong> level</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Defined variables for all inventory items</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ansible_config">1.2.2. Ansible Config</h4>
+<div id="__asciidoctor-preview-51__" class="paragraph">
+<p>The <strong>ansible.cfg</strong> file controls how the <strong>ansible</strong> and <strong>ansible-playbook</strong> commands are run and interpreted. The configuration file has two (2) main sections that are commonly used, but include other sections as well. For the purpose of understanding how Ansible works, we will examine both the <strong>[defaults]</strong> section and the <strong>[privilege_escalation]</strong> section.</p>
+</div>
+<div id="__asciidoctor-preview-52__" class="listingblock">
+<div class="title">Listing 4. <strong>ansible.cfg</strong> Defaults Section</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[defaults]
+inventory = inventory <i class="conum" data-value="1"></i><b>(1)</b>
+remote_user = devops <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-53__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Specifies which inventory file Ansible will use</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Specifies the remote user to be used by <strong>ansible</strong> or <strong>ansible-playbook</strong> commands.</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-56__" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div id="__asciidoctor-preview-57__" class="paragraph">
+<p>A perfectly acceptable <strong>ansible.cfg</strong> might only have a [defaults] section specifying the inventory to be used.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-58__" class="listingblock">
+<div class="title">Listing 5. <strong>ansible.cfg</strong> Privilege Escalation Section</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[privilege_escalation]
+become = False <i class="conum" data-value="1"></i><b>(1)</b>
+become_method = sudo <i class="conum" data-value="2"></i><b>(2)</b>
+become_user = root <i class="conum" data-value="3"></i><b>(3)</b>
+become_ask_pass = False <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-59__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Sets default behavior whether to elevate privileges</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Sets method for privilege escalation</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Sets username of privileged user</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Sets option on whether or not user is prompted for password when perfoming privilege escalation.</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-64__" class="ulist">
+<div class="title">Ansible Config File Precedence</div>
+<ul>
+<li id="__asciidoctor-preview-65__">
+<p><strong>ANSIBLE_CONFIG</strong> - Environment Variable (highest)</p>
+</li>
+<li id="__asciidoctor-preview-66__">
+<p><strong>ansible.cfg</strong> - Config file in current working directory (most common and recommended)</p>
+</li>
+<li id="__asciidoctor-preview-67__">
+<p><strong>~/.ansible.cfg</strong> - Ansible config file in the home directory</p>
+</li>
+<li id="__asciidoctor-preview-68__">
+<p><strong>/etc/ansible/ansible.cfg</strong> - Ansible&#8217;s installed default location (lowest)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_ansible_ad_hoc_commands">1.2.3. Ansible Ad-Hoc Commands</h4>
+<div id="__asciidoctor-preview-69__" class="paragraph">
+<p>Ansible Ad-Hoc commands are most often used to quickly perform an automation task using a single Ansible module. These commands can be executed against one or more hosts in the Ansible inventory file.</p>
+</div>
+<table id="__asciidoctor-preview-70__" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Ansible <strong>Ad-Hoc</strong> Command Arguments</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command Argument</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>-m MODULE_NAME</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Module name to execute for the ad-hoc command</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>-a MODULE_ARGS</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Module arguments needed for the ad-hoc command</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>-b</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Runs ad-hoc command as a privileged user</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>-K</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Runs ad-hoc command as a privileged user and requests the <strong>become</strong> password</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>-e EXTRA_VARS</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Provides extra variables as <strong>KEY=VALUE</strong> to be used for the execution of the ad-hoc command</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_demo_ansible_ad_hoc_commands">1.2.4. DEMO - Ansible Ad-Hoc Commands</h4>
+<div id="__asciidoctor-preview-83__" class="paragraph">
+<p>Demonstration and hands-on workshop for Ad-Hoc commands. The demo will utilize the <strong>ping</strong> module to ensure that the <strong>ansible.cfg</strong> and the <strong>inventory</strong> file are correctly setup and working within the Ansible environment.</p>
+</div>
+<div id="__asciidoctor-preview-84__" class="exampleblock">
+<div class="title">Example 1. <strong>DEMONSTRATION - Ansible Ping</strong></div>
+<div class="content">
+<div id="__asciidoctor-preview-85__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-86__">
+<p>Change to correct directory</p>
+<div id="__asciidoctor-preview-87__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Past/ad-hoc</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-88__">
+<p>Run the <strong>ansible</strong> ad-hoc command</p>
+<div id="__asciidoctor-preview-89__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ad-hoc]$ ansible -m ping all
+servere | SUCCESS =&gt; {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+servera | SUCCESS =&gt; {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+serverc | SUCCESS =&gt; {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+serverb | SUCCESS =&gt; {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+serverd | SUCCESS =&gt; {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+serverf | SUCCESS =&gt; {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false,
+    "ping": "pong"
+}</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-90__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Checking Sudoers Ability and Setup</div>
+<div id="__asciidoctor-preview-91__" class="listingblock">
+<div class="title">Listing 6. Checking <strong>ansible.cfg</strong> for Ability to <strong>BECOME</strong> without <strong>sudo</strong> Password</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ad-hoc]$ ansible -m ping all --become</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-92__" class="listingblock">
+<div class="title">Listing 7. Checking <strong>ansible.cfg</strong> for Ability to <strong>BECOME</strong> with <strong>sudo</strong> and Prompting for Password</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ad-hoc]$ ansible -m ping all --become -K
+BECOME password:</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div id="__asciidoctor-preview-93__" class="paragraph">
+<p>The next demonstration will use the <strong>copy</strong> module to create a user in the managed systems making an entry to the <strong>sudoers</strong> file.</p>
+</div>
+<div id="__asciidoctor-preview-94__" class="exampleblock">
+<div class="title">Example 2. <strong>DEMONSTRATION - Ansible Ad-Hoc Command to Create User and Sudoers File</strong></div>
+<div class="content">
+<div id="__asciidoctor-preview-95__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-96__">
+<p>Change to correct directory</p>
+<div id="__asciidoctor-preview-97__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Past/ad-hoc</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-98__">
+<p>Run the <strong>ansible</strong> commands to create the user and update the <strong>sudoers</strong> file.</p>
+<div id="__asciidoctor-preview-99__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-100__">
+<p>Create the user on the remote system.</p>
+<div id="__asciidoctor-preview-101__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ad-hoc]$ ansible -m user -a 'name=travis uid=1040 comment="Travis Michette" group=wheel' servera -b
+servera | SUCCESS =&gt; {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "append": false,
+    "changed": false,
+    "comment": "Travis Michette",
+    "group": 10,
+    "home": "/home/travis",
+    "move_home": false,
+    "name": "travis",
+    "shell": "/bin/bash",
+    "state": "present",
+    "uid": 1040
+}</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-102__">
+<p>Create the user in a <strong>sudoers</strong> file.</p>
+<div id="__asciidoctor-preview-103__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ad-hoc]$ ansible -m copy -a 'content="travis ALL=(ALL) NOPASSWD:ALL" dest=/etc/sudoers.d/travis' servera -b</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-104__">
+<p>Test new user and sudo rights</p>
+<div id="__asciidoctor-preview-105__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-106__">
+<p>SSH to <strong>servera</strong></p>
+<div id="__asciidoctor-preview-107__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ad-hoc]$ ssh travis@servera</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-108__">
+<p><strong>sudo</strong> without a password</p>
+<div id="__asciidoctor-preview-109__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[travis@servera ~]$ sudo -i
+[root@servera ~]#</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ansible_playbooks">1.3. Ansible Playbooks</h3>
+<div id="__asciidoctor-preview-110__" class="paragraph">
+<p>Ansible playbooks contain one or more tasks to execute against specified inventory nodes. Playbooks consist of one or more play and each play in a playbook consists of one or more tasks. Ansible playbooks and tasks are all about <strong>key:value</strong> pairs and <strong>lists</strong>. Understanding this basic format allows someone developing Ansible to form playbooks that are easier to create, troubleshoot/debug, and for someone else to understand.</p>
+</div>
+<div class="sect3">
+<h4 id="_playbook_basics">1.3.1. Playbook Basics</h4>
+<div id="__asciidoctor-preview-111__" class="paragraph">
+<p>An Ansible playbook is written/formatted in YAML so horizontal whitespace is critical and often the most troublesome part of debugging new Ansible playbooks. Playbooks have a general structure for the plays with directives such as: <strong>name</strong>, <strong>hosts</strong>, <strong>vars</strong>, <strong>tasks</strong>, and more. These play-level directives help form a readable structure much like <strong>task-level</strong> directives.</p>
+</div>
+<div id="__asciidoctor-preview-112__" class="listingblock">
+<div class="title">Listing 8. Play Structure Components</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">---
+- name: install and start apache <i class="conum" data-value="1"></i><b>(1)</b>
+  hosts: web <i class="conum" data-value="2"></i><b>(2)</b>
+  become: yes <i class="conum" data-value="3"></i><b>(3)</b>
+
+  tasks: <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-113__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Name of play in playbook</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>List of hosts from inventory to execute play against <strong>(required)</strong></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Directive to override <strong>ansible.cfg</strong> and elevate privileges</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Beginning of <strong>tasks</strong> section.</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-118__" class="paragraph">
+<p>There can be other directives here, but at the most basic playbook, you will generally always see a <strong>hosts</strong> and a <strong>tasks</strong> section.</p>
+</div>
+<div id="__asciidoctor-preview-119__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Naming Plays</div>
+<div id="__asciidoctor-preview-120__" class="paragraph">
+<p>It is recommended and considered a best practice to name all plays within a playbook.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-121__" class="paragraph">
+<p>The first indentation level in a playbook denoted by <strong>-</strong> is the list of plays and this level will contain the <strong>key:value</strong> pairs that correspond to Ansible playbook directives. Understanding this and developing good habits and standards for indentations allows Ansible users to create playbook skeletons which help tremendously during the development/debugging cycle.</p>
+</div>
+<div class="sect4">
+<h5 id="_task_structure">1.3.1.1. Task Structure</h5>
+<div id="__asciidoctor-preview-122__" class="paragraph">
+<p>A task within a playbook is generally specified similar to a play having a <strong>name</strong> section so that it is easier to debug.</p>
+</div>
+<div id="__asciidoctor-preview-123__" class="listingblock">
+<div class="title">Listing 9. Task Structure and Components</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">  tasks:
+    - name: httpd package is present <i class="conum" data-value="1"></i><b>(1)</b>
+	   yum: <i class="conum" data-value="2"></i><b>(2)</b>
+  	     name: httpd <i class="conum" data-value="3"></i><b>(3)</b>
+  	     state: latest <i class="conum" data-value="4"></i><b>(4)</b>
+
+    - name: latest index.html file is present <i class="conum" data-value="5"></i><b>(5)</b>
+      template:
+        src: files/index.html
+        dest: /var/www/html/
+
+    - name: httpd is started <i class="conum" data-value="6"></i><b>(6)</b>
+      service:
+        name: httpd
+        state: started</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-124__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Name of first task in playbook</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Name of module to be used in first task in playbook</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Argument/Option provided to module, in this instance <strong>name</strong> and is <strong><em>required</em></strong> for the package name in the case of the <strong>yum</strong> module.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Argument/Option provided to module, in this instance the <strong>state</strong> describes whether the module will install, update, or remove the package for the <strong>yum</strong> module.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Name of second task in playbook</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Name of third task in playbook</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-131__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Naming Tasks</div>
+<div id="__asciidoctor-preview-132__" class="paragraph">
+<p>It is recommended and considered a best practice to name all tasks within a playbook. Naming tasks especially helps with debugging issues in playbooks as the Ansible STDOUT will display and record task names.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-133__" class="paragraph">
+<p>The second indentation level in a playbook denoted by <strong>-</strong> is generally under the <strong>tasks:</strong> section and contains the list of tasks. This level will contain the <strong>key:value</strong> pairs that correspond to Ansible task directives always starting with the module being used at the same level before going to the third indentation level which are the <strong>key:value</strong> pair options that belong to the module being used in that task.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_running_playbooks">1.3.2. Running Playbooks</h4>
+<div id="__asciidoctor-preview-134__" class="paragraph">
+<p>Playbooks can be run just like Ansible <strong>ad-hoc</strong> commands. In order to execute or run a playbook, it is necessary to use the <strong>ansible-playbook</strong> command and specify the playbook. The additional options available for the <strong>ad-hoc</strong> commands such as: <strong>-e</strong>, <strong>-K</strong>, <strong>-b</strong>, and others all still apply and perform the same functions when leveraged with the <strong>ansible-playbook</strong> command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_demo_running_ansible_playbooks">1.3.3. DEMO - Running Ansible Playbooks</h4>
+<div id="__asciidoctor-preview-135__" class="exampleblock">
+<div class="title">Example 3. DEMONSTRATION - Running Ansible Playbooks</div>
+<div class="content">
+<div id="__asciidoctor-preview-136__" class="paragraph">
+<p>In this demonstration, we will be creating a user on <strong>serverb</strong> using playbooks as opposed to leveraging <strong>ad-hoc</strong> commands.</p>
+</div>
+<div id="__asciidoctor-preview-137__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-138__">
+<p>Switch to correct directory</p>
+<div id="__asciidoctor-preview-139__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd ~/Github/AAP_Webinar/Past/Playbooks</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-140__">
+<p>Examine playbook</p>
+<div id="__asciidoctor-preview-141__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">[student@workstation Playbooks]$ vim playbook.yml
+
+---
+- name: Playbook to Create User and Sudoers without Password
+  hosts: serverb
+  tasks:
+    - name: Create User Named Travis
+      user:
+        name: travis
+        uid: 1040
+        comment: "Travis Michette"
+        group: wheel
+
+    - name: Create User in Sudoers File
+      copy:
+        content: "travis ALL=(ALL) NOPASSWD:ALL\n"
+        dest: /etc/sudoers.d/travis
+        validate: /usr/sbin/visudo -csf %s</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-142__">
+<p>Execute and run the playbook</p>
+<div id="__asciidoctor-preview-143__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Playbooks]$ ansible-playbook playbook.yml -b
+
+PLAY [Playbook to Create User and Sudoers without Password] **************************
+
+... OUTPUT OMITTED ...</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-144__">
+<p>Test and Verify User</p>
+<div id="__asciidoctor-preview-145__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-146__">
+<p>SSH to remote system</p>
+<div id="__asciidoctor-preview-147__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Playbooks]$ ssh travis@serverb</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-148__">
+<p>Verify Sudo without Password</p>
+<div id="__asciidoctor-preview-149__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[travis@serverb ~]$ sudo -i
+[root@serverb ~]#</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="__asciidoctor-preview-150__" class="exampleblock">
+<div class="title">Example 4. DEMONSTRATION - Failure of Old Playbook</div>
+<div class="content">
+<div id="__asciidoctor-preview-151__" class="paragraph">
+<p>It is important to constantly test playbooks with the most current and recent versions of Ansible to ensure all modules work as expected and items haven&#8217;t been deprecated. The following playbook was developed for use with Ansible 2.8 and earlier. The playbook now fails as some of the modules being used have been migrated from Ansible <strong>built-in</strong> modules to Ansible collections. More on this migration and discussion of collections will come in future chapters and sections.</p>
+</div>
+<div id="__asciidoctor-preview-152__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-153__">
+<p>Examine Playbook for Website</p>
+<div id="__asciidoctor-preview-154__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">[student@workstation Playbooks]$ cat Website_Past.yml
+---
+- name: Playbook to Fully Setup and Configure a Webserver
+  hosts: servera
+  tasks:
+    - name: Install Packages for Webserver
+      yum:
+        name:
+          - httpd
+          - firewalld
+        state: latest
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm an awesome webserver"
+        dest: /var/www/html/index.html
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm an awesome webserver"
+
+    - name: Firewall is Enabled
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: HTTP Service is Open on Firewall
+      firewalld:
+        service: http
+        state: enabled
+        permanent: true
+        immediate: yes
+
+    - name: httpd is started
+      systemd:
+        name: httpd
+        state: started
+        enabled: true</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-155__">
+<p>Execute the playbook</p>
+<div id="__asciidoctor-preview-156__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Playbooks]$ ansible-playbook Website_Past.yml
+ERROR! couldn't resolve module/action 'firewalld'. This often indicates a misspelling, missing collection, or incorrect module path. <i class="conum" data-value="1"></i><b>(1)</b>
+
+The error appears to be in '/home/student/Github/AAP_Webinar/Past/Playbooks/Website_Past.yml': line 27, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: HTTP Service is Open on Firewall
+      ^ here</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-157__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <strong>firewalld</strong> module is not available. This was moved in AAP 2.x to an Ansible collection and is no longer able to be referenced without the collection and module being installed.</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-159__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Test Often</div>
+<div id="__asciidoctor-preview-160__" class="paragraph">
+<p>As Ansible has changed going into Ansible Automation Platform 2+, many changes have been made. There was a duplication and mapping of several of the modules allowing for existing playbooks to still run correctly, however, at some point modules become completely deprecated, and mappings get removed. It is extremely important to execute old playbooks and test with new versions of Ansible and to look for <strong>deprecation warnings</strong> so that playbooks can be fixed proactively instead of reactively.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ansible_roles">1.4. Ansible Roles</h3>
+<div id="__asciidoctor-preview-161__" class="paragraph">
+<p>Ansible Roles allow Ansible developers to create re-usable code snippets and tasks that can be shared in the form of Ansible Roles. These roles are commonly shared via Ansible Galaxy (<a href="https://galaxy.ansible.com/" class="bare">https://galaxy.ansible.com/</a>) via Github projects by the role developers. With the new Ansible Automation Platform (AAP) 2.x and beyond roles are also included as part of Ansible Collections which will be covered as part of a later topic.</p>
+</div>
+<div class="sect3">
+<h4 id="_ansible_role_overview">1.4.1. Ansible Role Overview</h4>
+<div id="__asciidoctor-preview-162__" class="paragraph">
+<p>Ansible roles are resusable Ansible components that allow common tasks to be repeated/repurposed without needing to re-write or create custom playbooks. Ansible roles work the same way as Ansible Playbooks and tasks except that roles are generally published/shared generically to be used by others to perform a task or set of tasks in automation playbooks.</p>
+</div>
+<div id="__asciidoctor-preview-163__" class="paragraph">
+<p>Roles provide Ansible with a way to load tasks, handlers, and variables from external files. Static files and templates can also be associated and referenced by a role.</p>
+</div>
+<div id="__asciidoctor-preview-164__" class="ulist">
+<div class="title"><strong>Role Benefits</strong></div>
+<ul>
+<li id="__asciidoctor-preview-165__">
+<p>Roles group content which allows easy sharing of code with others</p>
+</li>
+<li id="__asciidoctor-preview-166__">
+<p>Roles can be written that define the essential elements of system type: web server, database server, git repository, or other purpose</p>
+</li>
+<li id="__asciidoctor-preview-167__">
+<p>Roles make larger projects more manageable</p>
+</li>
+<li id="__asciidoctor-preview-168__">
+<p>Roles can be developed in parallel by different administrators</p>
+</li>
+</ul>
+</div>
+<table id="__asciidoctor-preview-169__" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. <strong>Ansible role subdirectories</strong></caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Subdirectory</th>
+<th class="tableblock halign-left valign-top">Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>defaults</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <strong>main.yml</strong> file in this directory contains the default values of role variables that can be overwritten when the role is used.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>files</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This directory contains static files that are referenced by role tasks.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>handlers</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <strong>main.yml</strong> file in this directory contains the role&#8217;s handler definitions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>meta</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <strong>main.yml</strong> file in this directory defines information about the role, including author, license, platforms, and optional role dependencies.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tasks</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <strong>main.yml</strong> file in this directory contains the role&#8217;s task definitions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>templates</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This directory contains Jinja2 templates that are referenced by role tasks.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>tests</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This directory can contain an inventory and <strong>test.yml</strong> playbook that can be used to test the role.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>vars</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The <strong>main.yml</strong> file in this directory defines the role&#8217;s variable values.</p></td>
+</tr>
+</tbody>
+</table>
+<div id="__asciidoctor-preview-188__" class="ulist">
+<div class="title">Defining Variables and Defaults</div>
+<ul>
+<li id="__asciidoctor-preview-189__">
+<p><strong>Role</strong> variables are defined by creating <strong><em>var/main.yml</em></strong> with name/value pairs in the role directory heirarchy.</p>
+</li>
+<li id="__asciidoctor-preview-190__">
+<p><strong>Default variables</strong> are defined by creating a <strong><em>defaults/main.yml</em></strong> file with name/value pairs in the role directory heirarchy.</p>
+</li>
+</ul>
+</div>
+<div id="__asciidoctor-preview-191__" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+It is best to define a given variable in either <strong><em>var/main.yml</em></strong> or <strong><em>defaults/main.yml</em></strong> but not both.
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-192__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<strong>Playbook Roles and Include Statements</strong>: <a href="http://docs.ansible.com/ansible/playbooks_roles.html" class="bare">http://docs.ansible.com/ansible/playbooks_roles.html</a>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-193__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Reference for Roles</div>
+<div id="__asciidoctor-preview-194__" class="paragraph">
+<p>There is another workshop with some information on creating and publishing Ansible Roles.</p>
+</div>
+<div id="__asciidoctor-preview-195__" class="paragraph">
+<p><a href="https://github.com/tmichett/LUG/blob/main/Ansible_Roles/Workbook/Ansible.adoc" class="bare">https://github.com/tmichett/LUG/blob/main/Ansible_Roles/Workbook/Ansible.adoc</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_using_roles">1.4.2. Using Roles</h4>
+<div id="__asciidoctor-preview-196__" class="paragraph">
+<p>In order to use Ansible roles, they must first be installed and made available on the Ansible control node utilizing the role.</p>
+</div>
+<div id="__asciidoctor-preview-197__" class="listingblock">
+<div class="title">Listing 10. Installing an Ansible Role</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">$ ansible-galaxy install tmichett.deploy_packages</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_demonstration_using_roles">1.4.3. DEMONSTRATION - Using Roles</h4>
+<div id="__asciidoctor-preview-198__" class="exampleblock">
+<div class="title">Example 5. DEMONSTRATION - Using a Role from Ansible Galaxy</div>
+<div class="content">
+<div id="__asciidoctor-preview-199__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-200__">
+<p>Change to correct working directory</p>
+<div id="__asciidoctor-preview-201__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd ~/Github/AAP_Webinar/Past/Roles/</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-202__">
+<p>Install Role from Ansible Galaxy</p>
+<div id="__asciidoctor-preview-203__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Roles]$ ansible-galaxy install -r roles/requirements.yml -p roles
+Starting galaxy role install process
+- downloading role 'ansiblize', owned by tmichett
+- downloading role from https://github.com/tmichett/Ansiblize/archive/master.tar.gz
+- extracting tmichett.ansiblize to /home/student/Github/AAP_Webinar/Past/Roles/roles/tmichett.ansiblize
+- tmichett.ansiblize (master) was installed successfully</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-204__">
+<p>Install Collections</p>
+<div id="__asciidoctor-preview-205__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Roles]$ ansible-galaxy collection install -r collections/requirements.yml -p collections/
+Starting galaxy collection install process
+[WARNING]: The specified collections path
+'/home/student/Github/AAP_Webinar/Past/Roles/collections' is not part of the
+configured Ansible collections paths
+'/home/student/.ansible/collections:/usr/share/ansible/collections'. The installed
+collection won't be picked up in an Ansible run.
+Process install dependency map
+Starting collection install process
+Downloading https://galaxy.ansible.com/download/ansible-posix-1.3.0.tar.gz to /home/student/.ansible/tmp/ansible-local-37837_73lx2j8/tmpnadbl_rx/ansible-posix-1.3.0-xr73p6ye
+Installing 'ansible.posix:1.3.0' to '/home/student/Github/AAP_Webinar/Past/Roles/collections/ansible_collections/ansible/posix'
+ansible.posix:1.3.0 was installed successfully</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-206__" class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div id="__asciidoctor-preview-207__" class="paragraph">
+<p>Because we are using a newer Ansible version, the regular modules are no longer available so we must install the Ansible Posix collection to use some of the modules in the role.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-208__">
+<p>Create/Modify Playbook with Correct Values and Providing Variables for the Role</p>
+<div id="__asciidoctor-preview-209__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Roles]$ cat Roles_Playbook_Demo.yml
+---
+- name: Playbook to Fully Setup and Configure a new User with a Role
+  hosts: serverc
+  vars: <i class="conum" data-value="1"></i><b>(1)</b>
+    ansible_user_name: travis
+    ansible_user_password: redhat
+    ssh_key_answer: no
+  roles: <i class="conum" data-value="2"></i><b>(2)</b>
+    - tmichett.ansiblize</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-210__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Providing required variables for the role</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Providing the role being used</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-213__">
+<p>Run the playbook with the <strong>ansible-playbook</strong> Command</p>
+<div id="__asciidoctor-preview-214__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Roles]$ ansible-playbook Roles_Playbook_Demo.yml -b</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-215__">
+<p>Test the results on <strong>serverc</strong></p>
+<div id="__asciidoctor-preview-216__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-217__">
+<p>SSH to ServerC</p>
+<div id="__asciidoctor-preview-218__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Roles]$ ssh travis@serverc</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-219__">
+<p>Attempt to become root without password</p>
+<div id="__asciidoctor-preview-220__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[travis@serverc ~]$ sudo -i
+[root@serverc ~]#</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ansible_automation_platform_1_x_present">2. Ansible Automation Platform 1.x (Present)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ansible_automation_hub">2.1. Ansible Automation Hub</h3>
+<div id="__asciidoctor-preview-221__" class="paragraph">
+<p>Ansible Automation hub was released so that enterprises could host their own Ansible collections, Ansible execution environments in a disconnected fashion. Ansible Automation Hub provides self-hosted services from Ansible Galaxy as well as services provided by Red Hat&#8217;s Ansible Automation Hub found at <a href="https://console.redhat.com/ansible/ansible-dashboard" class="bare">https://console.redhat.com/ansible/ansible-dashboard</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_ansible_automation_platform">2.1.1. Ansible Automation Platform</h4>
+<div id="__asciidoctor-preview-222__" class="paragraph">
+<p>Provides curated collections, modules, roles that are supported by Red Hat or Red Hat Partners. The collections, modules, roles, and playbooks downloaded from Red Hat Automation Hub are supported and required an Ansible Automation Platform subscription entitlement. This is different from the unsupported community modules/collections/roles found at Ansible Galaxy (<a href="https://galaxy.ansible.com/" class="bare">https://galaxy.ansible.com/</a>).
+:pygments-style: tango
+:source-highlighter: pygments
+:icons: font
+:icons: font</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ansible_collections">2.2. Ansible Collections</h3>
+<div id="__asciidoctor-preview-223__" class="paragraph">
+<p>Ansible 2.9 introduced the concept of collections and provided mapping for Ansible modules that were moved into a collection namespace. Ansible 2.9 provided a mapping of the new module locations in collections and this mapping automatically works for existing Ansible playbooks in the initial versions of Ansible Automation Platform.</p>
+</div>
+<div id="__asciidoctor-preview-224__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Ansible Module and Collection Mapping</div>
+<div id="__asciidoctor-preview-225__" class="paragraph">
+<p><a href="https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml" class="bare">https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_using_ansible_automation_platform_collections">2.2.1. Using Ansible Automation Platform Collections</h4>
+<div id="__asciidoctor-preview-226__" class="paragraph">
+<p>Collections allowed development of Ansible core components to be separated from module and plug-in development. Upstream Ansible unbundled modules from Ansible core code beginning with Ansible Base (core) 2.10/2.11. Newer versions of Ansible require collections to be installed in order for modules to be available for Ansible. Playbooks should be developed using the FQCNs when referring to modules in tasks. Existing playbooks can be fixed easily to work with collections, but it is better to re-write the playbooks to use the fully-qualified collection name (FCQN).</p>
+</div>
+<div id="__asciidoctor-preview-227__" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Downloading Collections</div>
+<div id="__asciidoctor-preview-228__" class="paragraph">
+<p>Collections are brought into the entire structure via three ways: Requirements files next to your playbooks describe what collections should be present for the automation-content at hand. Automation controller can read those, or searches to Private Automation hub automatically for needed collections and pull them automatically. There is also a CLI for downloading collections.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_demonstration_ansible_collections">2.3. Demonstration - Ansible Collections</h3>
+<div id="__asciidoctor-preview-229__" class="exampleblock">
+<div class="title">Example 6. DEMONSTRATION - Using Ansible Collections</div>
+<div class="content">
+<div id="__asciidoctor-preview-230__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-231__">
+<p>Change to the correct working directory</p>
+<div id="__asciidoctor-preview-232__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Present/Playbooks</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-233__">
+<p>View the Playbook</p>
+<div id="__asciidoctor-preview-234__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">[student@workstation Playbooks]$ vim Website_Present.yml
+---
+- name: Playbook to Fully Setup and Configure a Webserver
+  hosts: servera
+  tasks:
+    - name: Install Packages for Webserver
+      yum:
+        name:
+          - httpd
+          - firewalld
+        state: latest
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm an awesome webserver\n"
+        dest: /var/www/html/index.html
+
+    - name: Firewall is Enabled
+      systemd:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: HTTP Service is Open on Firewall
+      ansible.posix.firewalld: <i class="conum" data-value="1"></i><b>(1)</b>
+        service: http
+        state: enabled
+        permanent: true
+        immediate: yes
+
+    - name: httpd is started
+      systemd:
+        name: httpd
+        state: started
+        enabled: true</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-235__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>In the newer version of Ansible the <strong>firewalld</strong> module is located in the <strong>ansible.posix.firewalld</strong> collection.</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-237__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div id="__asciidoctor-preview-238__" class="paragraph">
+<p>Beginning with Ansible version 2.9 collections contain modules that were previously included as part of Ansible core. Ansible version 2.9.x contains mapping for modules in their collections and Ansible version 2.9 also includes all the collections as part of the Ansible Core distribution. Never versions of Ansible however, don&#8217;t have the collection mapping nor are the modules and collections pre-installed so it is necessary to install collections.</p>
+</div>
+<div id="__asciidoctor-preview-239__" class="paragraph">
+<p>Ansible Module Mapping: <a href="https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml" class="bare">https://github.com/ansible/ansible/blob/devel/lib/ansible/config/ansible_builtin_runtime.yml</a></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-240__">
+<p>Install the Ansible Collections</p>
+<div id="__asciidoctor-preview-241__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Playbooks]$ ansible-galaxy collection install -r collections/requirements.yml -p collections/</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-242__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div id="__asciidoctor-preview-243__" class="paragraph">
+<p>Since we are using collections, it is very important to install the collections before attempting to run the playbook. Collections are typically installed into the local project directory called <strong>collections</strong> and they are usually listed in a <strong>requirements.yml</strong> file.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-244__">
+<p>Execute the playbook with the <strong>ansible-playbook</strong> command</p>
+<div id="__asciidoctor-preview-245__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Playbooks]$ ansible-playbook Website_Present.yml -b</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-246__">
+<p>Test the Website</p>
+<div id="__asciidoctor-preview-247__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Playbooks]$ curl servera
+I'm an awesome webserver</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ansible_automation_platform_2_x_future">3. Ansible Automation Platform 2.x (Future)</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_introduction_to_aap_2_x_components">3.1. Introduction to AAP 2.x Components</h3>
+<div id="__asciidoctor-preview-248__" class="paragraph">
+<p>With Ansible 2.x, many new items have emerged. Ansible can now leverage execution environments which contain Ansible collections, different versions of Ansible, and the correct python versions and modules needed to execute a playbook. Ansible Execution Environments (EEs) allow developers and administrators more flexibility be leveraging a containerized Ansible environment. The use of Ansible EEs from a control node or developer workstation will work exactly the same with Ansible Controller (formerly known as Ansible Tower). Ansible Controller allows Ansible EEs to be assigned to projects, inventories, job templates, and more.</p>
+</div>
+<div id="__asciidoctor-preview-249__" class="paragraph">
+<p>Ansible Private Automation Hub (Automation Hub) allows a self-hosted Ansible Galaxy. The local installation of Ansible Galaxy not only allows collections to be published privately within an organization, but it also provides a container registry for publishing custom Ansible EEs.</p>
+</div>
+<div id="__asciidoctor-preview-250__" class="paragraph">
+<p>Ansible Content Navigator is a new tool that can be used to test and develop Ansible playbooks.</p>
+</div>
+<div class="sect3">
+<h4 id="_ansible_content_navigator">3.1.1. Ansible Content Navigator</h4>
+<div id="__asciidoctor-preview-251__" class="paragraph">
+<p>The <strong>ansible-navigator</strong> tool replaces and extends the functionality of the <strong>ansible-playbook</strong>, <strong>ansible-inventory</strong>, <strong>ansible-config</strong> commands and more. Ansible Content Navigator allows the Ansible Control Node to be separated from the execution environment as playbooks are now run in a container. This makes it easier to move from development environments to production environments as the execution environment is now a portable container.</p>
+</div>
+<div id="__asciidoctor-preview-252__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section1-89ff4.png" alt="Section1 89ff4">
+</div>
+<div class="title">Figure 2. Ansible Content Navigator</div>
+</div>
+<div id="__asciidoctor-preview-253__" class="paragraph">
+<p>Ansible Content Navigator is works very similar to <strong>ansible</strong> and <strong>ansible-playbook</strong> commands as it relies on a configuration file. The <strong>ansible-navigator.yml</strong> file utilizes the <strong>ansible.cfg</strong> file and further provides customizations for configurations on developing, testing, and running playbooks in your Ansible project. Some of the most critical components of Ansible Navigator are the following:</p>
+</div>
+<div id="__asciidoctor-preview-254__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-255__">
+<p><strong>ANSIBLE_CONFIG</strong>: Specifies Ansible configuration file to use</p>
+</li>
+<li id="__asciidoctor-preview-256__">
+<p><strong>image</strong>: Specifies Ansible Execution Environment (EE) to be used</p>
+</li>
+</ul>
+</div>
+<div id="__asciidoctor-preview-257__" class="listingblock">
+<div class="title">Listing 11. <strong>ansible-navigator.yml</strong></div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">---
+ansible-navigator:
+  execution-environment: <i class="conum" data-value="1"></i><b>(1)</b>
+    enabled: true
+    environment-variables:
+      set:
+        ANSIBLE_CONFIG: ansible.cfg <i class="conum" data-value="2"></i><b>(2)</b>
+    image: hub.lab.example.com/ee-29-rhel8:latest <i class="conum" data-value="3"></i><b>(3)</b>
+  logging:
+    level: critical
+  mode: stdout <i class="conum" data-value="4"></i><b>(4)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-258__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Configures Ansible Navigator to use an Execution Environment (EE)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Specifies where Ansible Navigator and the Ansible EE will receive Ansible configuration settings</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Specifies Ansible EE to use for Ansible Navigator</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Specified Mode, in this case, we are using <strong>STDOUT</strong> so that the output will look like it does with the <strong><em>ansible-playbook</em></strong> command.</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-263__" class="paragraph">
+<p>Most <strong>ansible</strong> commands have a corresponding <strong>ansible-navigator</strong> command. The table below provides a mapping for the most commonly used commands.</p>
+</div>
+<table id="__asciidoctor-preview-264__" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. <strong>ansible</strong> to <strong>ansible-navigator</strong> Command Comparisons</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Ansible Command</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Automation Content Navigator Subcommands</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ansible-config</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ansible-navigator config</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ansible-doc</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ansible-navigator doc</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ansible-inventory</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ansible-navigator inventory</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ansible-playbook</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>ansible-navigator run</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_ansible_execution_environments">3.1.2. Ansible Execution Environments</h4>
+<div id="__asciidoctor-preview-275__" class="paragraph">
+<p>Ansible Execution Environments (EEs) are containers which consist of:</p>
+</div>
+<div id="__asciidoctor-preview-276__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-277__">
+<p><strong>Ansible Core</strong></p>
+</li>
+<li id="__asciidoctor-preview-278__">
+<p><strong>Ansible Content Collections</strong></p>
+</li>
+<li id="__asciidoctor-preview-279__">
+<p><strong>Python Libraries</strong></p>
+</li>
+<li id="__asciidoctor-preview-280__">
+<p><strong>Executables</strong></p>
+</li>
+<li id="__asciidoctor-preview-281__">
+<p>Other dependencies for running the playbook</p>
+</li>
+</ul>
+</div>
+<div id="__asciidoctor-preview-282__" class="paragraph">
+<p>Custom execution environments can be built and created with <strong>ansible-builder</strong>. The process of creating a new Ansible EE depends on if there is a valid Ansible Automation Entitlement associated with your account. If you are using the <strong>free</strong> version of Ansible, base container images <strong>MUST</strong> come from <strong>Quay.IO</strong> as the Red Hat Ansible Execution Environments (EEs) cannot be used or redistributed.</p>
+</div>
+<div id="__asciidoctor-preview-283__" class="paragraph">
+<p>Ansible Execution Environments (EEs) are containers which require:</p>
+</div>
+<div id="__asciidoctor-preview-284__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-285__">
+<p><strong>Configugration Files (ansible.cfg</strong>)</p>
+</li>
+<li id="__asciidoctor-preview-286__">
+<p><strong>Inventory</strong></p>
+</li>
+<li id="__asciidoctor-preview-287__">
+<p><strong>SSH</strong></p>
+<div id="__asciidoctor-preview-288__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-289__">
+<p>SSH Keys (requires SSH Agent Service)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div id="__asciidoctor-preview-290__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section1-3e457.png" alt="Section1 3e457">
+</div>
+<div class="title">Figure 3. Ansible Execution Environment</div>
+</div>
+<div id="__asciidoctor-preview-291__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section1-777b1.png" alt="Section1 777b1">
+</div>
+<div class="title">Figure 4. Ansible Builder</div>
+</div>
+<div id="__asciidoctor-preview-292__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Default Versions of Ansible and Execution Environments</div>
+<div id="__asciidoctor-preview-293__" class="paragraph">
+<p>Ansible Automation Platform 2 provides Ansible Core 2.11 as well as several Red Hat Certified Content Collections providing a similar experience to Ansible 2.9. A benefit of execution environments is that they can be used to run older versions of Ansible. Some of the demos in this webinar will use an Ansible EE based on Ansible 2.9 so that collection mapping is done automatically and older playbooks don&#8217;t need to be touched.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-294__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">SSH Keys</div>
+<div id="__asciidoctor-preview-295__" class="paragraph">
+<p>SSH Agent is used to allow the SSH keys to pass through to the Ansible Execution Environment (EE) which is a container with all the Ansible and Python components required to run the Ansible Automation tasks.</p>
+</div>
+<div id="__asciidoctor-preview-296__" class="listingblock">
+<div class="title">Listing 12. Passing SSH Keys to Execution Environments</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ eval $(ssh-agent)
+
+[student@workstation ~]$ ssh-add ~/.ssh/lab_rsa</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_demo_using_ansible_content_navigator_and_ansible_execution_environments">3.1.3. DEMO - Using Ansible Content Navigator and Ansible Execution Environments</h4>
+<div id="__asciidoctor-preview-297__" class="exampleblock">
+<div class="title">Example 7. DEMO - <strong>Using Ansible Content Navigator and the Ansible 2.9 Execution Environment</strong></div>
+<div class="content">
+<div id="__asciidoctor-preview-298__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-299__">
+<p>Change to correct directory</p>
+<div id="__asciidoctor-preview-300__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Navigator</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-301__">
+<p>View configuration for Ansible Content Navigator</p>
+<div id="__asciidoctor-preview-302__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Navigator]$ cat ansible-navigator.yml
+---
+ansible-navigator:
+  execution-environment:
+    enabled: true
+    environment-variables:
+      set:
+        ANSIBLE_CONFIG: ansible.cfg <i class="conum" data-value="1"></i><b>(1)</b>
+    image: hub.lab.example.com/ee-29-rhel8:latest <i class="conum" data-value="2"></i><b>(2)</b>
+  logging:
+    level: critical
+  mode: stdout <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-303__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Ensure it is pointing to the project <strong>ansible.cfg</strong></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Ensure we are using the Ansible EE based on Ansible version 2.9.x for compatibility of existing playbooks (pre-collections).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Ensure mode is specified as <strong>stdout</strong> so that the output can easily be viewed from the command-line (CLI).</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-307__">
+<p>View the playbook</p>
+<div id="__asciidoctor-preview-308__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">[student@workstation Navigator]$ cat Website_Ansible_Past.yml
+---
+- name: Playbook to Fully Setup and Configure a Webserver
+  hosts: servere
+  tasks:
+    - name: Install Packages for Webserver
+      yum:
+        name:
+          - httpd
+          - firewalld
+        state: latest
+
+    - name: Create Content for Webserver
+      copy:
+        content: "I'm an awesome webserver for the NYPD and I know Castle!! \n"
+        dest: /var/www/html/index.html
+
+    - name: Firewall is Enabled
+      service:
+        name: firewalld
+        state: started
+        enabled: true
+
+    - name: HTTP Service is Open on Firewall
+      firewalld:
+        service: http
+        state: enabled
+        permanent: true
+        immediate: yes
+
+    - name: httpd is started
+      systemd:
+        name: httpd
+        state: started
+        enabled: true</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-309__">
+<p>Setup and ensure SSH keys are shared for the Ansible EE</p>
+<div id="__asciidoctor-preview-310__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ eval $(ssh-agent) <i class="conum" data-value="1"></i><b>(1)</b>
+
+[student@workstation ~]$ ssh-add ~/.ssh/lab_rsa <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-311__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Starts SSH Agent service</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Loads SSH key to the SSH Agent Service keyring</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-314__">
+<p>Run the playbook with <strong>ansible-navigator run</strong> Command</p>
+<div id="__asciidoctor-preview-315__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Navigator]$ ansible-navigator run Website_Ansible_Past.yml -b <i class="conum" data-value="1"></i><b>(1)</b>
+-------------------------------------------------------------------------
+Execution environment image and pull policy overview
+-------------------------------------------------------------------------
+Execution environment image name:  hub.lab.example.com/ee-29-rhel8:latest
+
+... OUTPUT OMITTED ...
+
+TASK [httpd is started] ********************************************************
+changed: [servere]
+
+PLAY RECAP *********************************************************************
+servere                    : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-316__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Specify the <strong>-b</strong> to enable privilege escalation as the <strong>ansible.cfg</strong> and playbook doesn&#8217;t have escalation already enabled.</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-318__">
+<p>Verify website is running</p>
+<div id="__asciidoctor-preview-319__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Navigator]$ curl servere
+I'm an awesome webserver for the NYPD and I know Castle!!</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="__asciidoctor-preview-320__" class="exampleblock">
+<div class="title">Example 8. DEMO - <strong>Using Ansible Content Navigator - Interactively</strong></div>
+<div class="content">
+<div id="__asciidoctor-preview-321__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-322__">
+<p>Explore Ansible Navigator</p>
+<div id="__asciidoctor-preview-323__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Navigator]$ ansible-navigator -m interactive
+
+ 0│## Welcome                                                                        ▒
+ 1│----------------------------------------------------------------------------------▒
+ 2│                                                                                  ▒
+ 3│Some things you can try from here:                                                ▒
+ 4│- `:collections`                                          Explore available collec▒
+ 5│- `:config`                                               Explore the current ansi▒
+ 6│- `:doc &lt;plugin&gt;`                                         Review documentation for▒
+ 7│- `:help`                                                 Show the main help page ▒
+ 8│- `:images`                                               Explore execution enviro
+
+ ... OUTPUT OMITTED ...</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-324__">
+<p>View information on Execution Environment (type <strong>:images</strong>)</p>
+<div id="__asciidoctor-preview-325__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">  NAME                     TAG     EXECUTION ENVIRONMENT     CREATED        SIZE
+0│ee-29-rhel8 (primary)    latest                   True     2 months ago   785 MB
+1│ee-supported-rhel8       2.0                      True     2 months ago   1.07 GB
+2│flamel                   latest                  False     5 weeks ago    1.56 GB</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-326__">
+<p>View the <strong>ee-29-rhel8</strong> EE (as this is the default defined in the configuration file) by typing <strong>0</strong></p>
+<div id="__asciidoctor-preview-327__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">  EE-29-RHEL8:LATEST (PRIMARY)    DESCRIPTION
+0│Image information               Information collected from image inspection
+1│General information             OS and python version information
+2│Ansible version and collections Information about ansible and ansible collections
+3│Python packages                 Information about python and python packages
+4│Operating system packages       Information about operating system packages
+5│Everything                      All image informatio</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-328__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Interactively Viewing Execution Environment Details</div>
+<div id="__asciidoctor-preview-329__" class="paragraph">
+<p>Once you&#8217;ve loaded Ansible Content Navigator and the EE, it&#8217;s possible to view the details of the Ansible versions and collections and any other information about the EE by pressing the corresponding number. To exit the <strong>ansible-navigator</strong> screens, just continue hitting the <strong>ESC</strong> key to exit to the various levels.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-330__">
+<p>Run <strong>ansible-navigator</strong> with the <strong>-m interactive</strong> to override the <strong>STDOUT</strong> setting and look at Navigator interactively</p>
+<div id="__asciidoctor-preview-331__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Navigator]$ ansible-navigator run Website_Ansible_Past.yml -b -m interactive
+
+  PLAY NAME OK CHANGED UNREACHABLFAILED SKIPPED IGNORED IN PROGRESTASK COUNT PROGRESS
+0│Playbook t 2       0          0     0       0       0          1         3 ▇▇▇▇▇</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-332__">
+<p>Hit the <strong>0</strong> to view playbook output for <strong>Play 0</strong></p>
+<div id="__asciidoctor-preview-333__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">  RESULT HOST    NUMBER CHANGED TASK                           TASK ACTION  DURATION
+0│OK     servere      0   False Gathering Facts                gather_facts       1s
+1│OK     servere      1   False Install Packages for Webserver yum                1s
+2│OK     servere      2   False Create Content for Webserver   copy               0s
+3│OK     servere      3   False Firewall is Enabled            service            0s
+4│OK     servere      4   False HTTP Service is Open on Firewalfirewalld          0s
+5│OK     servere      5   False httpd is started               systemd            0s</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-334__">
+<p>Hit <strong>5</strong> to examine <strong>Task 5</strong> from the playbook</p>
+<div id="__asciidoctor-preview-335__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">PLAY [Playbook to Fully Setup and Configure a Webserver:5] ***************************
+TASK [httpd is started] **************************************************************
+OK: [servere]
+  0│---                                                                              ▒
+  1│duration: 0.521409
+  2│end: '2022-01-24T19:24:05.870450'
+  3│event_loop: null
+  4│host: serverd
+  5│play: Playbook to Fully Setup and Configure a Webserver
+  6│play_pattern: serverd
+  7│playbook: /home/student/Github/AAP_Webinar/Future/Navigator/Website_Ansible_Past.y
+  8│remote_addr: serverd
+  9│res:
+ 10│  _ansible_no_log: false
+
+ ... output omitted ...</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-336__" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">Interactive Mode Details</div>
+<div id="__asciidoctor-preview-337__" class="paragraph">
+<p>When using Ansible Navigator in interactive mode it is possible to get a lot more details regarding each task in the play as well as details on the modules being used and other system settings/configurations.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_introduction_to_aap_2_x_ansible_automation_hub">3.2. Introduction to AAP 2.x - Ansible Automation Hub</h3>
+<div id="__asciidoctor-preview-338__" class="paragraph">
+<p>The Red Hat AAP 2.x platform provides Ansible Private Automation hub for those with valid subscription entitlements. Private Automation Hub provides two key features:</p>
+</div>
+<div id="__asciidoctor-preview-339__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-340__">
+<p>Place to publish Collections</p>
+</li>
+<li id="__asciidoctor-preview-341__">
+<p>Place to publish Execution Environments</p>
+</li>
+</ul>
+</div>
+<div id="__asciidoctor-preview-342__" class="paragraph">
+<p>This Private Automation Hub is essentially your local version (private version) of Ansible Galaxy and container registries.</p>
+</div>
+<div class="sect3">
+<h4 id="_private_automation_hub">3.2.1. Private Automation Hub</h4>
+<div id="__asciidoctor-preview-343__" class="paragraph">
+<p>Private automation hub provides an on-site location for publishing collections and Ansible Execution Environments.  This provides a centralized location for Automation Controller and for developers using Ansible Navigator to obtain EEs and content collections.</p>
+</div>
+<div id="__asciidoctor-preview-344__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section2-37838.png" alt="Section2 37838">
+</div>
+<div class="title">Figure 5. Ansible <strong>Private</strong> Automation Hub</div>
+</div>
+<div id="__asciidoctor-preview-345__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section2-a1519.png" alt="Section2 a1519">
+</div>
+<div class="title">Figure 6. Ansible <strong>Private</strong> Automation Hub - Collections</div>
+</div>
+<div id="__asciidoctor-preview-346__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section2-57706.png" alt="Section2 57706">
+</div>
+<div class="title">Figure 7. Ansible <strong>Private</strong> Automation Hub - Container Registry (Execution Environments)</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_custom_execution_environments">3.2.2. Custom Execution Environments</h4>
+<div id="__asciidoctor-preview-347__" class="paragraph">
+<p>Building EEs is rather simple: we provide the tool execution environment builder, the CLI tool ansible-builder for this, which knows how to bring the pieces together in just the right way and create the EE. They can be published on Private Automation hub or in any container registry.</p>
+</div>
+<div id="__asciidoctor-preview-348__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section2-ccd46.png" alt="Section2 ccd46">
+</div>
+<div class="title">Figure 8. Ansible Execution Environments</div>
+</div>
+<div id="__asciidoctor-preview-349__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section2-207ba.png" alt="Section2 207ba">
+</div>
+<div class="title">Figure 9. Ansible Execution Environments - Build Process</div>
+</div>
+<div id="__asciidoctor-preview-350__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section2-d9595.png" alt="Section2 d9595">
+</div>
+<div class="title">Figure 10. Ansible Execution Environments - <strong>ansible-builder</strong></div>
+</div>
+<div id="__asciidoctor-preview-351__" class="listingblock">
+<div class="title">Listing 13. <strong>execution-environment.yml</strong> File to Define Custom EE</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">---
+version: 1
+build_arg_defaults:
+  EE_BASE_IMAGE: 'hub.lab.example.com/ee-minimal-rhel8:2.0' <i class="conum" data-value="1"></i><b>(1)</b>
+  EE_BUILDER_IMAGE: 'hub.lab.example.com/ansible-builder-rhel8:2.0' <i class="conum" data-value="2"></i><b>(2)</b>
+dependencies:
+  galaxy: requirements.yml <i class="conum" data-value="3"></i><b>(3)</b>
+  python: requirements.txt <i class="conum" data-value="4"></i><b>(4)</b>
+  system: bindep.txt <i class="conum" data-value="5"></i><b>(5)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-352__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defines base container image to be used for creating the EE</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Defines the builder image to be used for the EE</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Points to file containing the Collections and Roles to be installed and included in the EE</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Points to file containing the required Python components to be installed and included in the EE</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Points to file containing the system applications to be installed in the EE</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-358__" class="listingblock">
+<div class="title">Listing 14. <strong>requirements.yml</strong></div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">---
+collections:
+  - name: /build/exercise.motd.tar.gz <i class="conum" data-value="1"></i><b>(1)</b>
+    type: file <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-359__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defines collections or roles to be included in the container image.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Defines type of collection or role.</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-362__" class="listingblock">
+<div class="title">Listing 15. <strong>requirements.txt</strong></div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="txt" class="language-txt hljs"># Python dependencies
+funmotd <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-363__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defines Python dependencies needed to be installed on the container image. If multiple Python packages are needed, one package per line is required</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-365__" class="listingblock">
+<div class="title">Listing 16. <strong>bindep.txt</strong></div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="txt" class="language-txt hljs"># System-level dependencies
+hostname <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-366__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Defines system packages needed to be installed on the container image. If multiple packages are needed, one package per line is required.</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-368__" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="title">References</div>
+<div id="__asciidoctor-preview-369__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-370__">
+<p><strong>Ansible Builder Blog</strong>:</p>
+<div id="__asciidoctor-preview-371__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-372__">
+<p><a href="https://www.ansible.com/blog/introduction-to-ansible-builder" class="bare">https://www.ansible.com/blog/introduction-to-ansible-builder</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li id="__asciidoctor-preview-373__">
+<p><strong>Ansible Builder Images</strong></p>
+<div id="__asciidoctor-preview-374__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-375__">
+<p><a href="https://blog.networktocode.com/post/ansible-builder-runner-ee/" class="bare">https://blog.networktocode.com/post/ansible-builder-runner-ee/</a></p>
+</li>
+<li id="__asciidoctor-preview-376__">
+<p><a href="https://quay.io/repository/ansible/ansible-runner?tag=latest&amp;tab=tags" class="bare">https://quay.io/repository/ansible/ansible-runner?tag=latest&amp;tab=tags</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_demo_creating_a_custom_execution_environment_and_publishing_to_private_automation_hub">3.2.3. DEMO - Creating a Custom Execution Environment and Publishing to Private Automation Hub</h4>
+<div id="__asciidoctor-preview-377__" class="exampleblock">
+<div class="title">Example 9. DEMO - <strong>Creating a Custom Execution Environment</strong></div>
+<div class="content">
+<div id="__asciidoctor-preview-378__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-379__">
+<p>Switch to correct directory</p>
+<div id="__asciidoctor-preview-380__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Custom_EE/EE</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-381__">
+<p>Install <strong>ansible-builder</strong></p>
+<div id="__asciidoctor-preview-382__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ sudo yum install -y ansible-builder</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-383__" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div id="__asciidoctor-preview-384__" class="paragraph">
+<p>The <strong>execution-environment.yml</strong>, <strong>requirements.yml</strong>, <strong>requirements.txt</strong>, and <strong>bindep.txt</strong> have already been created to save time. Normally these files would be created by the administrator creating the custom execution environment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-385__">
+<p>View or create the <strong>execution-environment.yml</strong> file</p>
+<div id="__asciidoctor-preview-386__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">[student@workstation EE]$ cat execution-environment.yml
+---
+version: 1
+build_arg_defaults:
+  EE_BASE_IMAGE: 'hub.lab.example.com/ee-minimal-rhel8:2.0'
+  EE_BUILDER_IMAGE: 'hub.lab.example.com/ansible-builder-rhel8:2.0'
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  system: bindep.txt</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-387__">
+<p>View or create the <strong>requirements.yml</strong> File</p>
+<div id="__asciidoctor-preview-388__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ cat requirements.yml
+---
+collections:
+  - name: /build/exercise.motd.tar.gz
+    type: file</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-389__">
+<p>View or create the <strong>requirements.txt</strong> File</p>
+<div id="__asciidoctor-preview-390__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ cat requirements.txt
+ # Python dependencies
+funmotd</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-391__">
+<p>View or create the <strong>bindep.txt</strong> File</p>
+<div id="__asciidoctor-preview-392__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ cat bindep.txt
+ # System-level dependencies
+hostname</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-393__">
+<p>Run the <strong>ansible-builder create</strong> command to create the structure for the build process</p>
+<div id="__asciidoctor-preview-394__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ ansible-builder create
+Complete! The build context can be found at: /home/student/Github/AAP_Webinar/Future/Custom_EE/EE/context</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-395__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div id="__asciidoctor-preview-396__" class="paragraph">
+<p>This is necessary so that we can copy the file <strong>exercise.motd.tar.gz</strong> to the correct directory so it will be mounted and available in the container image and build process.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-397__">
+<p>View created files and directory structure</p>
+<div id="__asciidoctor-preview-398__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ tree context/
+context/
+├── _build
+│   ├── bindep.txt
+│   ├── requirements.txt
+│   └── requirements.yml
+└── Containerfile
+
+1 directory, 4 files</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-399__">
+<p>Copy the <strong>exercise.motd.tar.gz</strong> to the <strong>context/_build</strong> location so it can be mounted properly</p>
+<div id="__asciidoctor-preview-400__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ cp collection-files/exercise.motd.tar.gz context/_build/</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-401__">
+<p>Create the <strong>ee-motd-demo</strong> Execution Environment Image</p>
+<div id="__asciidoctor-preview-402__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ ansible-builder build -t ee_aap_demo:latest
+Running command:
+  podman build -f context/Containerfile -t ee_aap_demo:latest context
+Complete! The build context can be found at: /home/student/Github/AAP_Webinar/Future/Custom_EE/EE/context</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-403__">
+<p>Verify container image was built using the <strong>podman images</strong> Command</p>
+<div id="__asciidoctor-preview-404__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ podman images
+REPOSITORY                                 TAG     IMAGE ID      CREATED         SIZE
+localhost/ee_aap_demo                      latest  3bfe381575fa  6 minutes ago   419 MB</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="__asciidoctor-preview-405__" class="exampleblock">
+<div class="title">Example 10. DEMO - <strong>Using and Testing a Custom Execution Environment</strong></div>
+<div class="content">
+<div id="__asciidoctor-preview-406__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-407__">
+<p>Change to correct directory</p>
+<div id="__asciidoctor-preview-408__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Custom_EE</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-409__">
+<p>Ensure that <strong>ansible-navigator</strong> is using the correct Ansible Execution Environment</p>
+<div id="__asciidoctor-preview-410__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">[student@workstation Custom_EE]$ cat ansible-navigator.yml
+---
+ansible-navigator:
+  execution-environment:
+    enabled: true
+    environment-variables:
+      set:
+        ANSIBLE_CONFIG: ansible.cfg
+    image: localhost/ee_aap_demo:latest
+  logging:
+    level: critical
+  mode: stdout</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-411__">
+<p>Create or View Playbook</p>
+<div id="__asciidoctor-preview-412__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="yaml" class="language-yaml hljs">[student@workstation Custom_EE]$ cat Custom_EE_Playbook.yml
+---
+- name: Playbook to Configure the Message of the Day with a Custom EE
+  hosts: servera
+  collections:
+    - exercise.motd
+  roles:
+    - name: exercise.motd.banner</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-413__">
+<p>Execute Playbook</p>
+<div id="__asciidoctor-preview-414__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Custom_EE]$ ansible-navigator run Custom_EE_Playbook.yml -b <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-415__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <strong>-b</strong> is placed on there to elevate priviliges.</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-417__">
+<p>Test to see if the MOTD was deployed to the server</p>
+<div id="__asciidoctor-preview-418__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ ssh servere
+Activate the web console with: systemctl enable --now cockpit.socket
+
+This system is not registered to Red Hat Insights. See https://cloud.redhat.com/
+To register this system, run: insights-client --register
+
+================================================================================
+================================================================================
+==                                                                            ==
+==                     This system is managed by Ansible.                     ==
+==                                   AAP2.0                                   ==
+==                                                                            ==
+================================================================================
+================================================================================
+
+Last login: Tue Jan 25 16:17:04 2022 from 172.25.250.9</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="__asciidoctor-preview-419__" class="exampleblock">
+<div class="title">Example 11. DEMO - <strong>Publishing a Custom Execution Environment</strong></div>
+<div class="content">
+<div id="__asciidoctor-preview-420__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-421__">
+<p>Change to correct directory</p>
+<div id="__asciidoctor-preview-422__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Custom_EE</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-423__" class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div id="__asciidoctor-preview-424__" class="paragraph">
+<p>Not really needed as we are using the PODMAN commands to push images, but done for consistency.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-425__">
+<p>Tag the image with the Podman command to prepare the push to <strong>hub.lab.example.com</strong></p>
+<div id="__asciidoctor-preview-426__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ podman tag localhost/ee_aap_demo:latest hub.lab.example.com/aap-demo:latest</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-427__">
+<p>Push the image to private automation hub</p>
+<div id="__asciidoctor-preview-428__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation EE]$ podman push hub.lab.example.com/aap-demo:latest
+Getting image source signatures
+Copying blob 38345e1102be done
+Copying blob df2b2b67ec7f done
+Copying blob fa751636af06 done
+Copying blob a65a1b01a4d2 done
+Copying blob af092941766c done
+Copying blob efebe3fe0d93 done
+Copying blob 9c99e40eecd0 done
+Copying config 3bfe381575 done
+Writing manifest to image destination
+Storing signatures</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-429__" class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">Repository Login</div>
+<div id="__asciidoctor-preview-430__" class="paragraph">
+<p>It might be necessary to perform a <strong>podman login</strong> for the remote container registry.</p>
+</div>
+<div id="__asciidoctor-preview-431__" class="listingblock">
+<div class="title">Listing 17. <strong>Regsitry Login</strong></div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">podman login hub.lab.example.com</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-432__">
+<p>Login to the Private Automation hub</p>
+<div id="__asciidoctor-preview-433__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section2-e5af7.png" alt="Section2 e5af7">
+</div>
+<div class="title">Figure 11. Automation Hub Login</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-434__">
+<p>Navigate to Container Registry and look for the <strong>aap-demo</strong> Container</p>
+<div id="__asciidoctor-preview-435__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section2-52b20.png" alt="Section2 52b20">
+</div>
+<div class="title">Figure 12. Automation Hub Login</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-436__">
+<p>Clean up <strong>servere</strong> and show that MOTD has been reset</p>
+<div id="__asciidoctor-preview-437__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Custom_EE]$ ansible-playbook MOTD_Cleanup.yml
+
+PLAY [Playbook to Cleanup MOTD for Testing Custom EE] ******************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************
+ok: [servere]
+
+TASK [Reset MOTD] ******************************************************************************************************
+changed: [servere]
+
+PLAY RECAP *************************************************************************************************************
+servere                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-438__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Custom_EE]$ ssh servere
+Activate the web console with: systemctl enable --now cockpit.socket
+
+This system is not registered to Red Hat Insights. See https://cloud.redhat.com/
+To register this system, run: insights-client --register
+
+I'm the clean MOTD Banner</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-439__">
+<p>Test with the image coming from Private Automation Hub</p>
+<div id="__asciidoctor-preview-440__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Custom_EE]$  ansible-navigator run --pp always --eei hub.lab.example.com/aap-demo:latest -m stdout Custom_EE_Playbook.yml -b
+
+----------------------------------------------------------------------
+Execution environment image and pull policy overview
+----------------------------------------------------------------------
+Execution environment image name:  hub.lab.example.com/aap-demo:latest
+Execution environment image tag:   latest
+Execution environment pull policy: always
+Execution environment pull needed: True
+----------------------------------------------------------------------
+Updating the execution environment
+----------------------------------------------------------------------
+Trying to pull hub.lab.example.com/aap-demo:latest...
+Getting image source signatures
+Copying blob 3c9fdae16a64 skipped: already exists
+Copying blob 5c4402ce71c4 skipped: already exists
+Copying blob 69ebc448681d [--------------------------------------] 0.0b / 0.0b
+Copying blob 495ff1ef2828 [--------------------------------------] 0.0b / 0.0b
+Copying blob 80be453030cf [--------------------------------------] 0.0b / 0.0b
+Copying blob 642d458785a1 [--------------------------------------] 0.0b / 0.0b
+Copying blob 00fe5380b165 [--------------------------------------] 0.0b / 40.3MiB
+Copying config 3bfe381575 done
+Writing manifest to image destination
+Storing signatures
+3bfe381575fa7606cb745bfe8227d0cbf59b4d91dc7bd7d811a1fcfe28022919
+
+[student@workstation Custom_EE]$</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_introduction_to_aap_2_x_ansible_controller_formerly_ansible_tower">3.3. Introduction to AAP 2.x - Ansible Controller (formerly Ansible Tower)</h3>
+<div id="__asciidoctor-preview-441__" class="paragraph">
+<p>Ansible Controller is the replacement for Ansible Tower which consists of a web-based management interface providing multiple features for system automation. Ansible Controller provides the following:</p>
+</div>
+<div id="__asciidoctor-preview-442__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-443__">
+<p>WebUI</p>
+</li>
+<li id="__asciidoctor-preview-444__">
+<p>Centralized Dashboard</p>
+</li>
+<li id="__asciidoctor-preview-445__">
+<p>Centralized Logging/Auditing</p>
+</li>
+<li id="__asciidoctor-preview-446__">
+<p>Role-Based Access Control (RBAC)</p>
+<div id="__asciidoctor-preview-447__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-448__">
+<p>User/Group (Team) Management</p>
+</li>
+</ul>
+</div>
+</li>
+<li id="__asciidoctor-preview-449__">
+<p>Inventory Management</p>
+</li>
+<li id="__asciidoctor-preview-450__">
+<p>Project Management (Integration with Version Control)</p>
+</li>
+<li id="__asciidoctor-preview-451__">
+<p>Credential Management</p>
+</li>
+<li id="__asciidoctor-preview-452__">
+<p>Workflow and Job Management</p>
+</li>
+<li id="__asciidoctor-preview-453__">
+<p>&#8230;&#8203; and more</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="_organizations_teams_and_rbac">3.3.1. Organizations, Teams, and RBAC</h4>
+<div class="sect4">
+<h5 id="_demo_creating_organizations_teams_and_users">3.3.1.1. DEMO - Creating Organizations, Teams, and Users</h5>
+<div id="__asciidoctor-preview-454__" class="exampleblock">
+<div class="title">Example 12. DEMONSTRATION - Creating an Organization with Users and Teams</div>
+<div class="content">
+<div id="__asciidoctor-preview-455__" class="olist arabic">
+<div class="title">Creating an Organization</div>
+<ol class="arabic">
+<li id="__asciidoctor-preview-456__">
+<p>Login to <strong>Ansible Controller</strong></p>
+<div id="__asciidoctor-preview-457__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-fb75b.png" alt="Section3 fb75b">
+</div>
+<div class="title">Figure 13. Ansible Controller Login</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-458__">
+<p>Click <strong>Organizations</strong></p>
+<div id="__asciidoctor-preview-459__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-85ca8.png" alt="Section3 85ca8">
+</div>
+<div class="title">Figure 14. Ansible Controller - <strong>Organizations</strong></div>
+</div>
+</li>
+<li id="__asciidoctor-preview-460__">
+<p>Click <strong>Add</strong></p>
+<div id="__asciidoctor-preview-461__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-1adef.png" alt="Section3 1adef">
+</div>
+<div class="title">Figure 15. Ansible Controller - <strong>Adding an Organization</strong></div>
+</div>
+</li>
+<li id="__asciidoctor-preview-462__">
+<p>Create the new organization with the appropriate details and then click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-463__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-464__">
+<p><strong>Name</strong>: Required for name of Organization</p>
+<div id="__asciidoctor-preview-465__" class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li id="__asciidoctor-preview-466__">
+<p><strong>NYPD</strong></p>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-467__">
+<p><strong>Description</strong>: <em>Optional but helpful</em></p>
+<div id="__asciidoctor-preview-468__" class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li id="__asciidoctor-preview-469__">
+<p><strong>New York Police Department IT</strong></p>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-470__">
+<p><strong>Execution Environment</strong>: Default execution environment for playbooks, projects, and workflows in the environment.</p>
+<div id="__asciidoctor-preview-471__" class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li id="__asciidoctor-preview-472__">
+<p><strong>Ansible Engine 2.9 execution environment</strong> (<em>Selected for backwards compatibility</em>)</p>
+<div id="__asciidoctor-preview-473__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-3d066.png" alt="Section3 3d066">
+</div>
+<div class="title">Figure 16. Ansible Controller - <strong>Configuring the Organization</strong></div>
+</div>
+<div id="__asciidoctor-preview-474__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Default Execution Environment</div>
+<div id="__asciidoctor-preview-475__" class="paragraph">
+<p>It is helpful to setup the default execution environment (EE) which will control the running of Ansible playbooks within your Organization. It is possible for individual projects and playbooks to be selectively run with another execution environment, but the default EE will be used if another EE isn&#8217;t specified.</p>
+</div>
+<div id="__asciidoctor-preview-476__" class="paragraph">
+<p>In the above example, the <strong>Ansible Engine 2.9 execution environment</strong> was selected as it has the best compatibility with older playbooks before the realigned modules and collections. Ansible Engine 2.9 can utilize collections, but also has the mapping for the Ansible modules allowing older playbooks to run without updating to using FQCN.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-477__" class="olist arabic">
+<div class="title">Creating a Team</div>
+<ol class="arabic">
+<li id="__asciidoctor-preview-478__">
+<p>Click on <strong>Teams</strong></p>
+<div id="__asciidoctor-preview-479__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-0cff1.png" alt="Section3 0cff1">
+</div>
+<div class="title">Figure 17. Ansible Controller - <strong>Creating a Team</strong></div>
+</div>
+</li>
+<li id="__asciidoctor-preview-480__">
+<p>Click <strong>Add</strong> and fill in appropriate values and then click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-481__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-482__">
+<p><strong>Name</strong>: Required for name of team</p>
+<div id="__asciidoctor-preview-483__" class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li id="__asciidoctor-preview-484__">
+<p><strong>NYPD System Administrator</strong></p>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-485__">
+<p><strong>Organization</strong>: Required to select an existing organization from drop-down</p>
+<div id="__asciidoctor-preview-486__" class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li id="__asciidoctor-preview-487__">
+<p>Click magnifying glass and select Organization</p>
+<div id="__asciidoctor-preview-488__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-489__">
+<p><strong>NYPD</strong></p>
+<div id="__asciidoctor-preview-490__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-d2ee3.png" alt="Section3 d2ee3">
+</div>
+<div class="title">Figure 18. Ansible Controller - <strong>Configuring a Team</strong></div>
+</div>
+<div id="__asciidoctor-preview-491__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-664c9.png" alt="Section3 664c9">
+</div>
+<div class="title">Figure 19. Ansible Controller - <strong>Selecting an Organization</strong></div>
+</div>
+<div id="__asciidoctor-preview-492__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-43443.png" alt="Section3 43443">
+</div>
+<div class="title">Figure 20. Ansible Controller - <strong>Completing Team Creation</strong></div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-493__" class="olist arabic">
+<div class="title">Creating Users</div>
+<ol class="arabic">
+<li id="__asciidoctor-preview-494__">
+<p>Click <strong>Users</strong></p>
+<div id="__asciidoctor-preview-495__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-6a687.png" alt="Section3 6a687">
+</div>
+<div class="title">Figure 21. Ansible Controller - <strong>Creating a User</strong></div>
+</div>
+</li>
+<li id="__asciidoctor-preview-496__">
+<p>Click <strong>Add</strong> and fill in appropriate information and click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-497__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-498__">
+<p><strong>Username</strong>: kbeckett</p>
+</li>
+<li id="__asciidoctor-preview-499__">
+<p><strong>Email</strong>: <a href="mailto:kbeckett@nypd.ny.gov">kbeckett@nypd.ny.gov</a></p>
+</li>
+<li id="__asciidoctor-preview-500__">
+<p><strong>Password</strong>: redhat</p>
+</li>
+<li id="__asciidoctor-preview-501__">
+<p><strong>First Name</strong>: Kate</p>
+</li>
+<li id="__asciidoctor-preview-502__">
+<p><strong>Last Name</strong>: Beckett</p>
+</li>
+<li id="__asciidoctor-preview-503__">
+<p><strong>Organization</strong>: NYPD</p>
+</li>
+<li id="__asciidoctor-preview-504__">
+<p><strong>User Type</strong>: Normal User</p>
+<div id="__asciidoctor-preview-505__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-664c9.png" alt="Section3 664c9">
+</div>
+<div class="title">Figure 22. Ansible Controller - <strong>Selecting an Organization</strong></div>
+</div>
+<div id="__asciidoctor-preview-506__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-cae5a.png" alt="Section3 cae5a">
+</div>
+<div class="title">Figure 23. Ansible Controller - <strong>Configuring a User</strong></div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-507__" class="paragraph">
+<div class="title">Adding a User to a Team</div>
+<p>Adding users to a team can be done multiple ways, but in this example, we will be modifying a recently created user and use the <strong>Teams</strong> option on the User <strong>Details</strong> tab.</p>
+</div>
+<div id="__asciidoctor-preview-508__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-509__">
+<p>Click on <strong>Teams</strong></p>
+<div id="__asciidoctor-preview-510__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-aead5.png" alt="Section3 aead5">
+</div>
+<div class="title">Figure 24. Ansible Controller - <strong>User Teams Menu</strong></div>
+</div>
+</li>
+<li id="__asciidoctor-preview-511__">
+<p>Click the <strong>Associate</strong> button to search for and select a team, then click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-512__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-513__">
+<p><strong>NYPD System Administrator</strong></p>
+<div id="__asciidoctor-preview-514__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-3aab6.png" alt="Section3 3aab6">
+</div>
+<div class="title">Figure 25. Ansible Controller - <strong>User Team(s) Selection</strong></div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-515__">
+<p>Verify user was associated with the correct team(s).</p>
+<div id="__asciidoctor-preview-516__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-8bcde.png" alt="Section3 8bcde">
+</div>
+<div class="title">Figure 26. Ansible Controller - <strong>User Team(s) Verification</strong></div>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-517__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Teams</div>
+<div id="__asciidoctor-preview-518__" class="paragraph">
+<p>Teams are used to group users together so that RBAC controls can be more easily managed at a group level versus an individual user level. It is still possible to give individual users additional privileges, but teams is the preferred way of permission management.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_inventories_and_credentials">3.3.2. Inventories and Credentials</h4>
+<div class="sect4">
+<h5 id="_demo_creating_inventories_and_credentials">3.3.2.1. DEMO - Creating Inventories and Credentials</h5>
+<div id="__asciidoctor-preview-519__" class="exampleblock">
+<div class="title">Example 13. DEMONSTRATION - Creating an Inventories and Credentials</div>
+<div class="content">
+<div id="__asciidoctor-preview-520__" class="olist arabic">
+<div class="title">Creating an Iventory</div>
+<ol class="arabic">
+<li id="__asciidoctor-preview-521__">
+<p>Login to <strong>Ansible Controller</strong></p>
+<div id="__asciidoctor-preview-522__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-fb75b.png" alt="Section3 fb75b">
+</div>
+<div class="title">Figure 27. Ansible Controller Login</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-523__">
+<p>Click <strong>Inventories</strong> and then click <strong>Add</strong> to Add an Inventory</p>
+<div id="__asciidoctor-preview-524__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-a686f.png" alt="Section3 a686f">
+</div>
+<div class="title">Figure 28. Ansible Controller - Inventory</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-525__">
+<p>Provide and inventory <strong><em>Name</em></strong> and <strong><em>Organization</em></strong> and then click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-526__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-527__">
+<p><strong>Name</strong>: NYPD Systems</p>
+</li>
+<li id="__asciidoctor-preview-528__">
+<p><strong>Organization</strong>: NYPD</p>
+<div id="__asciidoctor-preview-529__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-664c9.png" alt="Section3 664c9">
+</div>
+<div class="title">Figure 29. Ansible Controller - <strong>Selecting an Organization</strong></div>
+</div>
+<div id="__asciidoctor-preview-530__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-cb43f.png" alt="Section3 cb43f">
+</div>
+<div class="title">Figure 30. Ansible Controller - New Inventory</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-531__">
+<p>Add hosts to the inventory by clicking <strong>Hosts</strong> and then click <strong>Add</strong></p>
+<div id="__asciidoctor-preview-532__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-533__">
+<p><strong>Name</strong>: serverd</p>
+<div id="__asciidoctor-preview-534__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-de863.png" alt="Section3 de863">
+</div>
+<div class="title">Figure 31. Ansible Controller - Managed Hosts in Inventory</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-535__">
+<p>Provide the inventory hostname of the host and any host-based variables if desired and click <strong>Save</strong>. Repeat for multiple hosts.</p>
+<div id="__asciidoctor-preview-536__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-8bf61.png" alt="Section3 8bf61">
+</div>
+<div class="title">Figure 32. Ansible Controller - Adding a Host to Inventory</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-537__" class="olist arabic">
+<div class="title">Creating Credentials</div>
+<ol class="arabic">
+<li id="__asciidoctor-preview-538__">
+<p>Click <strong>Credentials</strong> and then click <strong>Add</strong> to add a new credential</p>
+<div id="__asciidoctor-preview-539__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-cb657.png" alt="Section3 cb657">
+</div>
+<div class="title">Figure 33. Ansible Controller - Credentials</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-540__">
+<p>Create the credential specifying the name, type, and bind to organization if desired and click <strong>Save</strong>.</p>
+<div id="__asciidoctor-preview-541__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-542__">
+<p><strong>Name</strong>: NYPD Machine SSH Creds</p>
+</li>
+<li id="__asciidoctor-preview-543__">
+<p><strong>Description</strong>: NYPD SSH UN and PW Credential</p>
+</li>
+<li id="__asciidoctor-preview-544__">
+<p><strong>Organization</strong>: NYPD</p>
+</li>
+<li id="__asciidoctor-preview-545__">
+<p><strong>Username</strong>: devops</p>
+</li>
+<li id="__asciidoctor-preview-546__">
+<p><strong>Password</strong>: redhat</p>
+</li>
+<li id="__asciidoctor-preview-547__">
+<p><strong>Privilege Escalation Method</strong>: sudo</p>
+</li>
+<li id="__asciidoctor-preview-548__">
+<p><strong>Privilege Escalation Username</strong>: root</p>
+<div id="__asciidoctor-preview-549__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-550__">
+<p>NOTE - SSH credentials are <strong>Machine Credentials</strong></p>
+<div id="__asciidoctor-preview-551__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-59072.png" alt="Section3 59072">
+</div>
+<div class="title">Figure 34. Ansible Controller - Machine Credentials</div>
+</div>
+<div id="__asciidoctor-preview-552__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-22db8.png" alt="Section3 22db8">
+</div>
+<div class="title">Figure 35. Ansible Controller - Credentials - Privileged User</div>
+</div>
+<div id="__asciidoctor-preview-553__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="title">Privilege Escalation</div>
+<div id="__asciidoctor-preview-554__" class="paragraph">
+<p>It is necessary to provide privilege escalation information as with Ansible Controller, this is where the information and configuration must come from for execution environments (EEs).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_projects_and_job_templates">3.3.3. Projects and Job Templates</h4>
+<div class="sect4">
+<h5 id="_demo_projects_and_job_templates">3.3.3.1. DEMO - Projects and Job Templates</h5>
+<div id="__asciidoctor-preview-555__" class="exampleblock">
+<div class="title">Example 14. DEMONSTRATION - Creating an Projects and Job Templates</div>
+<div class="content">
+<div id="__asciidoctor-preview-556__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Automatically Setup SCM/Git Credentials before Proceeding</div>
+<div id="__asciidoctor-preview-557__" class="paragraph">
+<p>You must run a playbook to setup the <strong>git</strong> credentials so that there are SCM credentials loaded into Ansible Controller prior to completing this demo. This also assumes that the <strong>ssh_ID_key</strong> has been copied to <strong>/tmp/github_id</strong>. The playbook and names may need to be modified for your user.</p>
+</div>
+<div id="__asciidoctor-preview-558__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-559__">
+<p>Go to the <strong>Setup</strong> Resources Directory</p>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-560__" class="listingblock">
+<div class="content">
+<pre>[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Setup</pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-561__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-562__">
+<p>Execute the <strong>Setup_Controller.yml</strong> Playbook to create the Git Credentials</p>
+<div id="__asciidoctor-preview-563__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Setup]$ ansible-playbook Setup_Controller.yml
+
+PLAY [Playbook to Configure Controller with SCM Credentials] *************************
+
+TASK [Gathering Facts] ***************************************************************
+ok: [localhost]
+
+TASK [Create a valid SCM credential for Travis's Github] *****************************
+[WARNING]: You are using the awx version of this collection but connecting to Red Hat
+Ansible Automation Platform <i class="conum" data-value="1"></i><b>(1)</b>
+changed: [localhost]
+
+PLAY RECAP ***************************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-564__" class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>A warning is generated as we are using the public AWX collection to manage controller instead of the supported collection from Red Hat Automation Hub</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-566__" class="olist arabic">
+<div class="title">Creating a Project</div>
+<ol class="arabic">
+<li id="__asciidoctor-preview-567__">
+<p>Login to <strong>Ansible Controller</strong></p>
+<div id="__asciidoctor-preview-568__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-fb75b.png" alt="Section3 fb75b">
+</div>
+<div class="title">Figure 36. Ansible Controller Login</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-569__">
+<p>Click <strong>Projects</strong> and then click <strong>Add</strong> to Add a Project</p>
+<div id="__asciidoctor-preview-570__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-b8165.png" alt="Section3 b8165">
+</div>
+<div class="title">Figure 37. Ansible Controller - Projects</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-571__">
+<p>Create a New Project with a Name, Organization and Source Control Credential</p>
+<div id="__asciidoctor-preview-572__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-573__">
+<p><strong>Name</strong>: NYPD Webserver</p>
+</li>
+<li id="__asciidoctor-preview-574__">
+<p><strong>Organization</strong>: NYPD</p>
+</li>
+<li id="__asciidoctor-preview-575__">
+<p><strong>Source Control Credential Type</strong>: Git</p>
+</li>
+<li id="__asciidoctor-preview-576__">
+<p>Source Control URL: <a href="mailto:git@github.com">git@github.com</a>:tmichett/AAP_Webinar.git</p>
+</li>
+<li id="__asciidoctor-preview-577__">
+<p><strong>Source Control Credential</strong>: Travis Github</p>
+<div id="__asciidoctor-preview-578__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-bab7f.png" alt="Section3 bab7f">
+</div>
+<div class="title">Figure 38. Ansible Controller - Creating Project from Github Source</div>
+</div>
+<div id="__asciidoctor-preview-579__" class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div id="__asciidoctor-preview-580__" class="paragraph">
+<p>After clicking <strong>Save</strong> it will initiate the first sync of the project resources. Wait for the sync to complete successfully.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-581__" class="olist arabic">
+<div class="title">Creating a Job Template</div>
+<ol class="arabic">
+<li id="__asciidoctor-preview-582__">
+<p>Click <strong>Templates</strong> and then click <strong>Add</strong> to Add (*Add job template) to create a job template.</p>
+<div id="__asciidoctor-preview-583__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-48ade.png" alt="Section3 48ade">
+</div>
+<div class="title">Figure 39. Ansible Controller - Job Templates</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-584__">
+<p>Create the new job template and then click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-585__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-586__">
+<p>Provide a name</p>
+<div id="__asciidoctor-preview-587__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-588__">
+<p><strong>Name</strong>: NYPD Webserver Deploy</p>
+</li>
+</ul>
+</div>
+</li>
+<li id="__asciidoctor-preview-589__">
+<p>Provide job type (<strong>run</strong>)</p>
+</li>
+<li id="__asciidoctor-preview-590__">
+<p>Provide <strong>Inventory</strong></p>
+<div id="__asciidoctor-preview-591__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-592__">
+<p><strong>Inventory</strong>: NYPD Systems</p>
+</li>
+</ul>
+</div>
+</li>
+<li id="__asciidoctor-preview-593__">
+<p>Provide <strong>Project</strong></p>
+<div id="__asciidoctor-preview-594__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-595__">
+<p><strong>Project</strong>: NYPD Webserver</p>
+</li>
+</ul>
+</div>
+</li>
+<li id="__asciidoctor-preview-596__">
+<p>Select <strong>Playbook</strong></p>
+<div id="__asciidoctor-preview-597__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-598__">
+<p><strong>Playbook</strong>: Future/NYPD/Website_Ansible_Past.yml</p>
+</li>
+</ul>
+</div>
+</li>
+<li id="__asciidoctor-preview-599__">
+<p>Select <strong>Credentials</strong></p>
+<div id="__asciidoctor-preview-600__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-601__">
+<p><strong>Credentials</strong>: NYPD Machine SSH Creds</p>
+</li>
+</ul>
+</div>
+</li>
+<li id="__asciidoctor-preview-602__">
+<p>Select <strong>Privilege Escalation</strong> option</p>
+<div id="__asciidoctor-preview-603__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-b8889.png" alt="Section3 b8889">
+</div>
+<div class="title">Figure 40. Ansible Controller - Job Template Details</div>
+</div>
+<div id="__asciidoctor-preview-604__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-21de7.png" alt="Section3 21de7">
+</div>
+<div class="title">Figure 41. Ansible Controller - Job Template Details cont.</div>
+</div>
+<div id="__asciidoctor-preview-605__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Privilege Escalation</div>
+<div id="__asciidoctor-preview-606__" class="paragraph">
+<p>It is important to know what the playbook does and whether it requires privilege escalation. A proper playbook might already have this defined, but it also allows you to assign it to the job from this menu.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li id="__asciidoctor-preview-607__">
+<p>Launch the job by clicking <strong>Launch</strong></p>
+<div id="__asciidoctor-preview-608__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-8032b.png" alt="Section3 8032b">
+</div>
+<div class="title">Figure 42. Ansible Controller - Job Template Launch</div>
+</div>
+<div id="__asciidoctor-preview-609__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-39929.png" alt="Section3 39929">
+</div>
+<div class="title">Figure 43. Ansible Controller - Job Results Output Verification</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-610__">
+<p>Verify webserver is running and accessible.</p>
+<div id="__asciidoctor-preview-611__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ curl serverd
+I'm an awesome webserver for the NYPD and I know Castle!!</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_workflows">3.3.4. Workflows</h4>
+<div id="__asciidoctor-preview-612__" class="paragraph">
+<p>In order to create job workflows, projects and existing job templates must already be created before they can be put together as a job workflow template.</p>
+</div>
+<div class="sect4">
+<h5 id="_demo_creating_job_workflows">3.3.4.1. DEMO - Creating Job Workflows</h5>
+<div id="__asciidoctor-preview-613__" class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="title">Setup Required</div>
+<div id="__asciidoctor-preview-614__" class="paragraph">
+<p>Before beginning this demo or exercise, it is necessary to run the <strong>setup</strong> playbooks.</p>
+</div>
+<div id="__asciidoctor-preview-615__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-616__">
+<p>Switch to correct directory</p>
+<div id="__asciidoctor-preview-617__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ cd /home/student/Github/AAP_Webinar/Future/Setup</code></pre>
+</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-618__">
+<p>Run the <strong>Setup_All.yml</strong> playbook</p>
+<div id="__asciidoctor-preview-619__" class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation Setup]$ ansible-playbook Setup_All.yml
+
+... OUTPUT OMITTED ...</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-620__" class="paragraph">
+<p>It is also necessary to synchronize the Project Inventory Source</p>
+</div>
+<div id="__asciidoctor-preview-621__" class="olist arabic">
+<ol class="arabic">
+<li id="__asciidoctor-preview-622__">
+<p>Click <strong>Inventories</strong></p>
+</li>
+<li id="__asciidoctor-preview-623__">
+<p>Click <strong>NYPD Web Workflow</strong></p>
+</li>
+<li id="__asciidoctor-preview-624__">
+<p>Click <strong>Sources</strong></p>
+</li>
+<li id="__asciidoctor-preview-625__">
+<p>Click the <strong>Synchronize</strong> action to synchronize the <strong>NYPD Project Inventory</strong> source</p>
+<div id="__asciidoctor-preview-626__" class="ulist">
+<ul>
+<li id="__asciidoctor-preview-627__">
+<p>Wait for status to be <strong>Green</strong> meaning synchronization was successful</p>
+</li>
+</ul>
+</div>
+</li>
+<li id="__asciidoctor-preview-628__">
+<p>Click <strong>Hosts</strong> to verify inventory was imported</p>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-629__" class="paragraph">
+<p>This allows steps to be skipped and it is possible to jump to the <strong>Creating a Job Workflow Template</strong> instructions - Starting with <strong>STEP 5</strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-630__" class="exampleblock">
+<div class="title">Example 15. DEMONSTRATION - Job Workflow Templates</div>
+<div class="content">
+<div id="__asciidoctor-preview-631__" class="paragraph">
+<p>For this demonstration, it will be necessary to create two new <strong>Job Templates</strong> that will be linked together in a <strong>Job Workflow Template</strong>. We will be leveraging the already created project <strong>NYPD Webserver</strong> for existing playbooks and inventories. We will also create a dynamic inventory based on imported inventory from the project.</p>
+</div>
+<div id="__asciidoctor-preview-632__" class="olist arabic">
+<div class="title">Creating a Project-Based Inventory Source</div>
+<ol class="arabic">
+<li id="__asciidoctor-preview-633__">
+<p>Login to <strong>Ansible Controller</strong></p>
+<div id="__asciidoctor-preview-634__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-fb75b.png" alt="Section3 fb75b">
+</div>
+<div class="title">Figure 44. Ansible Controller Login</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-635__">
+<p>Click <strong>Inventories</strong> and then click <strong>Add</strong></p>
+<div id="__asciidoctor-preview-636__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-a686f.png" alt="Section3 a686f">
+</div>
+<div class="title">Figure 45. Ansible Controller - Inventory</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-637__">
+<p>Assign a <strong>Name</strong> and <strong>Organization</strong> to the Inventory and then click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-638__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-67077.png" alt="Section3 67077">
+</div>
+<div class="title">Figure 46. Ansible Controller - Inventory Creation</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-639__">
+<p>Click <strong>Sources</strong> to create an inventory source</p>
+<div id="__asciidoctor-preview-640__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-7f436.png" alt="Section3 7f436">
+</div>
+<div class="title">Figure 47. Ansible Controller - Inventory Sources</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-641__">
+<p>Click <strong>Add</strong> to add an inventory source</p>
+<div id="__asciidoctor-preview-642__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-ec813.png" alt="Section3 ec813">
+</div>
+<div class="title">Figure 48. Ansible Controller - Adding Inventory Sources</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-643__">
+<p>Provide a <strong>Name</strong> and choose <strong>Sourced from a Project</strong> as source and click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-644__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-645__">
+<p>Select the <strong>Project</strong> and <strong>Inventory file</strong></p>
+</li>
+<li id="__asciidoctor-preview-646__">
+<p>Check <strong>Update on launch</strong></p>
+<div id="__asciidoctor-preview-647__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-f536a.png" alt="Section3 f536a">
+</div>
+<div class="title">Figure 49. Ansible Controller - Configuring Inventory Sources</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-648__">
+<p>Click <strong>Sync</strong> to perform a synchronization</p>
+<div id="__asciidoctor-preview-649__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-63956.png" alt="Section3 63956">
+</div>
+<div class="title">Figure 50. Ansible Controller - Synchronizing Inventory Sources</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-650__">
+<p>Click <strong>Inventories</strong> to verify the inventory and select <strong>NYPD Web Workflow</strong></p>
+<div id="__asciidoctor-preview-651__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-3c016.png" alt="Section3 3c016">
+</div>
+<div class="title">Figure 51. Ansible Controller - Verifying Inventory Sources</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-652__">
+<p>Click <strong>Hosts</strong> to view hosts</p>
+<div id="__asciidoctor-preview-653__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-2b4b7.png" alt="Section3 2b4b7">
+</div>
+<div class="title">Figure 52. Ansible Controller - Verifying Inventory Hosts from Project</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-654__">
+<p>Click <strong>Groups</strong> to view host groups</p>
+<div id="__asciidoctor-preview-655__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-656__">
+<p>Click on a group name to see hosts in group and click <strong>Hosts</strong></p>
+<div id="__asciidoctor-preview-657__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-1734b.png" alt="Section3 1734b">
+</div>
+<div class="title">Figure 53. Ansible Controller - Verifying Inventory Group from Project</div>
+</div>
+<div id="__asciidoctor-preview-658__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-dc1e0.png" alt="Section3 dc1e0">
+</div>
+<div class="title">Figure 54. Ansible Controller - Verifying Inventory Group <strong>(Hosts)</strong> from Project</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div id="__asciidoctor-preview-659__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Project Based Inventory</div>
+<div id="__asciidoctor-preview-660__" class="paragraph">
+<p>The above example shows how to create a dynamic inventory that is sourced from a project. This would can be done to ensure that you have the same inventory and host systems as the developers. It is not 100% necessary to have inventory in the projects, but some people prefer to keep host inventory in projects and this is a great method in keeping developer inventory in sync with what is stored in Ansible Controller.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-661__" class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="title">README FIRST</div>
+<div id="__asciidoctor-preview-662__" class="paragraph">
+<p>If you ran the lab scripts and Ansible playbook in the before you begin section, it is possible to skip to <strong>STEP 5</strong> of the <strong>Creating a Job Workflow Template</strong> steps. The playbook created the inventory and the intermediate Job Templates so the focus is creation of a Job Workflow. This has been done to save time for the demonstration and prevents the need to manually create new inventories and job templates.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="__asciidoctor-preview-663__" class="olist arabic">
+<div class="title"><strong>Creating a Job Workflow Template</strong></div>
+<ol class="arabic">
+<li id="__asciidoctor-preview-664__">
+<p>Login to <strong>Ansible Controller</strong></p>
+<div id="__asciidoctor-preview-665__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-fb75b.png" alt="Section3 fb75b">
+</div>
+<div class="title">Figure 55. Ansible Controller Login</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-666__">
+<p>Click <strong>Templates</strong> and then click <strong>Add</strong> and <strong>(Add job template)</strong> to create a new Job Template</p>
+<div id="__asciidoctor-preview-667__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-fb1e7.png" alt="Section3 fb1e7">
+</div>
+<div class="title">Figure 56. Ansible Controller - Job Templates</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-668__">
+<p>Complete the form for the NYPD Dev Webserver and click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-669__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-670__">
+<p><strong>Name</strong>: <em>NYPD Dev Webserver</em></p>
+</li>
+<li id="__asciidoctor-preview-671__">
+<p><strong>Job Type</strong>: <em>run</em></p>
+</li>
+<li id="__asciidoctor-preview-672__">
+<p><strong>Inventory</strong>: <em>NYPD Web Workflow</em></p>
+</li>
+<li id="__asciidoctor-preview-673__">
+<p><strong>Project</strong>: <em>NYPD Webserver</em></p>
+</li>
+<li id="__asciidoctor-preview-674__">
+<p><strong>Playbook</strong>: <em>Future/NYPD/NYPD_Web_Workflow.yml</em></p>
+</li>
+<li id="__asciidoctor-preview-675__">
+<p><strong>Credentials</strong>: <em>NYPD Machine SSH Creds</em></p>
+</li>
+<li id="__asciidoctor-preview-676__">
+<p><strong>Variables</strong>: <em>inv_host_var: servere</em></p>
+</li>
+<li id="__asciidoctor-preview-677__">
+<p><strong>Privilege Escalation</strong>: <em>Checked</em></p>
+<div id="__asciidoctor-preview-678__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-4f4b5.png" alt="Section3 4f4b5">
+</div>
+<div class="title">Figure 57. Ansible Controller - Job Template Parameters</div>
+</div>
+<div id="__asciidoctor-preview-679__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-a61cf.png" alt="Section3 a61cf">
+</div>
+<div class="title">Figure 58. Ansible Controller - Job Template Parameters cont.</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-680__">
+<p>Create a new Job template using steps above with the following values.</p>
+<div id="__asciidoctor-preview-681__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-682__">
+<p><strong>Name</strong>: <em>NYPD Test Webserver</em></p>
+</li>
+<li id="__asciidoctor-preview-683__">
+<p><strong>Job Type</strong>: <em>run</em></p>
+</li>
+<li id="__asciidoctor-preview-684__">
+<p><strong>Inventory</strong>: <em>NYPD Web Workflow</em></p>
+</li>
+<li id="__asciidoctor-preview-685__">
+<p><strong>Project</strong>: <em>NYPD Webserver</em></p>
+</li>
+<li id="__asciidoctor-preview-686__">
+<p><strong>Playbook</strong>: <em>Future/NYPD/NYPD_Web_Workflow.yml</em></p>
+</li>
+<li id="__asciidoctor-preview-687__">
+<p><strong>Credentials</strong>: <em>NYPD Machine SSH Creds</em></p>
+</li>
+<li id="__asciidoctor-preview-688__">
+<p><strong>Variables</strong>: <em>inv_host_var: serverf</em></p>
+</li>
+<li id="__asciidoctor-preview-689__">
+<p><strong>Privilege Escalation</strong>: <em>Checked</em></p>
+<div id="__asciidoctor-preview-690__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-78f83.png" alt="Section3 78f83">
+</div>
+<div class="title">Figure 59. Ansible Controller - Job Template Parameters for NYPD Test Webserver</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-691__">
+<p>Click <strong>Templates</strong> then click <strong>Add</strong> and select <strong>Add workflow template</strong></p>
+<div id="__asciidoctor-preview-692__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-33a10.png" alt="Section3 33a10">
+</div>
+<div class="title">Figure 60. Ansible Controller - Job Workflow Template</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-693__">
+<p>Provide a <strong>Name</strong> and select the appropriate items</p>
+<div id="__asciidoctor-preview-694__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-695__">
+<p><strong>Name</strong>: NYPD DevOps Workflow</p>
+</li>
+<li id="__asciidoctor-preview-696__">
+<p><strong>Description</strong>: Deploy systems to Dev and Test</p>
+</li>
+<li id="__asciidoctor-preview-697__">
+<p><strong>Inventory</strong>: <em>Leave Blank</em> (Will use inventory specified for Job Templates)</p>
+</li>
+<li id="__asciidoctor-preview-698__">
+<p><strong>Organization</strong>: <em>NYPD</em></p>
+<div id="__asciidoctor-preview-699__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-b08c7.png" alt="Section3 b08c7">
+</div>
+<div class="title">Figure 61. Ansible Controller - Job Workflow Template Details</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-700__">
+<p>The <strong>Workflow Visualizer</strong> will open and click <strong>Start</strong> to define first task in workflow</p>
+<div id="__asciidoctor-preview-701__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-e6ce7.png" alt="Section3 e6ce7">
+</div>
+<div class="title">Figure 62. Ansible Controller - Job Workflow Visualizer</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-702__">
+<p>Start by selecting <strong>Node Type</strong> of <strong>Project Sync</strong> and select the <strong>NYPD Webserver</strong> Project then click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-703__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-ccf2b.png" alt="Section3 ccf2b">
+</div>
+<div class="title">Figure 63. Ansible Controller - Job Workflow Task #1 Synchronize Project Data</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-704__">
+<p>Add Step #2 to run on <strong>Success</strong> by selecting the NYPD Webserver Project and clicking the <strong>+</strong>.</p>
+<div id="__asciidoctor-preview-705__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-706__">
+<p>Select <strong>Run</strong> and <strong>On Success</strong> then click <strong>Next</strong></p>
+</li>
+<li id="__asciidoctor-preview-707__">
+<p>Select <strong>Node Type</strong> to be <strong>Job Template</strong> and select the <strong>NYPD Dev Webserver</strong> then click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-708__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-ad77a.png" alt="Section3 ad77a">
+</div>
+<div class="title">Figure 64. Ansible Controller - Job Workflow Task #2 Launch Development Job</div>
+</div>
+<div id="__asciidoctor-preview-709__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-def61.png" alt="Section3 def61">
+</div>
+<div class="title">Figure 65. Ansible Controller - Job Workflow Task #2 Selecting Job Run Parameters</div>
+</div>
+<div id="__asciidoctor-preview-710__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-a6629.png" alt="Section3 a6629">
+</div>
+<div class="title">Figure 66. Ansible Controller - Job Workflow Task #2 Selecting Job Template to Run</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-711__">
+<p>Add Step #3 to run on <strong>Success</strong> by selecting the NYPD Webserver Project and clicking the <strong>+</strong>.</p>
+<div id="__asciidoctor-preview-712__" class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li id="__asciidoctor-preview-713__">
+<p>Select <strong>Run</strong> and <strong>On Success</strong> then click <strong>Next</strong></p>
+</li>
+<li id="__asciidoctor-preview-714__">
+<p>Select <strong>Node Type</strong> to be <strong>Job Template</strong> and select the <strong>NYPD Test Webserver</strong> then click <strong>Save</strong></p>
+<div id="__asciidoctor-preview-715__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-aa08e.png" alt="Section3 aa08e">
+</div>
+<div class="title">Figure 67. Ansible Controller - Job Workflow Task #3 Launch Development Job</div>
+</div>
+<div id="__asciidoctor-preview-716__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-def61.png" alt="Section3 def61">
+</div>
+<div class="title">Figure 68. Ansible Controller - Job Workflow Task #3 Selecting Job Run Parameters</div>
+</div>
+<div id="__asciidoctor-preview-717__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-f0df7.png" alt="Section3 f0df7">
+</div>
+<div class="title">Figure 69. Ansible Controller - Job Workflow Task #3 Selecting Job Template to Run</div>
+</div>
+</li>
+</ol>
+</div>
+</li>
+<li id="__asciidoctor-preview-718__">
+<p>View the complete Job Workflow and click <strong>Save</strong> when done adding steps</p>
+<div id="__asciidoctor-preview-719__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-040ab.png" alt="Section3 040ab">
+</div>
+<div class="title">Figure 70. Ansible Controller - Job Workflow Complete Overview</div>
+</div>
+<div id="__asciidoctor-preview-720__" class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="title">Job Workflows - <strong>Success</strong>, <strong>Failure</strong>, and <strong>Always</strong></div>
+<div id="__asciidoctor-preview-721__" class="paragraph">
+<p>It is important to architect workflows properly. In this example, we defined the <strong>SUCCESS</strong> path. In general, you will most likely have failure paths to cleanup environments from failed workflows. This has been left out based on time.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li id="__asciidoctor-preview-722__">
+<p>Launch job workflow to test by clicking <strong>Launch</strong></p>
+<div id="__asciidoctor-preview-723__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-70ae2.png" alt="Section3 70ae2">
+</div>
+<div class="title">Figure 71. Ansible Controller - Job Workflow Launching</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-724__">
+<p>View workflow output</p>
+<div id="__asciidoctor-preview-725__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-aca6e.png" alt="Section3 aca6e">
+</div>
+<div class="title">Figure 72. Ansible Controller - Job Workflow Output</div>
+</div>
+<div id="__asciidoctor-preview-726__" class="imageblock text-center">
+<div class="content">
+<img src="images/Section3-d9104.png" alt="Section3 d9104">
+</div>
+<div class="title">Figure 73. Ansible Controller - Job Workflow Output - Details for Job Template</div>
+</div>
+</li>
+<li id="__asciidoctor-preview-727__">
+<p>Test from workstation</p>
+<div id="__asciidoctor-preview-728__" class="listingblock">
+<div class="title">Listing 18. <strong>Dev Server</strong> test</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ curl servere
+I'm an awesome webserver for the NYPD and I know Castle!!</code></pre>
+</div>
+</div>
+<div id="__asciidoctor-preview-729__" class="listingblock">
+<div class="title">Listing 19. <strong>Test Server</strong> test</div>
+<div class="content">
+<pre class="highlightjs highlight"><code data-lang="bash" class="language-bash hljs">[student@workstation ~]$ curl serverf
+I'm an awesome webserver for the NYPD and I know Castle!!</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+        </div>
+      </div>
+    </body>
+  </html>
